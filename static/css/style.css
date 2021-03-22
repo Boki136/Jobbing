@@ -26,7 +26,8 @@ footer, header, hgroup, menu, nav, section {
   display: block; }
 
 body {
-  line-height: 1; }
+  line-height: 1;
+  background: #f8f1f1; }
 
 ol, ul {
   list-style: none; }
@@ -43,21 +44,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-
-body{
-    font-family: "Raleway", sans-serif;
-}
-
-h1,h2,h3,h4,h5,h6 {
-    font-family: "Playfair Display", sans-serif;
-}
-
 /*************************************** Navigation **/
 nav {
-  background: #16697A; }
+  background: #16697a; }
 
 nav ul a {
-  font-size: 1em; }
+  font-size: 1.1em; }
 
 nav ul {
   line-height: 100px;
@@ -69,12 +61,26 @@ nav ul {
   height: 100px; }
 
 .nav-btn {
-  background: #f8f1f1;
+  background: transparent;
   font-weight: 700;
-  color: #181818;
-}
-
+  box-shadow: 5px 4px 25px rgba(1, 1, 1, 0.8); }
   .nav-btn:hover {
     background: #257e63;
     color: #fff; }
-    
+
+.mobile-menu {
+  line-height: 100px !important; }
+  .mobile-menu i {
+    font-size: 35px;
+    vertical-align: middle; }
+
+.sidenav {
+  background: #16697a;
+  opacity: 0.85;
+  padding-top: 10px; }
+  .sidenav li:hover {
+    background-color: rgba(248, 241, 241, 0.25); }
+
+.sidenav li > a {
+  color: #fff;
+  font-size: 1.3em; }

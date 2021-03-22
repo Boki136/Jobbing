@@ -28,7 +28,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+    line-height: 1;
+    background: #f8f1f1;
 }
 ol, ul {
 	list-style: none;
@@ -46,12 +47,20 @@ table {
 	border-spacing: 0;
 }
 
+//Colour Variables
+
+$dark-cyan: #16697a;
+$orange-primary: #db6400;
+$orange-secondary: #ffa62b;
+$paper-colour: #f8f1f1;
+$dark-green: #257e63;
+
 
 
 /*************************************** Navigation **/
 
 nav {
-  background: #16697A; }
+  background: $dark-cyan; }
 
 nav ul a {
   font-size: 1.1em; }
@@ -71,7 +80,33 @@ nav ul {
     box-shadow: 5px 4px 25px rgba(1,1,1,0.8);
 
     &:hover {
-        background: #257e63;
+        background: $dark-green;
         color: #fff;
     }
+}
+
+.mobile-menu {
+    line-height: 100px !important;
+
+    i {
+    font-size: 35px;
+     vertical-align: middle;
+    }
+    
+}
+
+.sidenav {
+    background: $dark-cyan;
+    opacity: 0.85;
+    padding-top: 10px;
+
+    li:hover {
+        background-color: rgba(248,241,241,0.25);
+    }
+
+}
+
+.sidenav li>a {
+    color: #fff;
+    font-size: 1.3em;
 }
