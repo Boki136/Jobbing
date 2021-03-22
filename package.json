@@ -1,0 +1,22 @@
+{
+  "name": "jobbing",
+  "version": "1.0.0",
+  "description": "Job listing page",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass static/css/style.scss static/css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Boki136/Jobbing.git"
+  },
+  "author": "Boris Gersic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Boki136/Jobbing/issues"
+  },
+  "homepage": "https://github.com/Boki136/Jobbing#readme",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
