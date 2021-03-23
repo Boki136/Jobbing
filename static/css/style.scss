@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 body {
     line-height: 1;
     background: #f8f1f1;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 ol, ul {
 	list-style: none;
@@ -89,7 +90,7 @@ margin-left: 10px; }
     font-size: 20px;
     height: 45px;
     color: #fff;
-    border: 3px solid white;
+    border: 2px solid white;
     transition: all 0.2s ease-in-out;
 
     &:hover {
@@ -184,7 +185,8 @@ margin-left: 10px; }
 .hiring-strip {
     background: $orange-secondary;
     text-align: center;
-    height: 60px;
+    height: auto;
+    padding: 10px;
 
     h2 {
         color:#fff;
@@ -197,14 +199,14 @@ margin-left: 10px; }
 
         &::before {
             content: "HIRING?";
-    border-radius: 40px;
-    border: 1px solid #fff;
-    font-size: 15px;
-    padding: 5px;
-    position: relative;
-    bottom: 10px;
-    margin-right: 5px;
-    font-weight: 700;
+            border-radius: 40px;
+            border: 1px solid #fff;
+            font-size: 15px;
+            padding: 5px;
+            position: relative;
+            bottom: 10px;
+            margin-right: 5px;
+            font-weight: 700;
         }
 }
 
@@ -218,11 +220,95 @@ a {
 
     }
 
+/******************************* About Section **/
 
+.about-container {
+    position: relative;
+}
+
+.about-background_overlay {
+    background: black;
+    opacity: 0.7;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+    #about-video {
+        filter: blur(3px);
+  min-width: 100%;
+  min-height: 100%;
+    }
+
+  .about-content {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 20%;
+    bottom: 50%;
+    width: 80%;
+    color: #fff;
+    z-index: 6;
+
+    h1 {
+        font-size: 4em;
+        text-transform: uppercase;
+    }
+
+    p {
+        font-size: 1.45em;
+        padding: 8%;
+        line-height: 35px;
+       
+    }
+    
+  }
+
+  .about-content_usp {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 20px;
+  }
+
+  .usp-box {
+    margin-top: 20px;
+    i {
+        display: block;
+        margin-bottom: 25px;
+    }
+
+    
+
+      h2 {
+          font-size: 25px;
+          font-style: italic;
+      }
+  }
+
+  .counter {
+      font-size: 5em;
+      padding-bottom: 20px;
+          display: inline-block;
+      
+  }
 
 
 
 /************************************ Media Queries **/
+
+@media screen and (max-width: 1200px) {
+    .about-content {
+        width: 90%;
+    }
+    .counter  {
+        font-size: 3.2em;
+    }
+}
+
 
 @media screen and (max-width: 990px) {
 
@@ -243,3 +329,36 @@ a {
   }
 
 } 
+
+
+@media screen and (max-width: 770px) {
+
+    .hiring-strip {
+        h2::before {
+            display: none;
+        }
+    }
+
+    .about-content{
+        width: 100% !important;
+        top: 10%;
+
+        h1 {
+            font-size: 2.8em;
+        }
+
+        p {
+            font-size: 1.3em;
+        }
+    }
+
+    .about-content_usp {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+        .usp-box i {
+            font-size: 3em;
+        }
+
+}
