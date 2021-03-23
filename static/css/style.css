@@ -84,3 +84,42 @@ nav ul {
 .sidenav li > a {
   color: #fff;
   font-size: 1.3em; }
+
+/************************************ Hero Section **/
+.hero-section {
+  clear: both;
+  height: 800px;
+  background: url("/static/images/hero-image.png") no-repeat center;
+  background-size: cover;
+  display: flex;
+  align-items: center; }
+
+.hero-section_wrapper {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center; }
+
+.hero-section_title {
+  font-size: 4em;
+  color: #fff;
+  padding-bottom: 65px; }
+
+#search-form {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start; }
+
+.search-box {
+  width: 80% !important;
+  background-color: #ffffff !important;
+  padding: 5px 15px !important; }
+
+.search-submit {
+  display: inline-block;
+  background: #ffa62b;
+  padding: 18px 45px;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.25em; }
