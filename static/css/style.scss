@@ -55,7 +55,15 @@ $orange-secondary: #ffa62b;
 $paper-colour: #f8f1f1;
 $dark-green: #257e63;
 
+a {
+-webkit-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none; 
+}
 
+input, button {
+    border-radius: 5px !important;
+}
 
 /*************************************** Navigation **/
 
@@ -72,16 +80,23 @@ nav ul {
 
 .logo {
   vertical-align: middle;
-  height: 100px; }
+  height: 100px;
+margin-left: 10px; }
 
 .nav-btn {
     background: transparent;
     font-weight: 700;
-    box-shadow: 5px 4px 25px rgba(1,1,1,0.8);
+    font-size: 20px;
+    height: 45px;
+    color: #fff;
+    border: 3px solid white;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
-        background: $dark-green;
+        transform: scale(1.04);
         color: #fff;
+        background: transparent;
+
     }
 }
 
@@ -108,7 +123,7 @@ nav ul {
 
 .sidenav li>a {
     color: #fff;
-    font-size: 1.3em;
+    font-size: 1.6em;
 }
 
 /************************************ Hero Section **/
@@ -133,7 +148,7 @@ nav ul {
     font-size: 4em;
     color: #fff;
     padding-bottom: 65px;
-    text-shadow: 2px 4px 3px rgb(0 0 0 / 30%);
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 
 }
 
@@ -158,4 +173,73 @@ nav ul {
     color: #fff;
     font-weight: 600;
     font-size: 1.25em;
+    cursor: pointer;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: darken($orange-secondary, 10%);
+    }
 }
+
+.hiring-strip {
+    background: $orange-secondary;
+    text-align: center;
+    height: 60px;
+
+    h2 {
+        color:#fff;
+        display: inline-block;
+        font-size: 25px;
+        font-style: italic;
+        vertical-align: middle;
+        line-height: 60px;
+        margin-right: 10px;
+
+        &::before {
+            content: "HIRING?";
+    border-radius: 40px;
+    border: 1px solid #fff;
+    font-size: 15px;
+    padding: 5px;
+    position: relative;
+    bottom: 10px;
+    margin-right: 5px;
+    font-weight: 700;
+        }
+}
+
+a {
+    background: $dark-green;
+
+    &:hover {
+        background: lighten($dark-green, 10%);
+    }
+}
+
+    }
+
+
+
+
+
+/************************************ Media Queries **/
+
+@media screen and (max-width: 990px) {
+
+  .hero-section_wrapper {
+      width: 90%;
+  }
+
+  .search-box {
+      height: 2.5em !important;
+  }
+
+  .search-submit {
+      padding: 14px 30px;
+  }
+
+  .hero-section_title {
+      font-size: 3.2em;
+  }
+
+} 
