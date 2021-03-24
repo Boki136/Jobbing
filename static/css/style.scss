@@ -66,6 +66,13 @@ input, button {
     border-radius: 5px !important;
 }
 
+.large-horizontal-rule {
+    width:50%;
+    margin-top: 25px;
+    height: 3px;
+    background: $dark-cyan;
+}
+
 /*************************************** Navigation **/
 
 nav {
@@ -220,6 +227,84 @@ a {
 
     }
 
+
+/******************************* Popular Jobs Section **/    
+
+.popular-jobs-title {
+    text-align: center;
+    margin: 100px auto 0 auto;
+    font-size: 3em; 
+}
+
+.popular-jobs-box_wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 100px 0 150px 0;
+
+}
+
+.title-arrow {
+    font-size: 2em;
+    color: #fff;
+    background-image: url("/static/images/arrow-right.png");
+    width: 100%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    display: block;
+    filter: drop-shadow(0px 0px 5px #000);
+    align-self: flex-start;
+    margin-top: 35px;
+    
+}
+
+
+.popular-jobs_box {
+   width: 25%;
+    height: 600px;
+    margin: 10px 20px 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 10px 20px rgba(1, 1, 1, 0.6);
+    transition: all .1s ease-in-out;
+    cursor: pointer;
+    min-width: 350px;
+    max-width: 450px;
+    flex-wrap: wrap;
+
+    h1 {
+        color: #fff;
+        font-size: 3em;
+        margin-left: 10px;
+        align-self: flex-end;
+    }
+
+    i {
+        color: #fff;
+        align-self: flex-end;
+    }
+
+    &:hover {
+        filter: brightness(1.2);
+        transform: scale(1.05);
+        
+    }
+}
+
+
+.category_one {
+    background: url("/static/images/marketing-category.png") no-repeat center;
+}
+
+.category_two {
+    background: url("/static/images/finance-category.png") no-repeat center;
+}
+
+.category_three {
+    background: url("/static/images/sales-category.png") no-repeat center;
+}
+
 /******************************* About Section **/
 
 .about-container {
@@ -359,6 +444,11 @@ a {
 
         .usp-box i {
             font-size: 3em;
+        }
+
+        .popular-jobs_box {
+            height: 450px;
+            margin: 20px 0;
         }
 
 }
