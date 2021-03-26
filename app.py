@@ -18,10 +18,10 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/get_jobs")
-def get_jobs():
-    jobs = mongo.db.jobs.find()
-    return render_template("base.html", jobs=jobs)
+@app.route("/index.html")
+def homepage():
+
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
