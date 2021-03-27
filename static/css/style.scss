@@ -173,6 +173,13 @@ margin-left: 10px; }
     padding: 5px 15px !important;
 }
 
+.search-box::before {
+    content: "\f002";
+    font-weight: 900;
+    font-size: 40px;
+    font-family: "Font Awesome 5 Free"
+}
+
 .search-submit {
     display: inline-block;
     background: $orange-secondary;
@@ -407,6 +414,7 @@ a {
   margin-bottom: 20px;
   border-bottom: 1px dashed #c7c7c7;
   cursor: pointer;
+  max-width: 95%;
 
   h3 {
     padding-bottom: 10px;
@@ -429,6 +437,58 @@ a {
     display: none;
     padding: 10px;
   }
+}
+
+
+/************************************************* Footer Section **/
+footer {
+    background: $dark-cyan;
+    margin-top: 100px;
+}
+
+.footer-wrapper {
+    
+    width: 95%;
+    margin: 0 auto;
+    img {
+        width: 250px;
+        margin: 10px;
+    }
+}
+
+.footer-menu {
+    li {
+        display: inline-block;
+        font-size: 1.5em;
+        margin: 10px 0;
+        padding: 5px;
+    
+        a {
+            color: #fff;
+        }
+    }
+}
+
+.copyright-wrapper {
+    margin: 100px 0 0 0;
+    padding-bottom: 50px;
+    line-height: 35px;
+
+    h3 {
+        color:#fff;
+        float: left;
+    }
+}
+
+.social-icons {
+    display: inline-block;
+    float: right;
+    color: #fff;
+    font-size: 30px;
+
+    i {
+        padding: 0 3px;
+    }
 }
 
 /************************************ Media Queries **/
@@ -498,5 +558,17 @@ a {
             height: 450px;
             margin: 20px 0;
         }
+
+}
+
+@media screen and (max-width: 630px) {
+
+.copyright-wrapper {
+    padding-bottom: 0;
+}    
+
+.copyright-wrapper h3 , .social-icons {
+    float: none;
+}
 
 }
