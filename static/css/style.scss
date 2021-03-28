@@ -243,6 +243,10 @@ a {
     font-size: 3em; 
 }
 
+.popular-jobs {
+        margin-bottom: 100px;
+}
+
 .popular-jobs-box_wrapper {
     display: flex;
     justify-content: center;
@@ -267,18 +271,18 @@ a {
 
 
 .popular-jobs_box {
-   width: 25%;
+   width: 33%;
     height: 600px;
     margin: 10px 20px 10px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 10px 10px 20px rgba(1, 1, 1, 0.6);
+    box-shadow: 10px 10px 20px rgba(1, 1, 1, .6);
     transition: all .1s ease-in-out;
     cursor: pointer;
-    min-width: 350px;
-    max-width: 450px;
     flex-wrap: wrap;
+    min-width: 320px;
+    max-width: 450px;
 
     h1 {
         color: #fff;
@@ -316,7 +320,10 @@ a {
 
 .about-container {
     position: relative;
+    height: auto;
+    max-height: 1500px;
 }
+
 
 .about-background_overlay {
     background: black;
@@ -394,7 +401,7 @@ a {
   #faq-section {
   width: 85%;
   margin: 0 auto;
-  margin-top: 80px;
+  margin: 80px 0 100px 0;
 }
 
 .section-wrapper {
@@ -414,7 +421,6 @@ a {
   margin-bottom: 20px;
   border-bottom: 1px dashed #c7c7c7;
   cursor: pointer;
-  max-width: 95%;
 
   h3 {
     padding-bottom: 10px;
@@ -424,7 +430,7 @@ a {
 
   i {
     position: absolute;
-    right: 0;
+    right: -5px;
     color: $orange-primary;
     transition: 0.5s all ease-in-out;
     font-size: 30px;
@@ -443,7 +449,7 @@ a {
 /************************************************* Footer Section **/
 footer {
     background: $dark-cyan;
-    margin-top: 100px;
+    clear: both;
 }
 
 .footer-wrapper {
@@ -491,6 +497,91 @@ footer {
     }
 }
 
+/**************************************** Register Page **/ 
+
+.register-form {
+    width: 60%;
+    padding: 5%;
+    float: left;
+
+    input {
+        width: 80% !important;
+    }
+}
+
+.register-selector {
+    margin-bottom: 100px;
+    button {
+        padding: 20px;
+        border: 0;
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin: 0 10px 0 0;
+        cursor: pointer;
+    }
+}
+
+.employer-register {
+    background: $dark-green;
+
+    &:hover {
+        background: lighten($dark-green, 10%);
+    }
+}
+
+.jobseeker-register {
+    background: $orange-secondary;
+
+    &:hover {
+        background: darken($orange-secondary, 10%);
+    }
+}
+
+.register-form-hero {
+    float: right;
+    background: url("/static/images/register-hero.png") no-repeat center;
+    background-size: cover;
+    width: 40%;
+    height: 1000px;
+}
+
+.register-title {
+    font-size: 2.3em;
+    margin-bottom: 35px;
+}
+
+.register-jobseeker {
+    display: none;
+}
+
+.login-prompt {
+    padding-top: 20px;
+
+    a {
+        color: $dark-green;
+        font-weight: 600;
+
+        &:hover {
+            color: lighten($dark-green, 10%);
+        }
+    }
+}
+
+.submit-btn {
+    padding: 15px;
+    margin-top: 20px;
+    background: $orange-primary;
+    border: 0;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+
+    &:hover {
+        background: lighten($orange-primary, 10%);
+    }
+}
 /************************************ Media Queries **/
 
 @media screen and (max-width: 1200px) {
@@ -547,7 +638,6 @@ footer {
 
     .about-content_usp {
         flex-wrap: wrap;
-        justify-content: space-around;
     }
 
         .usp-box i {
@@ -555,17 +645,26 @@ footer {
         }
 
         .popular-jobs_box {
-            height: 450px;
-            margin: 20px 0;
-        }
+            height: 450px;        }
 
 }
 
 @media screen and (max-width: 630px) {
 
+    .popular-jobs-box_wrapper {
+        width: 90%;
+    margin: 0 auto;
+    }
+
 .copyright-wrapper {
     padding-bottom: 0;
+
+    h3 {
+    margin-bottom: 20px;
+
 }    
+
+}
 
 .copyright-wrapper h3 , .social-icons {
     float: none;

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Font Awsome-->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -22,47 +22,63 @@
 <body>
 
 
+    <!--Navbar Large Materialize-->
 
+    <header>
+        <nav class="nav-extended">
+            <div class="nav-wrapper">
+                <a href="{{url_for('homepage')}}"><img class="logo"
+                        src="/static/images/white-color-v3.png" alt=""></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right mobile-menu"><i
+                        class="fas fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Find a Job</a></li>
+                    <li><a href="badges.html">Login</a></li>
+                    <li><a href="{{url_for('register')}}">Register</a></li>
+                    <li><a href="mobile.html">Contact Us</a></li>
+                    <li><a href="mobile.html">My Profile</a></li>
+                    <li><a class="waves-effect waves-light btn nav-btn">POST A JOB</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!--Navbar Mobile Materialize-->
+
+        <ul class="sidenav right" id="mobile-demo">
+            <li><a href="sass.html">Find a Job</a></li>
+            <li><a href="badges.html">Login</a></li>
+            <li><a href="{{url_for('register')}}">Register</a></li>
+            <li><a href="mobile.html">Contact Us</a></li>
+            <li><a href="mobile.html">My Profile</a></li>
+        </ul>
+    </header>
 
     {% block content %}
-
-
-
-
-
-
-
     {% endblock %}
-
-
 
     <footer>
 
         <div class="footer-wrapper">
             <img src="static/images/white-color-v3.png">
-        <hr>
+            <hr>
 
-         <ul class="footer-menu">
-        <li><a href="sass.html">Find a Job</a></li>
-        <li><a href="badges.html">Login</a></li>
-        <li><a href="collapsible.html">Register</a></li>
-        <li><a href="mobile.html">Contact Us</a></li>
-        <li><a href="mobile.html">My Profile</a></li>
-    </ul>
+            <ul class="footer-menu">
+                <li><a href="sass.html">Find a Job</a></li>
+                <li><a href="badges.html">Login</a></li>
+                <li><a href="collapsible.html">Register</a></li>
+                <li><a href="mobile.html">Contact Us</a></li>
+                <li><a href="mobile.html">My Profile</a></li>
+            </ul>
 
-         <div class="copyright-wrapper">
-            <h3>© COPYRIGHT 2021 | Designed & Developed By Boris Gersic</h3>
-            <div class="social-icons">
-                <i class="fab fa-facebook"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
+            <div class="copyright-wrapper">
+                <h3>© COPYRIGHT 2021 | Designed & Developed By Boris Gersic</h3>
+                <div class="social-icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                </div>
             </div>
         </div>
-        
-
-        </div>
-
-       
     </footer>
 
 
