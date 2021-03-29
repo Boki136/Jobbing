@@ -76,7 +76,8 @@ input, button {
 /*************************************** Navigation **/
 
 nav {
-  background: $dark-cyan; }
+  background: $dark-cyan;
+box-shadow: none; }
 
 nav ul a {
   font-size: 1.1em; }
@@ -400,8 +401,7 @@ a {
 
   #faq-section {
   width: 85%;
-  margin: 0 auto;
-  margin: 80px 0 100px 0;
+  margin: 80px auto 100px auto;
 }
 
 .section-wrapper {
@@ -500,13 +500,9 @@ footer {
 /**************************************** Register Page **/ 
 
 .register-form {
-    width: 60%;
+    width: 50%;
     padding: 5%;
     float: left;
-
-    input {
-        width: 80% !important;
-    }
 }
 
 .register-selector {
@@ -517,7 +513,7 @@ footer {
         color: #fff;
         font-weight: 600;
         text-transform: uppercase;
-        margin: 0 10px 0 0;
+        margin: 10px 10px 10px 0;
         cursor: pointer;
     }
 }
@@ -542,8 +538,17 @@ footer {
     float: right;
     background: url("/static/images/register-hero.png") no-repeat center;
     background-size: cover;
-    width: 40%;
+    width: 50%;
     height: 1000px;
+}
+
+.register-form-hero-mobile {
+    display: none;
+    background: url("/static/images/register-hero.png") no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+
 }
 
 .register-title {
@@ -551,7 +556,7 @@ footer {
     margin-bottom: 35px;
 }
 
-.register-jobseeker {
+.register-jobseeker-form {
     display: none;
 }
 
@@ -610,6 +615,19 @@ footer {
 
   .hero-section_title {
       font-size: 3.2em;
+  }
+
+  .register-form {
+      float: none;
+      width: 100%;
+  }
+
+  .register-form-hero {
+      display: none;
+  }
+
+  .register-form-hero-mobile {
+      display: block;
   }
 
 } 
