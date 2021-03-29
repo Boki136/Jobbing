@@ -499,6 +499,10 @@ footer {
 
 /**************************************** Register Page **/ 
 
+.register-form-wrapper {
+    position: relative;
+}
+
 .register-form {
     width: 50%;
     padding: 5%;
@@ -510,11 +514,14 @@ footer {
     button {
         padding: 20px;
         border: 0;
-        color: #fff;
         font-weight: 600;
         text-transform: uppercase;
         margin: 10px 10px 10px 0;
         cursor: pointer;
+    }
+
+    a {
+        color: #fff;
     }
 }
 
@@ -556,10 +563,6 @@ footer {
     margin-bottom: 35px;
 }
 
-.register-jobseeker-form {
-    display: none;
-}
-
 .login-prompt {
     padding-top: 20px;
 
@@ -586,6 +589,26 @@ footer {
     &:hover {
         background: lighten($orange-primary, 10%);
     }
+}
+
+.flash-message-container {
+   position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 20%;
+    text-align: center;
+    z-index: 10;
+    width: 50%;
+    
+}
+
+.flash-message {
+    color: white;
+    font-size: 2em;
+    background: $orange-secondary;
+    padding: 5%;
 }
 /************************************ Media Queries **/
 

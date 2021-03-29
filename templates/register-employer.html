@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<section class="register-form-wrapper">
+
+    <div class="register-form-hero-mobile"></div>
+
+    <div class="register-form">
+
+        <div class="register-selector">
+            <button class="jobseeker-register"><a href="{{url_for('register_jobseeker')}}">Jobseeker
+                    Registration</a></button>
+        </div>
+
+        <form class="register-employer-form" method="POST"
+            action="{{ url_for('register_employer') }}">
+            <h2 class="register-title">
+                Register as an Employer
+            </h2>
+            <label for="fname"></label>
+            <input type="text" name="fname" id="fname" class="validate" placeholder="First Name"
+                required>
+            <label for="lname"></label>
+            <input type="text" name="lname" id="lname" class="validate" placeholder="Last Name"
+                required>
+
+            <label for="email"></label>
+            <input type="email" name="email" id="email" class="validate" placeholder="Email Address"
+                required>
+            <label for="password"></label>
+            <input type="password" name="password" id="password" class="validate"
+                placeholder="Password" required>
+            <label for="company_name"></label>
+            <input type="text" name="company_name" id="company_name" class="validate"
+                placeholder="Company Name" required>
+            <label for="company_address"></label>
+            <input type="text" name="company_address" id="company_address" class="validate"
+                placeholder="Company Address" required>
+            <button type="submit" class="submit-btn">REGISTER NOW</button>
+            <h4 class="login-prompt">Already have an account? <a href="{{ url_for('login') }}">Sign
+                    In</a></h4>
+        </form>
+
+
+
+    </div>
+    <div class="register-form-hero">
+
+    </div>
+
+</section>
+
+
+
+{% endblock %}

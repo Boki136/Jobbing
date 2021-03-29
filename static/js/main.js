@@ -21,17 +21,17 @@ $(".question-dropdown").click(function () {
 });
 
 
-// Register form option selection funcionality
+// // Register form option selection funcionality
 
-let register_employer = $(".register-employer-form");
-let register_jobseeker = $(".register-jobseeker-form");
+// let register_employer = $(".register-employer-form");
+// let register_jobseeker = $(".register-jobseeker-form");
 
-$(".employer-register").click(function() {
-    register_employer.css("display", "block")
-    register_jobseeker.css("display", "none")
-})
+// $(".employer-register").click(function() {
+//     register_employer.css("display", "block")
+//     register_jobseeker.css("display", "none")
+// })
 
-$(".jobseeker-register").click(function() {
-    register_employer.css("display", "none")
-    register_jobseeker.css("display", "block")
-})
+// $(".jobseeker-register").click(function() {
+//     register_employer.css("display", "none")
+//     register_jobseeker.css("display", "block")
+// })

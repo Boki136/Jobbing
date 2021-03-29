@@ -34,7 +34,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="sass.html">Find a Job</a></li>
                     <li><a href="badges.html">Login</a></li>
-                    <li><a href="{{url_for('register')}}">Register</a></li>
+                    <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
                     <li><a href="mobile.html">Contact Us</a></li>
                     <li><a href="mobile.html">My Profile</a></li>
                     <li><a class="waves-effect waves-light btn nav-btn">POST A JOB</a></li>
@@ -47,11 +47,25 @@
         <ul class="sidenav right" id="mobile-demo">
             <li><a href="sass.html">Find a Job</a></li>
             <li><a href="badges.html">Login</a></li>
-            <li><a href="{{url_for('register')}}">Register</a></li>
+            <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
             <li><a href="mobile.html">Contact Us</a></li>
             <li><a href="mobile.html">My Profile</a></li>
         </ul>
     </header>
+
+    <section class="flash-message-container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flash-message">
+            <h2>{{ message }}</h2>
+        </div>
+        {% endfor %}
+
+        {% endif %}
+        {% endwith %}
+    </section>
+    
 
     {% block content %}
     {% endblock %}
