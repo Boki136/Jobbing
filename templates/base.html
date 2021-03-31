@@ -36,7 +36,7 @@
                     <li><a href="badges.html">Login</a></li>
                     <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
                     <li><a href="mobile.html">Contact Us</a></li>
-                    <li><a href="mobile.html">My Profile</a></li>
+                    <li><a href="{{url_for('profile', user=session['user'])}}">My Profile</a></li>
                     <li><a class="waves-effect waves-light btn nav-btn">POST A JOB</a></li>
                 </ul>
             </div>
@@ -49,7 +49,7 @@
             <li><a href="badges.html">Login</a></li>
             <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
             <li><a href="mobile.html">Contact Us</a></li>
-            <li><a href="mobile.html">My Profile</a></li>
+            <li><a href="{{url_for('profile', user=session['user'])}}">My Profile</a></li>
         </ul>
     </header>
 
@@ -65,7 +65,6 @@
         {% endif %}
         {% endwith %}
     </section>
-    
 
     {% block content %}
     {% endblock %}
@@ -73,15 +72,15 @@
     <footer>
 
         <div class="footer-wrapper">
-            <img src="static/images/white-color-v3.png">
+            <img src="/static/images/white-color-v3.png">
             <hr>
 
             <ul class="footer-menu">
                 <li><a href="sass.html">Find a Job</a></li>
                 <li><a href="badges.html">Login</a></li>
-                <li><a href="collapsible.html">Register</a></li>
+                <li><a href="{{ url_for('register_jobseeker') }}">Register</a></li>
                 <li><a href="mobile.html">Contact Us</a></li>
-                <li><a href="mobile.html">My Profile</a></li>
+                <li><a href="{{url_for('profile', user=session['user'])}}">My Profile</a></li>
             </ul>
 
             <div class="copyright-wrapper">

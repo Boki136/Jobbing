@@ -31,10 +31,10 @@ def register_jobseeker():
     if request.method == "POST":
         # do a check on a already existing username
         saved_user = mongo.db.users.find_one(
-            {"email_address": request.form.get("email")})
+            {"email": request.form.get("email")})
 
         if saved_user:
-            flash("Account already exists")
+            flash("Account with that email address already exists")
             return redirect(url_for("register_jobseeker"))
 
         register = {
@@ -46,8 +46,8 @@ def register_jobseeker():
         mongo.db.users.insert_one(register)
 
         # save the new user into "session"
-        session["user"] = request.form.get("email")
-        flash("You have successfuly registered")
+        session["user"] = request.form.get("fname")
+        return redirect(url_for('profile', user=session["user"]))
 
     return render_template("register-jobseeker.html")
 
@@ -58,10 +58,10 @@ def register_employer():
     if request.method == "POST":
         # do a check on a already existing username
         saved_user = mongo.db.users.find_one(
-            {"email_address": request.form.get("email".lower())})
+            {"email": request.form.get("email")})
 
         if saved_user:
-            flash("Account already exists")
+            flash("Account with that email address already exists")
             return redirect(url_for("register_employer"))
 
         register = {
@@ -76,10 +76,23 @@ def register_employer():
         mongo.db.users.insert_one(register)
 
         # save the new user into "session"
-        session["user"] = request.form.get("email").lower()
-        flash("You have successfuly registered")
+        session["user"] = request.form.get("fname")
+        return redirect(url_for('profile', user=session["user"]))
 
     return render_template("register-employer.html")
+
+
+@ app.route("/profile/<user>", methods=["POST", "GET"])
+def profile(user):
+
+    # retrive users name from database
+    user = mongo.db.users.find_one(
+        {"first_name": session["user"]})["first_name"]
+
+    if session["user"]:
+        return render_template("profile.html", user=user)    
+
+    return render_template("profile.html")
 
 
 @ app.route("/login", methods=["GET", "POST"])

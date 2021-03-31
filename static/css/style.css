@@ -447,21 +447,16 @@ footer {
     background: #ff7d0f; }
 
 .flash-message-container {
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  top: 20%;
-  text-align: center;
-  z-index: 10;
-  width: 50%; }
+  text-align: center; }
 
 .flash-message {
   color: white;
   font-size: 2em;
-  background: #ffa62b;
-  padding: 5%; }
+  background: #db6400;
+  opacity: 0.7;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px; }
 
 /************************************ Media Queries **/
 @media screen and (max-width: 1200px) {

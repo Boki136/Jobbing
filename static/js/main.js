@@ -15,23 +15,13 @@ $(".question-dropdown").click(function () {
     } else {
         $(this).children("i").css({ transform: "rotateZ(0deg)" })
     }
-    
+
     $(this).children("p").toggle()
 
 });
 
+// Append Flash Message after registration selection and fade out after 3 sec
 
-// // Register form option selection funcionality
+$(".register-selector").append($(".flash-message-container"))
+$(".flash-message-container").delay(3000).fadeOut();
 
-// let register_employer = $(".register-employer-form");
-// let register_jobseeker = $(".register-jobseeker-form");
-
-// $(".employer-register").click(function() {
-//     register_employer.css("display", "block")
-//     register_jobseeker.css("display", "none")
-// })
-
-// $(".jobseeker-register").click(function() {
-//     register_employer.css("display", "none")
-//     register_jobseeker.css("display", "block")
-// })
