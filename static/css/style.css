@@ -473,7 +473,6 @@ footer {
   padding: 2%;
   display: flex;
   align-items: center;
-  height: 250px;
   position: relative; }
 
 .personal-details form, .company-details form {
@@ -482,15 +481,22 @@ footer {
 .personal-details form input:nth-child(2), .company-details form input:nth-child(2) {
   margin-bottom: 20px; }
 
-.fa-pen {
-  color: #db6400;
+.user-details-submit {
+  display: none; }
+
+.edit-user-info, .close-user-info {
+  font-size: 35px;
+  color: #ffa62b;
   position: absolute;
   top: 20px;
   right: 25px;
   cursor: pointer;
   transition: all .2s ease-in-out; }
-  .fa-pen:hover {
+  .edit-user-info:hover, .close-user-info:hover {
     transform: scale(1.3); }
+
+.close-user-info {
+  display: none; }
 
 /************************************ Media Queries **/
 @media screen and (max-width: 1200px) {

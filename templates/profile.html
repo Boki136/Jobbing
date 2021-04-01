@@ -4,17 +4,20 @@
 <section class="user-details-container">
 
     <div class="personal-details">
-        <i class="fas fa-pen fa-2x"></i>
+        <h1 class="fas fa-pen fa-2x edit-user-info"></h1>
+        <i class="fas fa-times close-user-info"></i>
         <form method="POST">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" class="validate" value="{{ user }}" disabled="disabled" required>
             <label for="email">Email:</label>
             <input type="email" class="validate" value="{{ user }}" id="email" name="email"
                 pattern="^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,35}$" disabled="disabled" requried>
+                <button class="user-details-submit submit-btn" type="submit">SUBMIT</button>
         </form>
     </div>
     <div class="company-details">
-        <i class="fas fa-pen fa-2x"></i>
+        <i class="fas fa-pen fa-2x edit-user-info"></i>
+        <i class="fas fa-times close-user-info"></i>
         <form method="POST">
             <label for="company_name">Company Name:</label>
             <input type="text" id="company_name" name="company_name" class="validate"
@@ -22,6 +25,7 @@
             <label for="company_address">Company Address:</label>
             <input type="text" class="validate" value="{{ user }}" id="company_address"
                disabled="disabled" name="company_address" pattern="^[a-zA-Z0-9]{10,120}$" minlength="10" maxlength="120" requried>
+               <button class="user-details-submit submit-btn" type="submit">SUBMIT</button>
         </form>
     </div>
 

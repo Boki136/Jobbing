@@ -25,3 +25,18 @@ $(".question-dropdown").click(function () {
 $(".register-selector").append($(".flash-message-container"))
 $(".flash-message-container").delay(3000).fadeOut();
 
+// Enable editing user details fields on click
+
+$(".edit-user-info").click(function() {
+    $(this).next().next().children("input").prop('disabled', false);
+    $(this).next().next().children("button").css("display", "block");
+    $(this).css("display", "none");
+    $(this).next().css("display", "block");
+});
+
+$(".close-user-info").click(function() {
+    $(this).next().children("input").prop('disabled', true);
+    $(this).next().children("button").css("display", "none");
+    $(this).css("display", "none");
+    $(this).prev().css("display", "block");
+});
