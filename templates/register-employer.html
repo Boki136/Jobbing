@@ -28,10 +28,10 @@
 
             <label for="email"></label>
             <input type="email" name="email" id="email" class="validate" placeholder="Email Address"
-                required>
+                pattern="^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,35}$" required>
             <label for="password"></label>
             <input type="password" name="password" id="password" class="validate"
-                placeholder="Password" required>
+                placeholder="Password"  pattern="^[a-zA-Z0-9]{5-20}$" required>
             <label for="company_name"></label>
             <input type="text" name="company_name" id="company_name" class="validate"
                 placeholder="Company Name" required>
