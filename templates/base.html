@@ -33,7 +33,7 @@
                         class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="sass.html">Find a Job</a></li>
-                    <li><a href="badges.html">Login</a></li>
+                    <li><a href="{{url_for('login')}}">Login</a></li>
                     <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
                     <li><a href="mobile.html">Contact Us</a></li>
                     <li><a href="{{url_for('profile', user=session['user'])}}">My Profile</a></li>
@@ -46,7 +46,7 @@
 
         <ul class="sidenav right" id="mobile-demo">
             <li><a href="sass.html">Find a Job</a></li>
-            <li><a href="badges.html">Login</a></li>
+            <li><a href="{{url_for('login')}}l">Login</a></li>
             <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
             <li><a href="mobile.html">Contact Us</a></li>
             <li><a href="{{url_for('profile', user=session['user'])}}">My Profile</a></li>

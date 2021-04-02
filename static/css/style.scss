@@ -497,13 +497,18 @@ footer {
     }
 }
 
-/**************************************** Register Page **/ 
+/**************************************** Register & Login Page **/ 
 
-.register-form-wrapper {
+.register-form-wrapper, .login-form-wrapper {
     position: relative;
 }
 
-.register-form {
+.login-form-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.register-form, .login-form {
     width: 50%;
     padding: 5%;
     float: left;
@@ -541,9 +546,9 @@ footer {
     }
 }
 
-.register-form-hero {
+.register-form-hero, .login-form-hero {
     float: right;
-    background: url("/static/images/register-hero.png") no-repeat center;
+    background: url("/static/images/login-hero.png") no-repeat center;
     background-size: cover;
     width: 50%;
     height: 1000px;
@@ -556,6 +561,14 @@ footer {
     width: 100%;
     height: 500px;
 
+}
+
+.login-form-hero-mobile {
+     display: none;
+    background: url("/static/images/login-hero.png") no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
 }
 
 .register-title {
@@ -695,11 +708,11 @@ footer {
       width: 100%;
   }
 
-  .register-form-hero {
+  .register-form-hero, .login-form-hero {
       display: none;
   }
 
-  .register-form-hero-mobile {
+  .register-form-hero-mobile, .login-form-hero-mobile {
       display: block;
   }
 

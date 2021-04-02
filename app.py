@@ -38,15 +38,14 @@ def register_jobseeker():
             return redirect(url_for("register_jobseeker"))
 
         register = {
-            "first_name": request.form.get("fname"),
-            "last_name": request.form.get("lname"),
+            "name": request.form.get("name"),
             "email": request.form.get("email"),
             "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(register)
 
         # save the new user into "session"
-        session["user"] = request.form.get("fname")
+        session["user"] = request.form.get("email")
         return redirect(url_for('profile', user=session["user"]))
 
     return render_template("register-jobseeker.html")
@@ -65,38 +64,67 @@ def register_employer():
             return redirect(url_for("register_employer"))
 
         register = {
-            "first_name": request.form.get("fname"),
-            "last_name": request.form.get("lname"),
+            "name": request.form.get("name"),
             "email": request.form.get("email").lower(),
             "password": generate_password_hash(request.form.get("password")),
             "company_name": request.form.get("company_name"),
             "company_address": request.form.get("company_address"),
-            "is_employer": "Yes"
+            "is_employer": "Yes",
         }
         mongo.db.users.insert_one(register)
 
         # save the new user into "session"
-        session["user"] = request.form.get("fname")
+        session["user"] = request.form.get("email")
         return redirect(url_for('profile', user=session["user"]))
 
     return render_template("register-employer.html")
 
 
-@ app.route("/profile/<user>", methods=["POST", "GET"])
+@ app.route("/profile/<user>", methods=["GET", "POST"])
 def profile(user):
 
     # retrive users name from database
     user = mongo.db.users.find_one(
-        {"first_name": session["user"]})["first_name"]
+        {"email": session["user"]})
+
+    if request.method == "POST":
+
+        submit = {
+            "name": request.form.get("name"),
+            "email": request.form.get("email"),
+            "company_name": request.form.get("company_name"),
+            "company_address": request.form.get("company_address"),
+        }
+
+        mongo.db.users.update({"_id": ObjectId()}, submit)
 
     if session["user"]:
-        return render_template("profile.html", user=user)    
+        return render_template("profile.html", user=user)
 
     return render_template("profile.html")
 
 
 @ app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        # do a check on existing user
+        existing_user = mongo.db.users.find_one(
+            {"email": request.form.get("email")})
+
+        if existing_user:
+            # chek if the passowrd matches user input
+            if check_password_hash(
+                    existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("email")
+                return redirect(url_for(
+                    'profile', user=session["user"]))
+            else:
+                return redirect(url_for("login"))
+
+        else:
+            # username doesn't exists
+            return redirect(url_for("login"))
+
     return render_template("login.html")
 
 

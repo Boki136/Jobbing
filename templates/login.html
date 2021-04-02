@@ -1,4 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+
+<section class="login-form-wrapper">
+
+    <div class="login-form-hero-mobile"></div>
+
+    <div class="login-form">
+
+        <form method="POST" action="{{ url_for('login') }}">
+            <h2 class="register-title">
+                Sign In
+            </h2>
+            <label for="email"></label>
+            <input type="email" name="email" id="email" class="validate" placeholder="Email Address"
+                pattern="^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,35}$" required>
+            <label for="password"></label>
+            <input type="password" name="password" id="password" minlength="5" maxlength="20"
+                pattern="^[a-zA-Z0-9]{5-20}$" class="validate" placeholder="Password" required>
+            <button type="submit" class="submit-btn">SIGN IN</button>
+            <h4 class="login-prompt">Don't have an account? <a
+                    href="{{ url_for('register_jobseeker') }}">Register now</a></h4>
+        </form>
+
+    </div>
+    <div class="login-form-hero">
+
+    </div>
+
+</section>
+
+
 {% endblock %}
