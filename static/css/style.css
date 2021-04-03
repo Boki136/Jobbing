@@ -539,7 +539,9 @@ footer {
   .personal-details, .company-details {
     width: 95%; }
   .personal-details form, .company-details form {
-    width: 90%; } }
+    width: 90%; }
+  .login-form-wrapper {
+    display: block; } }
 
 @media screen and (max-width: 770px) {
   .hiring-strip h2::before {

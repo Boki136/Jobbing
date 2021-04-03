@@ -22,7 +22,8 @@ $(".question-dropdown").click(function () {
 
 // Append Flash Message after registration selection and fade out after 3 sec
 
-$(".register-selector").append($(".flash-message-container"))
+$(".register-selector").append($(".flash-message-container"));
+$(".login-form").prepend($(".flash-message-container"));
 $(".flash-message-container").delay(3000).fadeOut();
 
 // Enable editing user details fields on click

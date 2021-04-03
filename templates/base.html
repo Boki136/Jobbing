@@ -32,12 +32,18 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right mobile-menu"><i
                         class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
+                    {% if session.user %}
+                    <li><a href="sass.html">Find a Job</a></li>
+                    <li><a href="{{url_for('profile', user=session['user'])}}">My Profile</a></li>
+                    <li><a href="mobile.html">Contact Us</a></li>
+                    <li><a href="{{url_for('logout')}}">Logout</a></li>
+                    <li><a href="{{url_for('post_job')}}" class="waves-effect waves-light btn nav-btn">POST A JOB</a></li>
+                    {% else %}
                     <li><a href="sass.html">Find a Job</a></li>
                     <li><a href="{{url_for('login')}}">Login</a></li>
                     <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
                     <li><a href="mobile.html">Contact Us</a></li>
-                    <li><a href="{{url_for('profile', user=session['user'])}}">My Profile</a></li>
-                    <li><a class="waves-effect waves-light btn nav-btn">POST A JOB</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -45,11 +51,18 @@
         <!--Navbar Mobile Materialize-->
 
         <ul class="sidenav right" id="mobile-demo">
+            {% if session.user %}
             <li><a href="sass.html">Find a Job</a></li>
-            <li><a href="{{url_for('login')}}l">Login</a></li>
+            <li><a href="{{url_for('profile', user=session['user'])}}">My Profile</a></li>
+            <li><a href="mobile.html">Contact Us</a></li>
+            <li><a href="{{url_for('logout')}}">Logout</a></li>
+            <li><a href="{{url_for('post_job')}}">Post A Job</a></li>
+            {% else %}
+            <li><a href="sass.html">Find a Job</a></li>
+            <li><a href="{{url_for('login')}}">Login</a></li>
             <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
             <li><a href="mobile.html">Contact Us</a></li>
-            <li><a href="{{url_for('profile', user=session['user'])}}">My Profile</a></li>
+            {% endif %}
         </ul>
     </header>
 

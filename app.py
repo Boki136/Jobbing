@@ -101,7 +101,7 @@ def profile(user):
     if session["user"]:
         return render_template("profile.html", user=user)
 
-    return render_template("profile.html")
+    return redirect(url_for("login"))
 
 
 @ app.route("/login", methods=["GET", "POST"])
@@ -119,13 +119,27 @@ def login():
                 return redirect(url_for(
                     'profile', user=session["user"]))
             else:
+                flash("Invalid username and/or password")
                 return redirect(url_for("login"))
 
         else:
             # username doesn't exists
+            flash("Invalid username and/or password")
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
+
+@app.route("/post_job")
+def post_job():
+    return render_template('post_job.html')
 
 
 if __name__ == "__main__":
