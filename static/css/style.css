@@ -414,10 +414,15 @@ footer {
 
 .register-form-hero, .login-form-hero {
   float: right;
-  background: url("/static/images/login-hero.png") no-repeat center;
   background-size: cover;
   width: 50%;
   height: 1000px; }
+
+.register-form-hero {
+  background: url("/static/images/register-hero.png") no-repeat center; }
+
+.login-form-hero {
+  background: url("/static/images/login-hero.png") no-repeat center; }
 
 .register-form-hero-mobile {
   display: none;

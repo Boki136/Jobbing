@@ -104,24 +104,30 @@ def profile(user):
     return redirect(url_for("login"))
 
 
+def is_user_authorised():
+    # do a check on existing user
+    existing_user = mongo.db.users.find_one(
+        {"email": request.form.get("email")})
+    if existing_user:
+        # chek if the passowrd matches user input
+        if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+            session["user"] = request.form.get("email")
+            return session
+        else:
+            return None
+    else:
+        return None
+
+
 @ app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         # do a check on existing user
-        existing_user = mongo.db.users.find_one(
-            {"email": request.form.get("email")})
-
-        if existing_user:
-            # chek if the passowrd matches user input
-            if check_password_hash(
-                    existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("email")
-                return redirect(url_for(
-                    'profile', user=session["user"]))
-            else:
-                flash("Invalid username and/or password")
-                return redirect(url_for("login"))
-
+        session = is_user_authorised()
+        if session:
+            return redirect(url_for(
+                'profile', user=session["user"]))
         else:
             # username doesn't exists
             flash("Invalid username and/or password")
