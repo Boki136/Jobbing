@@ -273,7 +273,7 @@ a {
 
 .popular-jobs_box {
    width: 33%;
-    height: 600px;
+    height: 500px;
     margin: 10px 20px 10px 20px;
     display: flex;
     justify-content: center;
@@ -627,8 +627,16 @@ footer {
 
 /**************************************** Profile Page **/ 
 
-.user-details-container {
+.employer-details-container {
     width: 80%;
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.jobseeker-details-container {
+       width: 100%;
     margin: 100px auto;
     display: flex;
     justify-content: center;
@@ -723,8 +731,9 @@ footer {
       display: block;
   }
 
-  .user-details-container {
+  .employer-details-container {
         flex-wrap: wrap;
+        width: 100%;
     }
 
 .personal-details, .company-details { 
@@ -737,6 +746,11 @@ footer {
     
     .login-form-wrapper{
         display: block;
+    }
+
+    .login-form {
+        width: 95%;
+        margin: 15px 0;
     }
 } 
 
@@ -792,8 +806,26 @@ footer {
 
 }
 
+.hiring-strip .btn {
+    margin: 10px;
+}
+
+#search-form {
+   align-items: center;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.search-box {
+    width: 100% !important;
+}
+
 .copyright-wrapper h3 , .social-icons {
     float: none;
+}
+
+.popular-jobs_box {
+    min-width: 280px;
 }
 
 }

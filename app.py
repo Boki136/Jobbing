@@ -40,7 +40,8 @@ def register_jobseeker():
         register = {
             "name": request.form.get("name"),
             "email": request.form.get("email"),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "is_jobseeker": "Yes",
         }
         mongo.db.users.insert_one(register)
 
@@ -92,11 +93,11 @@ def profile(user):
         submit = {
             "name": request.form.get("name"),
             "email": request.form.get("email"),
-            "company_name": request.form.get("company_name"),
-            "company_address": request.form.get("company_address"),
+            "is_jobseeker": "Yes",
         }
 
-        mongo.db.users.update({"_id": ObjectId()}, submit)
+        mongo.db.users.update(
+            {"_id": ObjectId()}, submit)
 
     if session["user"]:
         return render_template("profile.html", user=user)
