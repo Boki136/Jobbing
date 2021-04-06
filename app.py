@@ -90,20 +90,37 @@ def profile():
     user = mongo.db.users.find_one(
         {"email": session["user"]})
 
+    employer = request.form.get("employer_name")
+    jobseeker = request.form.get("jobseeker_name")
+
     if request.method == "POST":
 
-        submit = {
-            "name": request.form.get("name"),
-            "email": user["email"],
-            "password": user["password"],
-            "company_name": request.form.get("company_name"),
-            "company_address": request.form.get("company_address"),
-            "is_employer": "Yes",
-        }
+        if employer:
 
-        mongo.db.users.update(
-            {"_id": user["_id"]}, submit)
-        return redirect(url_for("profile"))
+            submit = {
+                "name": employer,
+                "email": user["email"],
+                "password": user["password"],
+                "company_name": user["company_name"],
+                "company_address": user["company_address"],
+                "is_employer": "Yes",
+            }
+
+            mongo.db.users.update(
+                {"_id": user["_id"]}, submit)
+            return redirect(url_for("profile"))
+
+        elif jobseeker:
+            submit = {
+                "name": jobseeker,
+                "email": user["email"],
+                "password": user["password"],
+                "is_jobseeker": "Yes",
+            }
+
+            mongo.db.users.update(
+                {"_id": user["_id"]}, submit)
+            return redirect(url_for("profile"))
 
     if session["user"]:
         return render_template("profile.html", user=user)
