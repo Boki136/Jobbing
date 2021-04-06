@@ -61,12 +61,14 @@ def register_employer():
             {"email": request.form.get("email")})
 
         if saved_user:
-            flash("Account with that email address already exists")
+            flash(
+                "Account with that email address already exists, please Sign In"
+            )
             return redirect(url_for("register_employer"))
 
         register = {
             "name": request.form.get("name"),
-            "email": request.form.get("email").lower(),
+            "email": request.form.get("email"),
             "password": generate_password_hash(request.form.get("password")),
             "company_name": request.form.get("company_name"),
             "company_address": request.form.get("company_address"),
@@ -81,8 +83,8 @@ def register_employer():
     return render_template("register-employer.html")
 
 
-@ app.route("/profile/<user>", methods=["GET", "POST"])
-def profile(user):
+@ app.route("/profile", methods=["GET", "POST"])
+def profile():
 
     # retrive users name from database
     user = mongo.db.users.find_one(
@@ -92,12 +94,16 @@ def profile(user):
 
         submit = {
             "name": request.form.get("name"),
-            "email": request.form.get("email"),
-            "is_jobseeker": "Yes",
+            "email": user["email"],
+            "password": user["password"],
+            "company_name": request.form.get("company_name"),
+            "company_address": request.form.get("company_address"),
+            "is_employer": "Yes",
         }
 
         mongo.db.users.update(
-            {"_id": ObjectId()}, submit)
+            {"_id": user["_id"]}, submit)
+        return redirect(url_for("profile"))
 
     if session["user"]:
         return render_template("profile.html", user=user)
@@ -137,14 +143,14 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/logout")
+@ app.route("/logout")
 def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
 
 
-@app.route("/post_job")
+@ app.route("/post_job")
 def post_job():
     return render_template('post_job.html')
 

@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% if user.is_jobseeker == "Yes" %}
 
+{% if user.is_jobseeker == "Yes" %}
 <!--Jobseeker Details form-->
 <section class="jobseeker-details-container">
     <div class="personal-details">
         <h1 class="fas fa-pen fa-2x edit-user-info"></h1>
         <i class="fas fa-times close-user-info"></i>
-        <form method="post" action="{{url_for('profile', user=session['user'])}}">
+        <form method="post" action="{{url_for('profile')}}">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" class="validate" value="{{ user.name }}"
+            <input type="text" id="name" name="name" class="validate edit" value="{{ user.name }}"
                 disabled="disabled" required>
             <label for="email">Email:</label>
             <input type="email" class="validate" value="{{ user.email }}" id="email" name="email"
@@ -22,17 +22,17 @@
 </section>
 {% endif %}
 
-{% if user.is_employer == "Yes" %}
 
+{% if user.is_employer == "Yes" %}
 <!--Employer Details form-->
 <section class="employer-details-container">
 
     <div class="personal-details">
         <h1 class="fas fa-pen fa-2x edit-user-info"></h1>
         <i class="fas fa-times close-user-info"></i>
-        <form method="post" action="{{url_for('profile', user=session['user'])}}">
+        <form method="post" action="{{url_for('profile')}}">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" class="validate" value="{{ user.name }}"
+            <input type="text" id="name" name="name" class="validate edit" value="{{ user.name }}"
                 disabled="disabled" required>
             <label for="email">Email:</label>
             <input type="email" class="validate" value="{{ user.email }}" id="email" name="email"
@@ -44,14 +44,14 @@
     <div class="company-details">
         <i class="fas fa-pen fa-2x edit-user-info"></i>
         <i class="fas fa-times close-user-info"></i>
-        <form method="post">
+        <form method="post" action="{{url_for('profile')}}">
             <label for="company_name">Company Name:</label>
-            <input type="text" id="company_name" name="company_name" class="validate"
+            <input type="text" id="company_name" name="company_name" class="validate edit"
                 value="{{ user.company_name }}" required disabled="disabled">
             <label for="company_address">Company Address:</label>
-            <input type="text" class="validate" value="{{ user.company_address }}"
-                id="company_address" disabled="disabled" name="company_address"
-                pattern="^[a-zA-Z0-9]{10,120}$" minlength="10" maxlength="120" requried>
+            <input type="text" class="validate edit" value="{{ user.company_address }}"
+                id="company_address" disabled="disabled" name="company_address" minlength="10"
+                maxlength="120" requried>
             <button class="user-details-submit submit-btn" type="submit">SUBMIT</button>
         </form>
     </div>
