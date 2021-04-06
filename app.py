@@ -1,4 +1,5 @@
 import os
+from datetime import datetime, timedelta
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -167,8 +168,24 @@ def logout():
     return redirect(url_for("login"))
 
 
-@ app.route("/post_job")
+@ app.route("/post_job", methods=["GET", "POST"])
 def post_job():
+
+    if request.method == "POST":
+
+        new_job = {
+            "job_title": request.form.get("job_title"),
+            "contract_type": request.form.get("contract_type"),
+            "job_location": request.form.get("job_location"),
+            "job_description": request.form.get("job_description"),
+            "salary_range": request.form.get("salary_range"),
+            "posted_date": datetime.now() + timedelta(hours=1),
+        }
+
+        mongo.db.jobs.insert_one(new_job)
+        flash("Job Posted Successfully")
+        return redirect(url_for("post_job"))
+
     return render_template('post_job.html')
 
 

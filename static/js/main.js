@@ -29,14 +29,14 @@ $(".flash-message-container").delay(3000).fadeOut();
 
 // Enable editing user details fields on click
 
-$(".edit-user-info").click(function() {
+$(".edit-user-info").click(function () {
     $(this).next().next().children(".edit").prop('disabled', false);
     $(this).next().next().children("button").css("display", "block");
     $(this).css("display", "none");
     $(this).next().css("display", "block");
 });
 
-$(".close-user-info").click(function() {
+$(".close-user-info").click(function () {
     $(this).next().children("input").prop('disabled', true);
     $(this).next().children("button").css("display", "none");
     $(this).css("display", "none");
