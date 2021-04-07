@@ -18,11 +18,12 @@
     </div>
 </section>
 
+{% if user.is_employer == "Yes" %}
 <div class="hiring-strip">
     <h2>Post a job in front of thousands talented jobseekers</h2>
     <a class="btn" href="">POST A FREE JOB</a>
 </div>
-
+{% endif %}
 <!--Popular Jobs Section-->
 
 <section class="popular-jobs">
@@ -95,80 +96,80 @@
 
 <!--FAQ's Section-->
 
-    <section id="faq-section">
-        <h2 class="section-title">FAQ'S</h2>
-        <hr class="large-horizontal-rule" />
-        <br />
-    
-        <div class="quesitons-wrapper">
-            <div class="question-dropdown">
-                <h3>If I have to cancel my booking will I have to pay a fee?</h3>
-                <i class="fas fa-caret-right"></i>
-                <p>
-                    If your booking is in less then two weeks there will be a
-                    cancellation fee applied. Otherwise, you can cancel your booking
-                    free of charge.
-                </p>
-            </div>
+<section id="faq-section">
+    <h2 class="section-title">FAQ'S</h2>
+    <hr class="large-horizontal-rule" />
+    <br />
 
-            <div class="question-dropdown">
-                <h3>Why do I need to provide my credit card details?</h3>
-                <i class="fas fa-caret-right"></i>
-                <p>
-                    When booking online, our partners require full payment upfront.
-                    Alternatively, you can arrange the booking over the phone where
-                    you will be required to pay a deposit which is 20% of the total
-                    amount, and pay the rest of the sum once you arrive in the desired
-                    hotel.
-                </p>
-            </div>
-
-            <div class="question-dropdown">
-                <h3>Will I pay full price for children?</h3>
-                <i class="fas fa-caret-right"></i>
-                <p>
-                    The price for child(ren) will be 50% off the regular price for
-                    each available property. No additional fees or charges for any
-                    other requirements such as a cot, hotel facilities will be
-                    charged.
-                </p>
-            </div>
-
-            <div class="question-dropdown">
-                <h3>
-                    How do I get more information about the room or property's
-                    facilities?
-                </h3>
-                <i class="fas fa-caret-right"></i>
-                <p>
-                    You can find detailed information about the hotels in the hotel
-                    section of the page. Additionally, you can contact us to find out
-                    more information about individual properties.
-                </p>
-            </div>
-
-            <div class="question-dropdown">
-                <h3>
-                    What's the difference between a double room and a twin room?
-                </h3>
-                <i class="fas fa-caret-right"></i>
-                <p>
-                    A Double Room has one double bed and a Twin Room has 2 single
-                    beds. If a room is called Double/Twin, it can be set up for either
-                    type.
-                </p>
-            </div>
-
-            <div class="question-dropdown">
-                <h3>How do I find out if property has a certain facility?</h3>
-                <i class="fas fa-caret-right"></i>
-                <p>
-                    You can find about available facilities in the hotel offering
-                    section of the page or contact the hotel directly.
-                </p>
-            </div>
+    <div class="quesitons-wrapper">
+        <div class="question-dropdown">
+            <h3>If I have to cancel my booking will I have to pay a fee?</h3>
+            <i class="fas fa-caret-right"></i>
+            <p>
+                If your booking is in less then two weeks there will be a
+                cancellation fee applied. Otherwise, you can cancel your booking
+                free of charge.
+            </p>
         </div>
-    </section>
+
+        <div class="question-dropdown">
+            <h3>Why do I need to provide my credit card details?</h3>
+            <i class="fas fa-caret-right"></i>
+            <p>
+                When booking online, our partners require full payment upfront.
+                Alternatively, you can arrange the booking over the phone where
+                you will be required to pay a deposit which is 20% of the total
+                amount, and pay the rest of the sum once you arrive in the desired
+                hotel.
+            </p>
+        </div>
+
+        <div class="question-dropdown">
+            <h3>Will I pay full price for children?</h3>
+            <i class="fas fa-caret-right"></i>
+            <p>
+                The price for child(ren) will be 50% off the regular price for
+                each available property. No additional fees or charges for any
+                other requirements such as a cot, hotel facilities will be
+                charged.
+            </p>
+        </div>
+
+        <div class="question-dropdown">
+            <h3>
+                How do I get more information about the room or property's
+                facilities?
+            </h3>
+            <i class="fas fa-caret-right"></i>
+            <p>
+                You can find detailed information about the hotels in the hotel
+                section of the page. Additionally, you can contact us to find out
+                more information about individual properties.
+            </p>
+        </div>
+
+        <div class="question-dropdown">
+            <h3>
+                What's the difference between a double room and a twin room?
+            </h3>
+            <i class="fas fa-caret-right"></i>
+            <p>
+                A Double Room has one double bed and a Twin Room has 2 single
+                beds. If a room is called Double/Twin, it can be set up for either
+                type.
+            </p>
+        </div>
+
+        <div class="question-dropdown">
+            <h3>How do I find out if property has a certain facility?</h3>
+            <i class="fas fa-caret-right"></i>
+            <p>
+                You can find about available facilities in the hotel offering
+                section of the page or contact the hotel directly.
+            </p>
+        </div>
+    </div>
+</section>
 
 
 {% endblock %}

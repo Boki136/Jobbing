@@ -23,7 +23,11 @@ mongo = PyMongo(app)
 @app.route("/index.html")
 def homepage():
 
-    return render_template("index.html")
+    # retrive users name from database
+    user = mongo.db.users.find_one(
+        {"email": session["user"]})
+
+    return render_template("index.html", user=user)
 
 
 @app.route("/register_jobseeker", methods=["GET", "POST"])
@@ -175,6 +179,7 @@ def post_job():
 
         new_job = {
             "job_title": request.form.get("job_title"),
+            "job_category": request.form.get("job_category"),
             "contract_type": request.form.get("contract_type"),
             "job_location": request.form.get("job_location"),
             "job_description": request.form.get("job_description"),
@@ -187,6 +192,14 @@ def post_job():
         return redirect(url_for("post_job"))
 
     return render_template('post_job.html')
+
+
+@app.route("/find-job")
+def find_job():
+
+    all_jobs = list(mongo.db.jobs.find())
+
+    return render_template('find_job.html', all_jobs=all_jobs)
 
 
 if __name__ == "__main__":
