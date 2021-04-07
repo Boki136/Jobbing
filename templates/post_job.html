@@ -1,41 +1,68 @@
-{% extends "base.html" %}
-{% block content %}
-
+{% extends "base.html" %} {% block content %}
 
 <section class="post-job-form">
-    <h1> Post A Job</h1>
-    <h4>Please enter the job details below</h4>
-    <form action="{{url_for('post_job')}}" method="POST">
-        <label for="job_title">Job Title:</label>
-        <input type="text" id="job_title" name="job_title" class="validate" minlength="10"
-            maxlength="75" required pattern="[A-Za-z ]{10,100}">
-        <label for="job_category">Job Category:</label>
-        <select name="job_category" id="job_category" class="validate" required>
-            <option value="sales" selected>Sales</option>
-            <option value="marketing">Marketing</option>
-            <option value="finance">Finance</option>
-        </select>
-        <label for="contract_type">Contract Type:</label>
-        <select name="contract_type" id="contract_type" class="validate" required>
-            <option value="full-time" selected>Full-Time</option>
-            <option value="part-time">Part-Time</option>
-            <option value="temp-six-months">Temporarily 6 Months</option>
-            <option value="temp-year">Temporarily One Year</option>
-        </select>
-        <label for="job_location">Job Location:</label>
-        <input type="text" id="job_location" name="job_location" class="validate" minlength="10"
-            maxlength="65" required>
-        <label for="job_description">Job Description:</label>
-        <textarea id="job_description" name="job_description" rows="100" minlength="20"
-            maxlength="750" validate required pattern="[A-Za-z0-9]{20, 750}"></textarea>
-        <label for="salary_range">Salary Range:</label>
-        <input type="text" id="salary_range" name="salary_range" class="validate" value="0"
-            minlength="10" maxlength="20" required pattern="[A-Za-z0-9]{10,45}">
-        <button class="submit-btn" type="submit">POST A JOB</button>
-    </form>
-
+  <h1>Post A Job</h1>
+  <h4>Please enter the job details below</h4>
+  <form action="{{url_for('post_job')}}" method="POST">
+    <label for="job_title">Job Title:</label>
+    <input
+      type="text"
+      id="job_title"
+      name="job_title"
+      class="validate"
+      minlength="10"
+      maxlength="75"
+      required
+      pattern="[A-Za-z ]{10,100}"
+    />
+    <label for="job_category">Job Category:</label>
+    <select name="job_category" id="job_category" class="validate" required>
+      <option value="sales" selected>Sales</option>
+      <option value="marketing">Marketing</option>
+      <option value="finance">Finance</option>
+    </select>
+    <label for="contract_type">Contract Type:</label>
+    <select name="contract_type" id="contract_type" class="validate" required>
+      <option value="Full-Time" selected>Full-Time</option>
+      <option value="Part-Time">Part-Time</option>
+      <option value="Temporarily 6 Months">Temporarily 6 Months</option>
+      <option value="Temporarily One Year">Temporarily One Year</option>
+    </select>
+    <label for="job_location">Job Location:</label>
+    <input
+      type="text"
+      id="job_location"
+      name="job_location"
+      class="validate"
+      minlength="10"
+      maxlength="65"
+      required
+    />
+    <label for="job_description">Job Description:</label>
+    <textarea
+      id="job_description"
+      name="job_description"
+      rows="100"
+      minlength="150"
+      maxlength="1000"
+      validate
+      required
+      pattern="[A-Za-z0-9]{20, 750}"
+    ></textarea>
+    <label for="salary_range">Salary Range:</label>
+    <input
+      type="text"
+      id="salary_range"
+      name="salary_range"
+      class="validate"
+      value="0"
+      minlength="5"
+      maxlength="20"
+      required
+      pattern="[A-Za-z0-9]{10,45}"
+    />
+    <button class="submit-btn" type="submit">POST A JOB</button>
+  </form>
 </section>
-
-
 
 {% endblock %}

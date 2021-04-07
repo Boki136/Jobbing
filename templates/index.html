@@ -1,175 +1,169 @@
-{% extends "base.html" %}
-{% block content %}
-
-
+{% extends "base.html" %} {% block content %}
 
 <!--Hero Section-->
 
 <section class="hero-section">
-    <div class="hero-section_wrapper">
-        <h1 class="hero-section_title">Find Your New Job Today!</h1>
+  <div class="hero-section_wrapper">
+    <h1 class="hero-section_title">Find Your New Job Today!</h1>
 
-        <div class="hero-search">
-            <form id="search-form">
-                <input type="search" class="search-box" placeholder="Search all jobs...">
-                <input type="submit" value="EXPLORE" class="search-submit">
-            </form>
-        </div>
+    <div class="hero-search">
+      <form id="search-form">
+        <input
+          type="search"
+          class="search-box"
+          placeholder="Search all jobs..."
+        />
+        <input type="submit" value="EXPLORE" class="search-submit" />
+      </form>
     </div>
+  </div>
 </section>
 
 {% if user.is_employer == "Yes" %}
 <div class="hiring-strip">
-    <h2>Post a job in front of thousands talented jobseekers</h2>
-    <a class="btn" href="">POST A FREE JOB</a>
+  <h2>Post a job in front of thousands talented jobseekers</h2>
+  <a class="btn" href="">POST A FREE JOB</a>
 </div>
 {% endif %}
 <!--Popular Jobs Section-->
 
 <section class="popular-jobs">
-    <h1 class="section-title">Popular Job Categories</h1>
-    <hr class="large-horizontal-rule">
-    <div class="popular-jobs-box_wrapper">
-        <div class="popular-jobs_box category_one">
-            <i class="fas fa-chart-pie fa-3x"></i>
-            <h1>Marketing</h1>
-            <h3 class="title-arrow">&nbsp;</h3>
-        </div>
-
-        <div class="popular-jobs_box category_two">
-            <i class="fas fa-coins fa-3x"></i>
-            <h1>Finance</h1>
-            <h3 class="title-arrow">&nbsp;</h3>
-        </div>
-
-        <div class="popular-jobs_box category_three">
-            <i class="fas fa-phone-volume fa-3x"></i>
-            <h1>Sales</h1>
-            <h3 class="title-arrow">&nbsp;</h3>
-        </div>
+  <h1 class="section-title">Popular Job Categories</h1>
+  <hr class="large-horizontal-rule" />
+  <div class="popular-jobs-box_wrapper">
+    <div class="popular-jobs_box category_one">
+      <i class="fas fa-chart-pie fa-3x"></i>
+      <h1>Marketing</h1>
+      <h3 class="title-arrow">&nbsp;</h3>
     </div>
 
+    <div class="popular-jobs_box category_two">
+      <i class="fas fa-coins fa-3x"></i>
+      <h1>Finance</h1>
+      <h3 class="title-arrow">&nbsp;</h3>
+    </div>
+
+    <div class="popular-jobs_box category_three">
+      <i class="fas fa-phone-volume fa-3x"></i>
+      <h1>Sales</h1>
+      <h3 class="title-arrow">&nbsp;</h3>
+    </div>
+  </div>
 </section>
 
 <!--About Section-->
 
 <section class="about-container">
-    <div class="about-background_overlay"></div>
-    <video autoplay muted loop id="about-video">
-        <source src="static/images/about-video.mp4" type="video/mp4">
+  <div class="about-background_overlay"></div>
+  <video autoplay muted loop id="about-video">
+    <source src="static/images/about-video.mp4" type="video/mp4" />
+  </video>
 
-    </video>
+  <div class="about-content">
+    <h1>About Jobbing</h1>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum harum
+      blanditiis optio sequi quo, impedit voluptate incidunt nesciunt temporibus
+      sit, quibusdam, assumenda magnam inventore! Error possimus eum
+      voluptatibus et ad eveniet aspernatur, eius a, consectetur beatae
+      exercitationem distinctio nemo accusantium minima, illum dolor. Itaque
+      maiores blanditiis consequatur, error vero adipisci! Necessitatibus
+      praesentium assumenda minus, quod in consectetur ea magni, dolorum modi
+      repellendus, beatae itaque quasi esse molestias voluptas sunt neque
+      temporibus odio iure. Exercitationem aut eos vel, molestias magnam
+      praesentium necessitatibus?
+    </p>
 
-    <div class="about-content">
-        <h1>About Jobbing</h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum harum blanditiis optio
-            sequi quo, impedit voluptate incidunt nesciunt temporibus sit, quibusdam, assumenda
-            magnam inventore! Error possimus eum voluptatibus et ad eveniet aspernatur, eius a,
-            consectetur beatae exercitationem distinctio nemo accusantium minima, illum dolor.
-            Itaque maiores blanditiis consequatur, error vero adipisci! Necessitatibus
-            praesentium assumenda minus, quod in consectetur ea magni, dolorum modi repellendus,
-            beatae itaque quasi esse molestias voluptas sunt neque temporibus odio iure.
-            Exercitationem
-            aut eos vel, molestias magnam praesentium necessitatibus?</p>
+    <div class="about-content_usp">
+      <div class="usp-box">
+        <i class="fas fa-handshake fa-4x"></i>
+        <span class="counter" data-count="4000">4000</span>
+        <h2>Jobseekers Hired</h2>
+      </div>
 
-        <div class="about-content_usp">
-            <div class="usp-box">
-                <i class="fas fa-handshake fa-4x"></i>
-                <span class="counter" data-count="4000">4000</span>
-                <h2>Jobseekers Hired</h2>
-            </div>
+      <div class="usp-box">
+        <i class="fas fa-bullhorn fa-4x"></i>
+        <span class="counter" data-count="100">10</span>
+        <h2>Years In Business</h2>
+      </div>
 
-            <div class="usp-box">
-                <i class="fas fa-bullhorn fa-4x"></i>
-                <span class="counter" data-count="100">10</span>
-                <h2>Years In Business</h2>
-            </div>
-
-            <div class="usp-box">
-                <i class="fas fa-users fa-4x"></i>
-                <span class="counter" data-count="4000">30</span>
-                <h2>Staff Members</h2>
-            </div>
-        </div>
+      <div class="usp-box">
+        <i class="fas fa-users fa-4x"></i>
+        <span class="counter" data-count="4000">30</span>
+        <h2>Staff Members</h2>
+      </div>
     </div>
+  </div>
 </section>
 
 <!--FAQ's Section-->
 
 <section id="faq-section">
-    <h2 class="section-title">FAQ'S</h2>
-    <hr class="large-horizontal-rule" />
-    <br />
+  <h2 class="section-title">FAQ'S</h2>
+  <hr class="large-horizontal-rule" />
+  <br />
 
-    <div class="quesitons-wrapper">
-        <div class="question-dropdown">
-            <h3>If I have to cancel my booking will I have to pay a fee?</h3>
-            <i class="fas fa-caret-right"></i>
-            <p>
-                If your booking is in less then two weeks there will be a
-                cancellation fee applied. Otherwise, you can cancel your booking
-                free of charge.
-            </p>
-        </div>
-
-        <div class="question-dropdown">
-            <h3>Why do I need to provide my credit card details?</h3>
-            <i class="fas fa-caret-right"></i>
-            <p>
-                When booking online, our partners require full payment upfront.
-                Alternatively, you can arrange the booking over the phone where
-                you will be required to pay a deposit which is 20% of the total
-                amount, and pay the rest of the sum once you arrive in the desired
-                hotel.
-            </p>
-        </div>
-
-        <div class="question-dropdown">
-            <h3>Will I pay full price for children?</h3>
-            <i class="fas fa-caret-right"></i>
-            <p>
-                The price for child(ren) will be 50% off the regular price for
-                each available property. No additional fees or charges for any
-                other requirements such as a cot, hotel facilities will be
-                charged.
-            </p>
-        </div>
-
-        <div class="question-dropdown">
-            <h3>
-                How do I get more information about the room or property's
-                facilities?
-            </h3>
-            <i class="fas fa-caret-right"></i>
-            <p>
-                You can find detailed information about the hotels in the hotel
-                section of the page. Additionally, you can contact us to find out
-                more information about individual properties.
-            </p>
-        </div>
-
-        <div class="question-dropdown">
-            <h3>
-                What's the difference between a double room and a twin room?
-            </h3>
-            <i class="fas fa-caret-right"></i>
-            <p>
-                A Double Room has one double bed and a Twin Room has 2 single
-                beds. If a room is called Double/Twin, it can be set up for either
-                type.
-            </p>
-        </div>
-
-        <div class="question-dropdown">
-            <h3>How do I find out if property has a certain facility?</h3>
-            <i class="fas fa-caret-right"></i>
-            <p>
-                You can find about available facilities in the hotel offering
-                section of the page or contact the hotel directly.
-            </p>
-        </div>
+  <div class="quesitons-wrapper">
+    <div class="question-dropdown">
+      <h3>If I have to cancel my booking will I have to pay a fee?</h3>
+      <i class="fas fa-caret-right"></i>
+      <p>
+        If your booking is in less then two weeks there will be a cancellation
+        fee applied. Otherwise, you can cancel your booking free of charge.
+      </p>
     </div>
-</section>
 
+    <div class="question-dropdown">
+      <h3>Why do I need to provide my credit card details?</h3>
+      <i class="fas fa-caret-right"></i>
+      <p>
+        When booking online, our partners require full payment upfront.
+        Alternatively, you can arrange the booking over the phone where you will
+        be required to pay a deposit which is 20% of the total amount, and pay
+        the rest of the sum once you arrive in the desired hotel.
+      </p>
+    </div>
+
+    <div class="question-dropdown">
+      <h3>Will I pay full price for children?</h3>
+      <i class="fas fa-caret-right"></i>
+      <p>
+        The price for child(ren) will be 50% off the regular price for each
+        available property. No additional fees or charges for any other
+        requirements such as a cot, hotel facilities will be charged.
+      </p>
+    </div>
+
+    <div class="question-dropdown">
+      <h3>
+        How do I get more information about the room or property's facilities?
+      </h3>
+      <i class="fas fa-caret-right"></i>
+      <p>
+        You can find detailed information about the hotels in the hotel section
+        of the page. Additionally, you can contact us to find out more
+        information about individual properties.
+      </p>
+    </div>
+
+    <div class="question-dropdown">
+      <h3>What's the difference between a double room and a twin room?</h3>
+      <i class="fas fa-caret-right"></i>
+      <p>
+        A Double Room has one double bed and a Twin Room has 2 single beds. If a
+        room is called Double/Twin, it can be set up for either type.
+      </p>
+    </div>
+
+    <div class="question-dropdown">
+      <h3>How do I find out if property has a certain facility?</h3>
+      <i class="fas fa-caret-right"></i>
+      <p>
+        You can find about available facilities in the hotel offering section of
+        the page or contact the hotel directly.
+      </p>
+    </div>
+  </div>
+</section>
 
 {% endblock %}

@@ -4,9 +4,8 @@ tasks:
  - init: . ${GITPOD_REPO_ROOT}/.theia/init_tasks.sh    
 vscode:
   extensions:
-    - formulahendry.auto-close-tag@0.5.9:JZIefALANqOfhSK1TU4+Fw==
     - mkaufman.HTMLHint@0.10.0:xevX4CvYOkKd8xjvtJQiGQ==
     - eventyret.bootstrap-4-cdn-snippet@1.9.0:I8wcXFcKWQIROg7J0SLLqg==
-    - esbenp.prettier-vscode@5.7.1:4Zx39KyQMoIz7x94PSmDmQ==
     - kevinglasson.cornflakes-linter@0.5.1:KAaMshgHOKan8eojXQ53OQ==
-    - ms-python.python@2020.10.332292344:5ctthQ25Qni5/aAuOIUTYQ==
+    - formulahendry.auto-close-tag@0.5.10:192223009a396fc39e5b915d5920c0f0
+    - esbenp.prettier-vscode@6.3.1:88e54755bd35c2295d6cd67df28e757d
