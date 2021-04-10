@@ -878,7 +878,11 @@ footer {
 }
 
 .job-expand {
-  width: 60%;
+  width: 50%;
+}
+
+.job-expand-structure {
+  display: none;
 }
 
 .job-listing-box {
@@ -886,6 +890,13 @@ footer {
   box-shadow: 5px 10px 21px rgba(1, 1, 1, 0.3);
   border-radius: 10px;
   margin-top: 25px;
+  transition: all 0.25s ease-in-out;
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
 }
 
 .posted-date {
@@ -893,7 +904,6 @@ footer {
 }
 
 .save_job {
-  display: none;
   background: transparent;
   border: none;
   color: $orange-primary;
@@ -926,19 +936,17 @@ footer {
 .see-full-job {
   background: transparent;
   border: none;
-  color: $dark-green;
+  color: #fff;
   cursor: pointer;
-  padding: 0;
+  padding: 10px;
   margin-top: 20px;
+  background: $orange-secondary;
 
   &:focus {
-    background: transparent;
+    background: lightnen($orange-secondary, 10%);
   }
 }
 
-.job-description {
-  display: inline;
-}
 /************************************ Media Queries **/
 
 @media screen and (max-width: 1200px) {

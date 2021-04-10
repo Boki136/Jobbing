@@ -175,6 +175,7 @@ def logout():
 @ app.route("/post_job", methods=["GET", "POST"])
 def post_job():
 
+    posted_date = datetime.now().date()
     if request.method == "POST":
 
         new_job = {
@@ -184,7 +185,7 @@ def post_job():
             "job_location": request.form.get("job_location"),
             "job_description": request.form.get("job_description"),
             "salary_range": request.form.get("salary_range"),
-            "posted_date": datetime.now() + timedelta(hours=1),
+            "posted_date": posted_date.strftime("%d/%m/%y"),
         }
 
         mongo.db.jobs.insert_one(new_job)

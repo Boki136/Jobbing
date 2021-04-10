@@ -710,19 +710,26 @@ footer {
   width: 40%; }
 
 .job-expand {
-  width: 60%; }
+  width: 50%; }
+
+.job-expand-structure {
+  display: none; }
 
 .job-listing-box {
   padding: 5%;
   box-shadow: 5px 10px 21px rgba(1, 1, 1, 0.3);
   border-radius: 10px;
-  margin-top: 25px; }
+  margin-top: 25px;
+  transition: all 0.25s ease-in-out;
+  opacity: 0.9; }
+  .job-listing-box:hover {
+    opacity: 1;
+    transform: scale(1.05); }
 
 .posted-date {
   text-align: right; }
 
 .save_job {
-  display: none;
   background: transparent;
   border: none;
   color: #db6400;
@@ -749,15 +756,13 @@ footer {
 .see-full-job {
   background: transparent;
   border: none;
-  color: #257e63;
+  color: #fff;
   cursor: pointer;
-  padding: 0;
-  margin-top: 20px; }
+  padding: 10px;
+  margin-top: 20px;
+  background: #ffa62b; }
   .see-full-job:focus {
-    background: transparent; }
-
-.job-description {
-  display: inline; }
+    background: lightnen(#ffa62b, 10%); }
 
 /************************************ Media Queries **/
 @media screen and (max-width: 1200px) {

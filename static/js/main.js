@@ -43,8 +43,62 @@ $(".close-user-info").click(function () {
 
 $(".job-description").each(function (i) {
   len = $(this).text().length;
-  let see_more = $(".see-full-job");
   if (len > 250) {
     $(this).text($(this).text().substr(0, 250) + "...");
+  }
+});
+
+// Show Only Selected Job on click
+let count = 0;
+$(".see-full-job").click(function () {
+  //check the count of click to avoid element duplication
+  if (count == 0) {
+    let job_title = $(this).parent().find("h1").text();
+    let job_location = $(this).parent().find("h2").text();
+    let job_salary = $(this).parent().find("h3").text();
+    let job_description = $(this).parent().find("p").text();
+
+    // capture job-listing-box element and append to job-expand
+
+    $(this)
+      .parent()
+      .clone()
+      .html(
+        `<h1 class="job-title">${job_title}</h1>
+              <h2 class="contract-type-location">${job_location}</h2>
+              <h3 class="job-salary">${job_salary}</h3>
+              <hr>
+              <form action="{{url_for('find_job')}}" method="POST">
+              <button class="save_job">Save a Job</button>
+            </form>
+              <p class="job-description">${job_description}</p>
+              `
+      )
+      .appendTo($(".job-expand"));
+
+    count++;
+
+    //check the count of click to avoid element duplication
+  } else if (count > 0) {
+    let job_title = $(this).parent().find("h1").text();
+    let job_location = $(this).parent().find("h2").text();
+    let job_salary = $(this).parent().find("h3").text();
+    let job_description = $(this).parent().find("p").text();
+    $(".job-expand").children().remove();
+    $(this)
+      .parent()
+      .clone()
+      .html(
+        `<h1 class="job-title">${job_title}</h1>
+            <h2 class="contract-type-location">${job_location}</h2>
+            <h3 class="job-salary">${job_salary}</h3>
+            <hr>
+            <form action="{{url_for('find_job')}}" method="POST">
+            <button class="save_job">Save a Job</button>
+          </form>
+            <p class="job-description">${job_description}</p>
+            `
+      )
+      .appendTo($(".job-expand"));
   }
 });
