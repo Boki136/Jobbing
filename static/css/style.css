@@ -710,7 +710,13 @@ footer {
   width: 40%; }
 
 .job-expand {
-  width: 50%; }
+  width: 50%;
+  position: relative;
+  box-shadow: 5px 10px 21px rgba(1, 1, 1, 0.3);
+  border-radius: 10px;
+  visibility: hidden;
+  padding: 5% 2%;
+  height: fit-content; }
 
 .job-expand-structure {
   display: none; }
@@ -728,6 +734,10 @@ footer {
 
 .posted-date {
   text-align: right; }
+
+.post-date {
+  position: absolute;
+  bottom: 25px; }
 
 .save_job {
   background: transparent;
@@ -763,6 +773,11 @@ footer {
   background: #ffa62b; }
   .see-full-job:focus {
     background: lightnen(#ffa62b, 10%); }
+
+.save-job_form {
+  position: absolute;
+  top: 25px;
+  right: 35px; }
 
 /************************************ Media Queries **/
 @media screen and (max-width: 1200px) {

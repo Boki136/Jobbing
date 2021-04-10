@@ -879,6 +879,12 @@ footer {
 
 .job-expand {
   width: 50%;
+  position: relative;
+  box-shadow: 5px 10px 21px rgba(1, 1, 1, 0.3);
+  border-radius: 10px;
+  visibility: hidden;
+  padding: 5% 2%;
+  height: fit-content;
 }
 
 .job-expand-structure {
@@ -901,6 +907,11 @@ footer {
 
 .posted-date {
   text-align: right;
+}
+
+.post-date {
+  position: absolute;
+  bottom: 25px;
 }
 
 .save_job {
@@ -945,6 +956,12 @@ footer {
   &:focus {
     background: lightnen($orange-secondary, 10%);
   }
+}
+
+.save-job_form {
+  position: absolute;
+  top: 25px;
+  right: 35px;
 }
 
 /************************************ Media Queries **/
