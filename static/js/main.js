@@ -97,3 +97,91 @@ $(".see-full-job").click(function () {
     `);
   }
 });
+
+// Job-listing pagination
+
+let numOfItems = $(".job-listing .job-listing-box").length;
+let itemsLimit = 3;
+$(".job-listing .job-listing-box:gt(" + (itemsLimit - 1) + ")").hide();
+let totalPages = Math.round(numOfItems) / itemsLimit;
+
+// append first page and create rest of the pages dynamically based on num of items
+
+$(".pagination").append(
+  "<li class='active' id='current-page'><a href='javascript:void(0)'>" +
+    1 +
+    "</a></li>"
+);
+
+for (let i = 2; i <= totalPages; i++) {
+  $(".pagination").append(
+    "<li id='current-page'><a href='javascript:void(0)'>" + i + "</a></li>"
+  );
+}
+
+$(".pagination").append(
+  "<li id='next_page' class='waves-effect'><a href='javascript:void(0)'><i class='fas fa-arrow-right'></i></a></li>"
+);
+
+let current_page_count = $(".pagination li#current-page").index();
+
+$(".page-count").text(`Page ${current_page_count} of ${totalPages}`);
+
+$(".pagination li#current-page").click(function () {
+  if ($(this).hasClass("active")) {
+    return false;
+  } else {
+    current_page = $(this).index();
+    $(".pagination li").removeClass("active");
+    $(this).addClass("active");
+    $(".job-listing .job-listing-box").hide();
+
+    let allItems = itemsLimit * current_page;
+
+    for (let i = allItems - itemsLimit; i < allItems; i++) {
+      $(".job-listing .job-listing-box:eq(" + i + ")").show();
+    }
+  }
+});
+
+$("#next_page").click(function () {
+  let selected_page = $(".pagination li.active").index();
+  if (selected_page === totalPages) {
+    return false;
+  } else {
+    selected_page++;
+    $(".pagination li").removeClass("active");
+    $(".job-listing .job-listing-box").hide();
+
+    let allItems = itemsLimit * selected_page;
+
+    for (let i = allItems - itemsLimit; i < allItems; i++) {
+      $(".job-listing .job-listing-box:eq(" + i + ")").show();
+    }
+
+    $(".pagination li#current-page:eq(" + (selected_page - 1) + ")").addClass(
+      "active"
+    );
+  }
+});
+
+$("#prev-page").click(function () {
+  let selected_page = $(".pagination li.active").index();
+  if (selected_page === 1) {
+    return false;
+  } else {
+    selected_page--;
+    $(".pagination li").removeClass("active");
+    $(".job-listing .job-listing-box").hide();
+
+    let allItems = itemsLimit * selected_page;
+
+    for (let i = allItems - itemsLimit; i < allItems; i++) {
+      $(".job-listing .job-listing-box:eq(" + i + ")").show();
+    }
+
+    $(".pagination li#current-page:eq(" + (selected_page - 1) + ")").addClass(
+      "active"
+    );
+  }
+});
