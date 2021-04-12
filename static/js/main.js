@@ -78,6 +78,7 @@ $(".see-full-job").click(function () {
 
     //check the count of click to avoid element duplication
   } else if (count > 0) {
+    // save each job component and append job-expand element dynamically
     let job_title = $(this).parent().find("h1").text();
     let job_location = $(this).parent().find("h2").text();
     let job_salary = $(this).parent().find("h3").text();
@@ -103,9 +104,9 @@ $(".see-full-job").click(function () {
 let numOfItems = $(".job-listing .job-listing-box").length;
 let itemsLimit = 3;
 $(".job-listing .job-listing-box:gt(" + (itemsLimit - 1) + ")").hide();
-let totalPages = Math.round(numOfItems) / itemsLimit;
+let totalPages = Math.ceil(numOfItems / itemsLimit);
 
-// append first page and create rest of the pages dynamically based on num of items
+// Append first page and loop through total number of pages
 
 $(".pagination").append(
   "<li class='active' id='current-page'><a href='javascript:void(0)'>" +
@@ -120,13 +121,15 @@ for (let i = 2; i <= totalPages; i++) {
 }
 
 $(".pagination").append(
-  "<li id='next_page' class='waves-effect'><a href='javascript:void(0)'><i class='fas fa-arrow-right'></i></a></li>"
+  "<li class='next_page' class='waves-effect'><a href='javascript:void(0)'><i class='fas fa-chevron-right'></i></a></li>"
 );
 
-let current_page_count = $(".pagination li#current-page").index();
+//check the current page and update pages title
 
+let current_page_count = $(".pagination li.active").index();
 $(".page-count").text(`Page ${current_page_count} of ${totalPages}`);
 
+//Function to navigate to the next/previous page when users selects desired one
 $(".pagination li#current-page").click(function () {
   if ($(this).hasClass("active")) {
     return false;
@@ -142,9 +145,13 @@ $(".pagination li#current-page").click(function () {
       $(".job-listing .job-listing-box:eq(" + i + ")").show();
     }
   }
+
+  let current_page_count = $(".pagination li.active").index();
+  $(".page-count").text(`Page ${current_page_count} of ${totalPages}`);
 });
 
-$("#next_page").click(function () {
+// Function to navigate to the next page when users click on next page icon
+$(".next_page").click(function () {
   let selected_page = $(".pagination li.active").index();
   if (selected_page === totalPages) {
     return false;
@@ -163,9 +170,13 @@ $("#next_page").click(function () {
       "active"
     );
   }
+
+  //check the current page and update pages title
+  $(".page-count").text(`Page ${selected_page} of ${totalPages}`);
 });
 
-$("#prev-page").click(function () {
+// Function to navigate to the previous page when users click on previous page icon
+$(".prev-page").click(function () {
   let selected_page = $(".pagination li.active").index();
   if (selected_page === 1) {
     return false;
@@ -184,4 +195,7 @@ $("#prev-page").click(function () {
       "active"
     );
   }
+
+  //check the current page and update pages title
+  $(".page-count").text(`Page ${selected_page} of ${totalPages}`);
 });

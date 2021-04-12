@@ -453,7 +453,6 @@ footer {
     float: left; }
 
 .social-icons {
-  display: inline-block;
   float: right;
   color: #fff;
   font-size: 30px; }
@@ -718,7 +717,11 @@ footer {
   border-radius: 10px;
   visibility: hidden;
   padding: 5% 2%;
-  height: fit-content; }
+  height: fit-content;
+  position: sticky;
+  top: 5%; }
+  .job-expand p {
+    margin: 25px 0; }
 
 .job-expand-structure {
   display: none; }
@@ -739,7 +742,7 @@ footer {
 
 .post-date {
   position: absolute;
-  bottom: 25px; }
+  bottom: 35px; }
 
 .save_job {
   background: transparent;
@@ -765,16 +768,19 @@ footer {
   font-weight: 600;
   margin-bottom: 35px; }
 
+.job-description {
+  margin-top: 25px; }
+
 .see-full-job {
   background: transparent;
   border: none;
   color: #fff;
   cursor: pointer;
-  padding: 10px;
+  padding: 5px 10px;
   margin-top: 20px;
   background: #ffa62b; }
   .see-full-job:focus {
-    background: lightnen(#ffa62b, 10%); }
+    background-color: #ffa62b; }
 
 .save-job_form {
   position: absolute;
@@ -786,7 +792,15 @@ footer {
   margin: 50px auto 0 auto; }
 
 .pagination li.active {
-  background-color: #257e63; }
+  background-color: #31a582; }
+
+.pagination li a {
+  font-size: 1.5em; }
+
+.prev-page i,
+.next_page i {
+  font-size: 1.2em !important;
+  vertical-align: middle; }
 
 /************************************ Media Queries **/
 @media screen and (max-width: 1200px) {

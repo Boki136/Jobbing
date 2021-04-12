@@ -1,129 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--Font Awsome-->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-        crossorigin="anonymous" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      type="text/css"
+    />
     <!-- Compiled and minified CSS Materialize -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-        type="text/css">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
-    {% block styles %}
-    {% endblock %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+      type="text/css"
+    />
+    {% block styles %} {% endblock %}
     <title>Jobbing</title>
-</head>
+  </head>
 
-<body>
-
-
+  <body>
     <!--Navbar Large Materialize-->
 
     <header>
-        <nav class="nav-extended">
-            <div class="nav-wrapper">
-                <a href="{{url_for('homepage')}}"><img class="logo"
-                        src="/static/images/white-color-v3.png" alt=""></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger right mobile-menu"><i
-                        class="fas fa-bars"></i></a>
-                <ul class="right hide-on-med-and-down">
-                    {% if session.user %}
-                    <li><a href="{{url_for('find_job')}}">Find a Job</a></li>
-                    <li><a href="{{url_for('profile', user=session['user'])}}">My Profile</a></li>
-                    <li><a href="mobile.html">Contact Us</a></li>
-                    <li><a href="{{url_for('logout')}}">Logout</a></li>
-                    <li><a href="{{url_for('post_job')}}"
-                            class="waves-effect waves-light btn nav-btn">POST A JOB</a></li>
-                    {% else %}
-                    <li><a href="{{url_for('find_job')}}">Find a Job</a></li>
-                    <li><a href="{{url_for('login')}}">Login</a></li>
-                    <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
-                    <li><a href="mobile.html">Contact Us</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </nav>
-
-        <!--Navbar Mobile Materialize-->
-
-        <ul class="sidenav right" id="mobile-demo">
+      <nav class="nav-extended">
+        <div class="nav-wrapper">
+          <a href="{{url_for('homepage')}}"
+            ><img class="logo" src="/static/images/white-color-v3.png" alt=""
+          /></a>
+          <a
+            href="#"
+            data-target="mobile-demo"
+            class="sidenav-trigger right mobile-menu"
+            ><i class="fas fa-bars"></i
+          ></a>
+          <ul class="right hide-on-med-and-down">
             {% if session.user %}
-            <li><a href="sass.html">Find a Job</a></li>
-            <li><a href="{{url_for('profile', user=session['user'])}}">My Profile</a></li>
+            <li><a href="{{url_for('find_job')}}">Find a Job</a></li>
+            <li>
+              <a href="{{url_for('profile', user=session['user'])}}"
+                >My Profile</a
+              >
+            </li>
             <li><a href="mobile.html">Contact Us</a></li>
             <li><a href="{{url_for('logout')}}">Logout</a></li>
-            <li><a href="{{url_for('post_job')}}">Post A Job</a></li>
+            <li>
+              <a
+                href="{{url_for('post_job')}}"
+                class="waves-effect waves-light btn nav-btn"
+                >POST A JOB</a
+              >
+            </li>
             {% else %}
             <li><a href="{{url_for('find_job')}}">Find a Job</a></li>
             <li><a href="{{url_for('login')}}">Login</a></li>
             <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
             <li><a href="mobile.html">Contact Us</a></li>
             {% endif %}
-        </ul>
+          </ul>
+        </div>
+      </nav>
+
+      <!--Navbar Mobile Materialize-->
+
+      <ul class="sidenav right" id="mobile-demo">
+        {% if session.user %}
+        <li><a href="{{url_for('find_job')}}">Find a Job</a></li>
+        <li>
+          <a href="{{url_for('profile', user=session['user'])}}">My Profile</a>
+        </li>
+        <li><a href="mobile.html">Contact Us</a></li>
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
+        <li><a href="{{url_for('post_job')}}">Post A Job</a></li>
+        {% else %}
+        <li><a href="{{url_for('find_job')}}">Find a Job</a></li>
+        <li><a href="{{url_for('login')}}">Login</a></li>
+        <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
+        <li><a href="mobile.html">Contact Us</a></li>
+        {% endif %}
+      </ul>
     </header>
 
     <section class="flash-message-container">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <div class="row flash-message">
-            <h2>{{ message }}</h2>
-        </div>
-        {% endfor %}
-
-        {% endif %}
-        {% endwith %}
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <div class="row flash-message">
+        <h2>{{ message }}</h2>
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
     </section>
 
-    {% block content %}
-    {% endblock %}
+    {% block content %} {% endblock %}
 
     <footer>
+      <div class="footer-wrapper">
+        <img src="/static/images/white-color-v3.png" />
+        <hr />
 
-        <div class="footer-wrapper">
-            <img src="/static/images/white-color-v3.png">
-            <hr>
+        <ul class="footer-menu">
+          {% if session.user %}
+          <li><a href="sass.html">Find a Job</a></li>
+          <li>
+            <a href="{{url_for('profile', user=session['user'])}}"
+              >My Profile</a
+            >
+          </li>
+          <li><a href="{{url_for('post_job')}}">Post a Job</a></li>
+          {% else %}
+          <li><a href="{{url_for('find_job')}}">Find a Job</a></li>
+          <li><a href="{{url_for('login')}}">Login</a></li>
+          <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
+          {% endif %}
+          <li><a href="mobile.html">Contact Us</a></li>
+        </ul>
 
-            <ul class="footer-menu">
-                {% if session.user %}
-                <li><a href="sass.html">Find a Job</a></li>
-                <li><a href="{{url_for('profile', user=session['user'])}}">My Profile</a></li>
-                <li><a href="{{url_for('post_job')}}">Post a Job</a></li>
-                {% else %}
-                <li><a href="{{url_for('find_job')}}">Find a Job</a></li>
-                <li><a href="{{url_for('login')}}">Login</a></li>
-                <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
-                {% endif %}
-                <li><a href="mobile.html">Contact Us</a></li>
-            </ul>
-
-            <div class="copyright-wrapper">
-                <h3>© COPYRIGHT 2021 | Designed & Developed By Boris Gersic</h3>
-                <div class="social-icons">
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-twitter"></i>
-                </div>
-            </div>
+        <div class="copyright-wrapper">
+          <h3>© COPYRIGHT 2021 | Designed & Developed By Boris Gersic</h3>
+          <div class="social-icons">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+          </div>
         </div>
+      </div>
     </footer>
-
 
     <!--jQuery CDN-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!-- Compiled and minified JavaScript -->
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--Own Script-->
     <script src="{{url_for('static', filename='js/main.js') }}"></script>
-    {% block scripts %}
-    {% endblock %}
-</body>
-
+    {% block scripts %} {% endblock %}
+  </body>
 </html>

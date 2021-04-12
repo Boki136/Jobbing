@@ -551,7 +551,6 @@ footer {
 }
 
 .social-icons {
-  display: inline-block;
   float: right;
   color: #fff;
   font-size: 30px;
@@ -888,6 +887,12 @@ footer {
   visibility: hidden;
   padding: 5% 2%;
   height: fit-content;
+  position: sticky;
+  top: 5%;
+
+  p {
+    margin: 25px 0;
+  }
 }
 
 .job-expand-structure {
@@ -914,7 +919,7 @@ footer {
 
 .post-date {
   position: absolute;
-  bottom: 25px;
+  bottom: 35px;
 }
 
 .save_job {
@@ -947,17 +952,21 @@ footer {
   margin-bottom: 35px;
 }
 
+.job-description {
+  margin-top: 25px;
+}
+
 .see-full-job {
   background: transparent;
   border: none;
   color: #fff;
   cursor: pointer;
-  padding: 10px;
+  padding: 5px 10px;
   margin-top: 20px;
   background: $orange-secondary;
 
   &:focus {
-    background: lightnen($orange-secondary, 10%);
+    background-color: $orange-secondary;
   }
 }
 
@@ -973,7 +982,17 @@ footer {
 }
 
 .pagination li.active {
-  background-color: $dark-green;
+  background-color: lighten($dark-green, 10%);
+}
+
+.pagination li a {
+  font-size: 1.5em;
+}
+
+.prev-page i,
+.next_page i {
+  font-size: 1.2em !important;
+  vertical-align: middle;
 }
 /************************************ Media Queries **/
 

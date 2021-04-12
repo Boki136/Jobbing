@@ -23,11 +23,7 @@ mongo = PyMongo(app)
 @app.route("/index.html")
 def homepage():
 
-    # retrive users name from database
-    user = mongo.db.users.find_one(
-        {"email": session["user"]})
-
-    return render_template("index.html", user=user)
+    return render_template("index.html")
 
 
 @app.route("/register_jobseeker", methods=["GET", "POST"])

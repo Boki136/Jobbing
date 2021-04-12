@@ -58,7 +58,7 @@
 
       <!--Listed Jobs-->
 
-      {% for job in all_jobs %}
+      {% for job in all_jobs|reverse %}
       <div class="job-listing-box">
         <h4 class="posted-date">{{job.posted_date}}</h4>
         <h1 class="job-title">{{job.job_title}}</h1>
@@ -81,8 +81,8 @@
   <!-- Page Selector-->
   <div class="page-numbers">
     <ul class="pagination">
-      <li id="prev-page">
-        <a href="javascript:void(0)"><i class="fas fa-arrow-left"></i></a>
+      <li class="prev-page">
+        <a href="javascript:void(0)"><i class="fas fa-chevron-left"></i></a>
       </li>
     </ul>
   </div>
