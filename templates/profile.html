@@ -32,6 +32,14 @@
     </form>
   </div>
 </section>
+
+<!--Saved Jobs Section-->
+<section class="jobs-section-wrapper">
+  <h1 class="jobs-section-title">My Jobs</h1>
+  <h3 class="saved-jobs">Saved</h3>
+  <span class="saved-jobs-total">3</span>
+</section>
+
 {% endif %} {% if user.is_employer == "Yes" %}
 <!--Employer Details form-->
 <section class="employer-details-container">
@@ -95,11 +103,11 @@
     </form>
   </div>
 </section>
-{% endif %}
 
-<section class="jobseeker-saved-jobs">
-  <h1>My Jobs</h1>
-  <h3 class="saved-jobs">{{jobs.job_title}}</h3>
+<!--Posted Jobs Section-->
+<section class="jobs-section-wrapper">
+  <h1 class="jobs-section-title">My Jobs</h1>
+  <h3 class="saved-jobs">Saved</h3>
+  <span class="saved-jobs-total">3</span>
 </section>
-
-{% endblock %}
+{% endif %} {% endblock %}

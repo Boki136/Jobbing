@@ -60,14 +60,15 @@
 
       {% for job in all_jobs|reverse %}
       <div class="job-listing-box">
-        <h4 class="posted-date">{{job.posted_date}}</h4>
+        <h5 class="posted-date">{{job.posted_date}}</h5>
         <h1 class="job-title">{{job.job_title}}</h1>
+        <h4 class="company_name">{{ job.company_name}}</h4>
         <h2 class="contract-type-location">
-          {{ job.contract_type }} | {{job.job_location}}
+          {{ job.contract_type }} | {{job.company_address}}
         </h2>
         <h3 class="job-salary">{{ job.salary_range }}</h3>
 
-        <p class="job-description-mobile">{{job.job_description}}</p>
+        <p>{{job.job_description}}</p>
         <button class="save-job_mobile">Save a Job</button>
       </div>
 

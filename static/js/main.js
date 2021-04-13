@@ -44,23 +44,27 @@ let count = 0;
 $(".see-full-job").click(function () {
   let job_expand = $(".job-expand");
   job_expand.css("visibility", "visible");
+
   //check the count of click to avoid element duplication
   if (count == 0) {
     let job_title = $(this).parent().find("h1").text();
-    let job_location = $(this).parent().find("h2").text();
+    let company_name = $(this).parent().find("h4").text();
+    let company_contract_address = $(this).parent().find("h2").text();
     let job_salary = $(this).parent().find("h3").text();
     let job_description = $(this).parent().find("p").text();
-    let posted_date = $(this).parent().find("h4").text();
+    let posted_date = $(this).parent().find("h5").text();
     // capture job-listing-box element and append to job-expand
 
     $(this).parent().parent().parent().find(job_expand)
       .append(`<h1 class="job-title">${job_title}</h1>
-      <h2 class="contract-type-location">${job_location}</h2>
+      <h4 class="company_name">${company_name}</h4>
+      <h4 class="contract-type-location">${company_contract_address}</h4>
       <h3 class="job-salary">${job_salary}</h3>
       <hr>
       <form class="save-job_form" action="{{url_for('profile', jobs=jobs, user=user)}}" method="POST">
-      <button type="submit" class="save_job">Save a Job</button>
-    </form>
+      <button class="save_job"></button>
+      <span class="tooltip-job">Save a Job</span>    
+      </form>
       <p>${job_description}</p>
       <h4 class="post-date">${posted_date}</h4>
       `);
@@ -71,23 +75,38 @@ $(".see-full-job").click(function () {
   } else if (count > 0) {
     // save each job component and append job-expand element dynamically
     let job_title = $(this).parent().find("h1").text();
-    let job_location = $(this).parent().find("h2").text();
+    let company_name = $(this).parent().find("h4").text();
+    let company_contract_address = $(this).parent().find("h2").text();
     let job_salary = $(this).parent().find("h3").text();
     let job_description = $(this).parent().find("p").text();
-    let posted_date = $(this).parent().find("h4").text();
+    let posted_date = $(this).parent().find("h5").text();
     $(".job-expand").children().remove();
     $(this).parent().parent().parent().find(job_expand)
       .append(`<h1 class="job-title">${job_title}</h1>
-    <h2 class="contract-type-location">${job_location}</h2>
+    <h4 class="company_name">${company_name}</h4>
+    <h4 class="contract-type-location">${company_contract_address}</h4>
     <h3 class="job-salary">${job_salary}</h3>
     <hr>
-    <form class="save-job_form" action="{{url_for('find_job')}}" method="POST">
-    <button class="save_job">Save a Job</button>
-  </form>
-    <p class="job-description-expand">${job_description}</p>
+    <form class="save-job_form" action="{{url_for('profile', jobs=jobs, user=user)}}" method="POST">
+    <button class="save_job"></button>
+    <span class="tooltip-job">Save a Job</span>    
+    </form>
+    <p>${job_description}</p>
     <h4 class="post-date">${posted_date}</h4>
     `);
   }
+
+  $(".save-job_form")
+    .after()
+    .mouseover(function () {
+      $(".tooltip-job").css("visibility", "visible");
+    });
+
+  $(".save-job_form")
+    .after()
+    .mouseleave(function () {
+      $(".tooltip-job").css("visibility", "hidden");
+    });
 });
 
 // Job-listing pagination

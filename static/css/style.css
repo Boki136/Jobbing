@@ -611,6 +611,26 @@ footer {
 .close-user-info {
   display: none; }
 
+.jobs-section-wrapper {
+  width: 80%;
+  margin: 50px auto; }
+
+.jobs-section-title {
+  font-size: 2em;
+  margin-bottom: 35px; }
+
+.saved-jobs {
+  font-size: 1.35em;
+  display: inline-block;
+  padding-right: 15px; }
+
+.saved-jobs-total {
+  font-size: 1.5em;
+  background: #db6400;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff; }
+
 /************************************* Post a job page **/
 .post-job-form {
   width: 60%;
@@ -758,13 +778,22 @@ footer {
   cursor: pointer;
   margin-top: 25px;
   padding: 0; }
+  .save_job::after {
+    content: "\f004";
+    font-family: "Font Awesome 5 Free";
+    font-size: 35px; }
+  .save_job:hover::after {
+    font-weight: 900; }
   .save_job:focus {
     background: transparent; }
 
 .job-title {
-  font-size: 1.35em;
+  font-size: 1.65em;
   margin-bottom: 15px;
   font-weight: 500; }
+
+.company_name {
+  padding-bottom: 10px; }
 
 .contract-type-location {
   font-weight: 400;
@@ -781,6 +810,14 @@ footer {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100ch; }
+
+.tooltip-job {
+  position: absolute;
+  left: -80px;
+  top: -10px;
+  border: 1px solid gainsboro;
+  padding: 5px;
+  visibility: hidden; }
 
 .see-full-job,
 .save-job_mobile {

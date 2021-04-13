@@ -91,10 +91,6 @@ def profile():
     user = mongo.db.users.find_one(
         {"email": session["user"]})
 
-    # retrive jobs from database
-
-    jobs = mongo.db.jobs.find()
-
     employer = request.form.get("employer_name")
     jobseeker = request.form.get("jobseeker_name")
 
@@ -128,7 +124,7 @@ def profile():
             return redirect(url_for("profile"))
 
     if session["user"]:
-        return render_template("profile.html", user=user, jobs=jobs)
+        return render_template("profile.html", user=user)
 
     return redirect(url_for("login"))
 
@@ -175,6 +171,13 @@ def logout():
 @ app.route("/post_job", methods=["GET", "POST"])
 def post_job():
 
+    # retrive users name from database
+    users = mongo.db.users.find_one(
+        {"email": session["user"]})
+
+    company_name = str(users["company_name"])
+    company_address = str(users["company_address"])
+
     posted_date = datetime.now().date()
     if request.method == "POST":
 
@@ -182,10 +185,11 @@ def post_job():
             "job_title": request.form.get("job_title"),
             "job_category": request.form.get("job_category"),
             "contract_type": request.form.get("contract_type"),
-            "job_location": request.form.get("job_location"),
             "job_description": request.form.get("job_description"),
             "salary_range": request.form.get("salary_range"),
             "posted_date": posted_date.strftime("%d/%m/%y"),
+            "company_name": company_name,
+            "company_address": company_address,
         }
 
         mongo.db.jobs.insert_one(new_job)
