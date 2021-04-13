@@ -48,8 +48,8 @@
 <!-- Jobs Listing-->
 
 <section class="job-listing-container">
-  <div class="job-listing-wrapper">
-    <div class="job-listing">
+  <div class="job-listing-wrapper-mobile">
+    <div class="whole-listing job-listing-mobile">
       <div class="job-listing-title">
         <h2>All Jobs</h2>
         <h3 class="page-count"></h3>
@@ -67,8 +67,8 @@
         </h2>
         <h3 class="job-salary">{{ job.salary_range }}</h3>
 
-        <p class="job-description">{{job.job_description}}</p>
-        <button class="see-full-job">See More</button>
+        <p class="job-description-mobile">{{job.job_description}}</p>
+        <button class="save-job_mobile">Save a Job</button>
       </div>
 
       {% endfor %}

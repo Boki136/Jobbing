@@ -859,6 +859,15 @@ footer {
   display: flex;
   justify-content: space-evenly;
 }
+
+.job-listing-wrapper-mobile {
+  max-width: 800px;
+}
+
+.find-job-sm {
+  display: none !important;
+}
+
 .job-listing-title {
   h2 {
     float: left;
@@ -961,8 +970,8 @@ footer {
   max-width: 100ch;
 }
 
-.see-full-job {
-  background: transparent;
+.see-full-job,
+.save-job_mobile {
   border: none;
   color: #fff;
   cursor: pointer;
@@ -1073,6 +1082,22 @@ footer {
     width: 95%;
     margin: 15px 0;
   }
+
+  .job-listing-container {
+    width: 90%;
+  }
+
+  .job-listing-box:hover {
+    transform: scale(1);
+  }
+
+  .find-job-lg {
+    display: none !important;
+  }
+
+  .find-job-sm {
+    display: inline-block !important;
+  }
 }
 
 @media screen and (max-width: 770px) {
@@ -1147,5 +1172,9 @@ footer {
 
   .post-job-form {
     width: 95%;
+  }
+
+  .posted-date {
+    margin-bottom: 15px;
   }
 }

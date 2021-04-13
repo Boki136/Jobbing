@@ -106,7 +106,12 @@
 
         <ul class="footer-menu">
           {% if session.user %}
-          <li><a href="sass.html">Find a Job</a></li>
+          <li class="find-job-lg">
+            <a href="{{url_for('find_job')}}">Find a Job</a>
+          </li>
+          <li class="find-job-sm">
+            <a href="{{url_for('find_job_mobile')}}">Find a Job</a>
+          </li>
           <li>
             <a href="{{url_for('profile', user=session['user'])}}"
               >My Profile</a
@@ -114,7 +119,12 @@
           </li>
           <li><a href="{{url_for('post_job')}}">Post a Job</a></li>
           {% else %}
-          <li><a href="{{url_for('find_job')}}">Find a Job</a></li>
+          <li class="find-job-lg">
+            <a href="{{url_for('find_job')}}">Find a Job</a>
+          </li>
+          <li class="find-job-sm">
+            <a href="{{url_for('find_job_mobile')}}">Find a Job</a>
+          </li>
           <li><a href="{{url_for('login')}}">Login</a></li>
           <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
           {% endif %}

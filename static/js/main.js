@@ -92,9 +92,16 @@ $(".see-full-job").click(function () {
 
 // Job-listing pagination
 
-let numOfItems = $(".job-listing .job-listing-box").length;
+let numOfItems = $(".whole-listing .job-listing-box").length;
 let itemsLimit = 3;
+
+// Hide items on large screen
 $(".job-listing .job-listing-box:gt(" + (itemsLimit - 1) + ")").hide();
+
+//Hide items on small screen < 900px
+
+$(".job-listing-mobile .job-listing-box:gt(" + (itemsLimit - 1) + ")").hide();
+
 let totalPages = Math.ceil(numOfItems / itemsLimit);
 
 // Append first page and loop through total number of pages
@@ -128,12 +135,12 @@ $(".pagination li#current-page").click(function () {
     current_page = $(this).index();
     $(".pagination li").removeClass("active");
     $(this).addClass("active");
-    $(".job-listing .job-listing-box").hide();
+    $(".whole-listing .job-listing-box").hide();
 
     let allItems = itemsLimit * current_page;
 
     for (let i = allItems - itemsLimit; i < allItems; i++) {
-      $(".job-listing .job-listing-box:eq(" + i + ")").show();
+      $(".whole-listing .job-listing-box:eq(" + i + ")").show();
     }
   }
 
@@ -149,12 +156,12 @@ $(".next_page").click(function () {
   } else {
     selected_page++;
     $(".pagination li").removeClass("active");
-    $(".job-listing .job-listing-box").hide();
+    $(".whole-listing .job-listing-box").hide();
 
     let allItems = itemsLimit * selected_page;
 
     for (let i = allItems - itemsLimit; i < allItems; i++) {
-      $(".job-listing .job-listing-box:eq(" + i + ")").show();
+      $(".whole-listing .job-listing-box:eq(" + i + ")").show();
     }
 
     $(".pagination li#current-page:eq(" + (selected_page - 1) + ")").addClass(
