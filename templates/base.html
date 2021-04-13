@@ -72,7 +72,7 @@
 
       <ul class="sidenav right" id="mobile-demo">
         {% if session.user %}
-        <li><a href="{{url_for('find_job')}}">Find a Job</a></li>
+        <li><a href="{{url_for('find_job_mobile')}}">Find a Job</a></li>
         <li>
           <a href="{{url_for('profile', user=session['user'])}}">My Profile</a>
         </li>
@@ -80,7 +80,7 @@
         <li><a href="{{url_for('logout')}}">Logout</a></li>
         <li><a href="{{url_for('post_job')}}">Post A Job</a></li>
         {% else %}
-        <li><a href="{{url_for('find_job')}}">Find a Job</a></li>
+        <li><a href="{{url_for('find_job_mobile')}}">Find a Job</a></li>
         <li><a href="{{url_for('login')}}">Login</a></li>
         <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
         <li><a href="mobile.html">Contact Us</a></li>

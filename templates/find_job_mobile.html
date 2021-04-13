@@ -1,0 +1,88 @@
+{% extends "base.html" %} {% block content %}
+
+<!--Hero Section-->
+
+<section class="hero-section-job">
+  <div class="hero-section_wrapper">
+    <h1 class="hero-section_title">Search Available Jobs</h1>
+
+    <div class="hero-search">
+      <form id="search-form">
+        <input
+          type="search"
+          class="search-box"
+          placeholder="Search all jobs..."
+        />
+        <input type="submit" value="EXPLORE" class="search-submit" />
+      </form>
+    </div>
+  </div>
+</section>
+
+<!--Popular Jobs Section-->
+
+<section class="popular-jobs">
+  <h1 class="section-title">Search By Category</h1>
+  <hr class="large-horizontal-rule" />
+  <div class="popular-jobs-box_wrapper">
+    <div class="popular-jobs_box-search category_one">
+      <i class="fas fa-chart-pie fa-3x"></i>
+      <h1>Marketing</h1>
+      <h3 class="title-arrow">&nbsp;</h3>
+    </div>
+
+    <div class="popular-jobs_box-search category_two">
+      <i class="fas fa-coins fa-3x"></i>
+      <h1>Finance</h1>
+      <h3 class="title-arrow">&nbsp;</h3>
+    </div>
+
+    <div class="popular-jobs_box-search category_three">
+      <i class="fas fa-phone-volume fa-3x"></i>
+      <h1>Sales</h1>
+      <h3 class="title-arrow">&nbsp;</h3>
+    </div>
+  </div>
+</section>
+
+<!-- Jobs Listing-->
+
+<section class="job-listing-container">
+  <div class="job-listing-wrapper">
+    <div class="job-listing">
+      <div class="job-listing-title">
+        <h2>All Jobs</h2>
+        <h3 class="page-count"></h3>
+        <hr />
+      </div>
+
+      <!--Listed Jobs-->
+
+      {% for job in all_jobs|reverse %}
+      <div class="job-listing-box">
+        <h4 class="posted-date">{{job.posted_date}}</h4>
+        <h1 class="job-title">{{job.job_title}}</h1>
+        <h2 class="contract-type-location">
+          {{ job.contract_type }} | {{job.job_location}}
+        </h2>
+        <h3 class="job-salary">{{ job.salary_range }}</h3>
+
+        <p class="job-description">{{job.job_description}}</p>
+        <button class="see-full-job">See More</button>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Page Selector-->
+  <div class="page-numbers">
+    <ul class="pagination">
+      <li class="prev-page">
+        <a href="javascript:void(0)"><i class="fas fa-chevron-left"></i></a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+{% endblock %}

@@ -91,6 +91,10 @@ def profile():
     user = mongo.db.users.find_one(
         {"email": session["user"]})
 
+    # retrive jobs from database
+
+    jobs = mongo.db.jobs.find()
+
     employer = request.form.get("employer_name")
     jobseeker = request.form.get("jobseeker_name")
 
@@ -124,7 +128,7 @@ def profile():
             return redirect(url_for("profile"))
 
     if session["user"]:
-        return render_template("profile.html", user=user)
+        return render_template("profile.html", user=user, jobs=jobs)
 
     return redirect(url_for("login"))
 
@@ -197,6 +201,14 @@ def find_job():
     all_jobs = list(mongo.db.jobs.find())
 
     return render_template('find_job.html', all_jobs=all_jobs)
+
+
+@app.route("/find-job-mobile")
+def find_job_mobile():
+
+    all_jobs = list(mongo.db.jobs.find())
+
+    return render_template('find_job_mobile.html', all_jobs=all_jobs)
 
 
 if __name__ == "__main__":

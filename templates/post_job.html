@@ -40,14 +40,15 @@
     />
     <label for="job_description">Job Description:</label>
     <textarea
+      spellcheck="false"
       id="job_description"
       name="job_description"
       rows="100"
       minlength="150"
-      maxlength="1000"
+      maxlength="15000"
       validate
       required
-      pattern="[A-Za-z0-9]{20, 750}"
+      pattern="[A-Za-z0-9]{150, 15000}"
     ></textarea>
     <label for="salary_range">Salary Range:</label>
     <input

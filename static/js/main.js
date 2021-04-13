@@ -39,15 +39,6 @@ $(".close-user-info").click(function () {
   $(this).prev().css("display", "block");
 });
 
-// Show limited number of text for the job description
-
-$(".job-description").each(function (i) {
-  len = $(this).text().length;
-  if (len > 250) {
-    $(this).text($(this).text().substr(0, 250) + "...");
-  }
-});
-
 // Show Only Selected Job on click
 let count = 0;
 $(".see-full-job").click(function () {
@@ -67,8 +58,8 @@ $(".see-full-job").click(function () {
       <h2 class="contract-type-location">${job_location}</h2>
       <h3 class="job-salary">${job_salary}</h3>
       <hr>
-      <form class="save-job_form" action="{{url_for('find_job')}}" method="POST">
-      <button class="save_job">Save a Job</button>
+      <form class="save-job_form" action="{{url_for('profile', jobs=jobs, user=user)}}" method="POST">
+      <button type="submit" class="save_job">Save a Job</button>
     </form>
       <p>${job_description}</p>
       <h4 class="post-date">${posted_date}</h4>
@@ -93,7 +84,7 @@ $(".see-full-job").click(function () {
     <form class="save-job_form" action="{{url_for('find_job')}}" method="POST">
     <button class="save_job">Save a Job</button>
   </form>
-    <p class="job-description">${job_description}</p>
+    <p class="job-description-expand">${job_description}</p>
     <h4 class="post-date">${posted_date}</h4>
     `);
   }

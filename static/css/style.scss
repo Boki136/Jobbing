@@ -793,8 +793,9 @@ footer {
 
 #job_description {
   max-width: 100%;
-  max-height: 250px;
+  max-height: 400px;
   min-height: 125px;
+  min-width: 100%;
   padding: 10px;
   border-radius: 5px;
   outline: none;
@@ -954,6 +955,10 @@ footer {
 
 .job-description {
   margin-top: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100ch;
 }
 
 .see-full-job {
