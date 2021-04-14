@@ -108,6 +108,7 @@ body {
   line-height: 1;
   background: #f8f1f1;
   overflow-x: hidden; /* Hide horizontal scrollbar */
+  font-family: "Raleway", sans-serif;
 }
 ol,
 ul {
@@ -127,6 +128,16 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  font-family: "Playfair Display", sans-serif;
 }
 
 //Colour Variables
