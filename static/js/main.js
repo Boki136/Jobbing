@@ -88,19 +88,16 @@ $(".see-full-job").click(function () {
     <h4 class="post-date">${posted_date}</h4>
     `);
   }
-
-  $(".save-job_form")
-    .after()
-    .mouseover(function () {
-      $(".tooltip-job").css("visibility", "visible");
-    });
-
-  $(".save-job_form")
-    .after()
-    .mouseleave(function () {
-      $(".tooltip-job").css("visibility", "hidden");
-    });
 });
+
+// // Save a job tooltip
+// $(".save-job_form").mouseover(function () {
+//   $(".tooltip-job").css("visibility", "visible");
+// });
+
+// $(".save-job_form").mouseleave(function () {
+//   $(".tooltip-job").css("visibility", "hidden");
+// });
 
 // Job-listing pagination
 
@@ -208,4 +205,14 @@ $(".prev-page").click(function () {
 
   //check the current page and update number of pages title
   $(".page-count").text(`Page ${selected_page} of ${totalPages}`);
+});
+
+//transitions
+
+$(".saved-job-box").mouseover(function () {
+  $(this).find("img").css({ position: "absolute", left: "10px" });
+});
+
+$(".saved-job-box").mouseleave(function () {
+  $(this).find("img").css({ position: "absolute", left: "0" });
 });

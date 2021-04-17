@@ -773,6 +773,10 @@ footer {
   margin-bottom: 35px;
 }
 
+.saved-jobs-wrapper {
+  margin-top: 50px;
+}
+
 .saved-jobs {
   font-size: 1.35em;
   display: inline-block;
@@ -782,9 +786,45 @@ footer {
 .saved-jobs-total {
   font-size: 1.5em;
   background: $orange-primary;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 5px 15px;
+  border-radius: 2px;
   color: #fff;
+}
+
+.saved-job-icon {
+  width: 50px;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  transition: 0.35s ease-in;
+}
+
+.saved-job-info {
+  margin-left: 30px;
+}
+
+.saved-job-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 50%;
+  margin: 15px 0;
+  padding: 25px;
+  border-top: 1px solid #dbdbdb;
+  position: relative;
+
+  h1 {
+    font-size: 1.75em;
+    padding-bottom: 5px;
+  }
+
+  h3 {
+    font-size: 1.15em;
+  }
+
+  h4 {
+    margin-top: 20px;
+  }
 }
 
 /************************************* Post a job page **/
@@ -951,15 +991,12 @@ footer {
   margin-top: 25px;
   transition: all 0.25s ease-in-out;
   opacity: 0.9;
+  position: relative;
 
   &:hover {
     opacity: 1;
     transform: scale(1.05);
   }
-}
-
-.posted-date {
-  text-align: right;
 }
 
 .post-date {
@@ -1009,6 +1046,7 @@ footer {
 .job-salary {
   font-weight: 600;
   margin-bottom: 35px;
+  font-family: sans-serif;
 }
 
 .job-description {
@@ -1021,8 +1059,8 @@ footer {
 
 .tooltip-job {
   position: absolute;
-  left: -80px;
-  top: -10px;
+  left: -100px;
+  top: 20px;
   border: 1px solid gainsboro;
   padding: 5px;
   visibility: hidden;
@@ -1042,9 +1080,13 @@ footer {
   }
 }
 
+#job_id {
+  display: none;
+}
+
 .save-job_form {
   position: absolute;
-  top: 25px;
+  top: -5px;
   right: 35px;
 }
 

@@ -37,10 +37,23 @@
 <section class="jobs-section-wrapper">
   <h1 class="jobs-section-title">My Jobs</h1>
   <h3 class="saved-jobs">Saved</h3>
-  <span class="saved-jobs-total">3</span>
-  {% for job in saved_jobs_array %}
-  <h1>{{job.job_title}}</h1>
-  {% endfor %}
+  <span class="saved-jobs-total">{{saved_jobs_array|length}}</span>
+  <section class="saved-jobs-wrapper">
+    {% for job in saved_jobs_array %}
+    <div class="saved-job-box">
+      <img
+        class="saved-job-icon"
+        src="static/images/saved-job-icon.png"
+        alt="bookmark icon"
+      />
+      <div class="saved-job-info">
+        <h1>{{job.job_title}}</h1>
+        <h3>{{job.company_name}} | {{job.contract_type}}</h3>
+        <h4>{{job.posted_date}}</h4>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
 </section>
 
 {% endif %} {% if user.is_employer == "Yes" %}
