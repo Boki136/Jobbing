@@ -35,12 +35,16 @@
 
 <!--Saved Jobs Section-->
 <section class="jobs-section-wrapper">
-  <h1 class="jobs-section-title">My Jobs</h1>
+  <div class="job-title-container">
+    <h1 class="jobs-section-title">My Jobs</h1>
+    <h3 class="page-count saved-page-count"></h3>
+  </div>
+
   <h3 class="saved-jobs">Saved</h3>
   <span class="saved-jobs-total">{{saved_jobs_array|length}}</span>
-  <section class="saved-jobs-wrapper">
+  <section class="saved-jobs-wrapper whole-listing">
     {% for job in saved_jobs_array %}
-    <div class="saved-job-box">
+    <div class="saved-job-box job-box">
       <img
         class="saved-job-icon"
         src="static/images/saved-job-icon.png"
@@ -51,10 +55,27 @@
         <h3>{{job.company_name}} | {{job.contract_type}}</h3>
         <h4>{{job.posted_date}}</h4>
       </div>
+
+      <form
+        class="delete_saved_job-form"
+        action="{{url_for('profile', job=job._id)}}"
+        method="POST"
+      >
+        <button class="delete_saved_job">Delete</button>
+      </form>
     </div>
     {% endfor %}
   </section>
 </section>
+
+<!-- Page Selector-->
+<div id="saved-jobs-pages" class="page-numbers">
+  <ul class="pagination">
+    <li class="prev-page">
+      <a href="javascript:void(0)"><i class="fas fa-chevron-left"></i></a>
+    </li>
+  </ul>
+</div>
 
 {% endif %} {% if user.is_employer == "Yes" %}
 <!--Employer Details form-->

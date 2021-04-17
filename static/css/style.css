@@ -107,8 +107,7 @@ body {
   line-height: 1;
   background: #f8f1f1;
   overflow-x: hidden;
-  /* Hide horizontal scrollbar */
-  font-family: "Raleway", sans-serif; }
+  /* Hide horizontal scrollbar */ }
 
 ol,
 ul {
@@ -128,15 +127,6 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a {
-  font-family: "Playfair Display", sans-serif; }
 
 a {
   -webkit-user-select: none;
@@ -578,10 +568,9 @@ footer {
   gap: 30px; }
 
 .jobseeker-details-container {
-  width: 100%;
+  width: 80%;
   margin: 100px auto;
   display: flex;
-  justify-content: center;
   gap: 30px; }
 
 .personal-details,
@@ -658,7 +647,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 15px;
-  width: 50%;
+  width: 70%;
   margin: 15px 0;
   padding: 25px;
   border-top: 1px solid #dbdbdb;
@@ -670,6 +659,38 @@ footer {
     font-size: 1.15em; }
   .saved-job-box h4 {
     margin-top: 20px; }
+
+.delete_saved_job-form {
+  position: absolute;
+  right: 25px;
+  bottom: 0; }
+  .delete_saved_job-form button {
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 25px;
+    margin-top: 20px;
+    background: #16697a; }
+    .delete_saved_job-form button:focus {
+      background-color: #1e8ea5; }
+    .delete_saved_job-form button:hover {
+      background-color: #1e8ea5; }
+
+.job-title-container {
+  position: relative;
+  width: 70%; }
+
+.saved-page-count {
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+#saved-jobs-pages {
+  width: 80%;
+  margin-bottom: 50px; }
+
+.whole-listing {
+  min-height: 450px; }
 
 /************************************* Post a job page **/
 .post-job-form {
@@ -775,7 +796,8 @@ footer {
   border: #dadada; }
 
 .job-listing {
-  width: 40%; }
+  width: 40%;
+  min-height: 650px; }
 
 .job-expand {
   width: 50%;

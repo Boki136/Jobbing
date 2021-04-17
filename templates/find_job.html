@@ -59,7 +59,7 @@
       <!--Listed Jobs-->
 
       {% for job in all_jobs|reverse %}
-      <div class="job-listing-box">
+      <div class="job-listing-box job-box">
         <form
           class="save-job_form"
           action="{{url_for('profile', job=job._id)}}"
