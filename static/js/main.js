@@ -61,10 +61,6 @@ $(".see-full-job").click(function () {
       <h4 class="contract-type-location">${company_contract_address}</h4>
       <h3 class="job-salary">${job_salary}</h3>
       <hr>
-      <form class="save-job_form" action="{{url_for('profile', jobs=jobs, user=user)}}" method="POST">
-      <button class="save_job"></button>
-      <span class="tooltip-job">Save a Job</span>    
-      </form>
       <p>${job_description}</p>
       <h4 class="post-date">${posted_date}</h4>
       `);
@@ -87,10 +83,7 @@ $(".see-full-job").click(function () {
     <h4 class="contract-type-location">${company_contract_address}</h4>
     <h3 class="job-salary">${job_salary}</h3>
     <hr>
-    <form class="save-job_form" action="{{url_for('profile', jobs=jobs, user=user)}}" method="POST">
-    <button class="save_job"></button>
-    <span class="tooltip-job">Save a Job</span>    
-    </form>
+    
     <p>${job_description}</p>
     <h4 class="post-date">${posted_date}</h4>
     `);
@@ -213,6 +206,6 @@ $(".prev-page").click(function () {
     );
   }
 
-  //check the current page and update pages title
+  //check the current page and update number of pages title
   $(".page-count").text(`Page ${selected_page} of ${totalPages}`);
 });

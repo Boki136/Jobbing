@@ -38,6 +38,9 @@
   <h1 class="jobs-section-title">My Jobs</h1>
   <h3 class="saved-jobs">Saved</h3>
   <span class="saved-jobs-total">3</span>
+  {% for job in saved_jobs_array %}
+  <h1>{{job.job_title}}</h1>
+  {% endfor %}
 </section>
 
 {% endif %} {% if user.is_employer == "Yes" %}
@@ -109,5 +112,6 @@
   <h1 class="jobs-section-title">My Jobs</h1>
   <h3 class="saved-jobs">Saved</h3>
   <span class="saved-jobs-total">3</span>
+  <h2>Hello</h2>
 </section>
 {% endif %} {% endblock %}

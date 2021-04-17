@@ -60,6 +60,15 @@
 
       {% for job in all_jobs|reverse %}
       <div class="job-listing-box">
+        <form
+          class="save-job_form"
+          action="{{url_for('profile', job=job._id)}}"
+          method="POST"
+        >
+          <button class="save_job"></button>
+          <input type="text" name="job_id" id="job_id" value="{{job._id}}" />
+          <span class="tooltip-job">Save a Job</span>
+        </form>
         <h5 class="posted-date">{{job.posted_date}}</h5>
         <h1 class="job-title">{{job.job_title}}</h1>
         <h4 class="company_name">{{ job.company_name}}</h4>
@@ -71,7 +80,6 @@
         <p class="job-description">{{job.job_description}}</p>
         <button class="see-full-job">See More</button>
       </div>
-
       {% endfor %}
     </div>
 

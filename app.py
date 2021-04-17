@@ -123,8 +123,51 @@ def profile():
                 {"_id": user["_id"]}, submit)
             return redirect(url_for("profile"))
 
+        # retrive id from subbmited job
+        job_id = request.form.get("job_id")
+
+        # find job by job_id
+        saved_job = mongo.db.jobs.find_one(
+            {
+                "_id": ObjectId(job_id)
+            }
+        )
+
+        # save all records from saved_jobs
+        saved_jobs_array = mongo.db.users.distinct(
+            "saved_jobs"
+        )
+
+        # do a check if a job is already saved
+        if saved_job not in saved_jobs_array:
+
+            # update saved_jobs record
+            mongo.db.users.update_one(
+                {"_id": user["_id"]},
+                {"$push": {"saved_jobs": saved_job}}
+            )
+        else:
+            flash("Job already Saved")
+            return redirect(url_for('find_job'))
+
+        # assign job id to a string
+        saved_jobs_array = mongo.db.users.distinct(
+            "saved_jobs"
+        )
+
+        return render_template(
+            "profile.html", user=user,
+            saved_jobs_array=saved_jobs_array
+        )
+
     if session["user"]:
-        return render_template("profile.html", user=user)
+
+        saved_jobs_array = mongo.db.users.distinct(
+            "saved_jobs"
+        )
+
+        return render_template("profile.html", user=user,
+                               saved_jobs_array=saved_jobs_array)
 
     return redirect(url_for("login"))
 
@@ -199,7 +242,7 @@ def post_job():
     return render_template('post_job.html')
 
 
-@app.route("/find-job")
+@ app.route("/find-job", methods=["GET", "POST"])
 def find_job():
 
     all_jobs = list(mongo.db.jobs.find())
@@ -207,7 +250,7 @@ def find_job():
     return render_template('find_job.html', all_jobs=all_jobs)
 
 
-@app.route("/find-job-mobile")
+@ app.route("/find-job-mobile")
 def find_job_mobile():
 
     all_jobs = list(mongo.db.jobs.find())
