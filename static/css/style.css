@@ -905,8 +905,7 @@ footer {
   margin: 50px auto 0 auto; }
 
 .pagination li a {
-  vertical-align: middle;
-  line-height: revert; }
+  vertical-align: middle; }
 
 .pagination li.active {
   background-color: #31a582; }

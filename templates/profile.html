@@ -58,10 +58,11 @@
 
       <form
         class="delete_saved_job-form"
-        action="{{url_for('profile', job=job._id)}}"
+        action="{{url_for('delete_saved_job')}}"
         method="POST"
       >
         <button class="delete_saved_job">Delete</button>
+        <input type="text" name="job_id" id="job_id" value="{{job._id}}" />
       </form>
     </div>
     {% endfor %}

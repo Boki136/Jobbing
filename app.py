@@ -84,94 +84,6 @@ def register_employer():
     return render_template("register-employer.html")
 
 
-@ app.route("/profile", methods=["GET", "POST"])
-def profile():
-
-    # retrive users name from database
-    user = mongo.db.users.find_one(
-        {"email": session["user"]})
-
-    employer = request.form.get("employer_name")
-    jobseeker = request.form.get("jobseeker_name")
-
-    if request.method == "POST":
-
-        if employer:
-
-            submit = {
-                "name": employer,
-                "email": user["email"],
-                "password": user["password"],
-                "company_name": user["company_name"],
-                "company_address": user["company_address"],
-                "is_employer": "Yes",
-            }
-
-            mongo.db.users.update(
-                {"_id": user["_id"]}, submit)
-            return redirect(url_for("profile"))
-
-        elif jobseeker:
-            submit = {
-                "name": jobseeker,
-                "email": user["email"],
-                "password": user["password"],
-                "is_jobseeker": "Yes",
-            }
-
-            mongo.db.users.update(
-                {"_id": user["_id"]}, submit)
-            return redirect(url_for("profile"))
-
-        # retrive id from subbmited job
-        job_id = request.form.get("job_id")
-
-        # find job by job_id
-        saved_job = mongo.db.jobs.find_one(
-            {
-                "_id": ObjectId(job_id)
-            }
-        )
-
-        # save all records from saved_jobs
-        saved_jobs_array = mongo.db.users.distinct(
-            "saved_jobs"
-        )
-
-        # do a check if a job is already saved
-        if saved_job not in saved_jobs_array:
-
-            # update saved_jobs record
-            mongo.db.users.update_one(
-                {"_id": user["_id"]},
-                {"$push": {"saved_jobs": saved_job}}
-            )
-        else:
-            flash("Job already Saved")
-            return redirect(url_for('find_job'))
-
-        # assign job id to a string
-        saved_jobs_array = mongo.db.users.distinct(
-            "saved_jobs"
-        )
-
-        return render_template(
-            "profile.html", user=user,
-            saved_jobs_array=saved_jobs_array
-        )
-
-    if session["user"]:
-
-        saved_jobs_array = mongo.db.users.distinct(
-            "saved_jobs"
-        )
-
-        return render_template("profile.html", user=user,
-                               saved_jobs_array=saved_jobs_array)
-
-    return redirect(url_for("login"))
-
-
 def is_user_authorised():
     # do a check on existing user
     existing_user = mongo.db.users.find_one(
@@ -208,6 +120,58 @@ def login():
 def logout():
     flash("You have been logged out")
     session.pop("user")
+    return redirect(url_for("login"))
+
+
+@ app.route("/profile", methods=["GET", "POST"])
+def profile():
+
+    # retrive users name from database
+    user = mongo.db.users.find_one(
+        {"email": session["user"]})
+
+    employer = request.form.get("employer_name")
+    jobseeker = request.form.get("jobseeker_name")
+
+    if request.method == "POST":
+        if employer:
+
+            submit = {
+                "name": employer,
+                "email": user["email"],
+                "password": user["password"],
+                "company_name": user["company_name"],
+                "company_address": user["company_address"],
+                "is_employer": "Yes",
+
+            }
+
+            mongo.db.users.update(
+                {"_id": user["_id"]}, submit)
+            return redirect(url_for("profile"))
+
+        elif jobseeker:
+            submit = {
+                "name": jobseeker,
+                "email": user["email"],
+                "password": user["password"],
+                "is_jobseeker": "Yes",
+                "saved_jobs": user["saved_jobs"],
+            }
+
+            mongo.db.users.update(
+                {"_id": user["_id"]}, submit)
+            return redirect(url_for("profile"))
+
+    if session["user"]:
+
+        saved_jobs_array = mongo.db.users.distinct(
+            "saved_jobs"
+        )
+
+        return render_template("profile.html", user=user,
+                               saved_jobs_array=saved_jobs_array)
+
     return redirect(url_for("login"))
 
 
@@ -256,6 +220,86 @@ def find_job_mobile():
     all_jobs = list(mongo.db.jobs.find())
 
     return render_template('find_job_mobile.html', all_jobs=all_jobs)
+
+
+@app.route("/save-job", methods=["GET", "POST"])
+def save_job():
+
+    # retrive users name from database
+    user = mongo.db.users.find_one(
+        {"email": session["user"]})
+
+    if request.method == "POST":
+
+        # retrive id from subbmited job
+        job_id = request.form.get("job_id")
+
+        # find job by job_id
+        saved_job = mongo.db.jobs.find_one(
+            {
+                "_id": ObjectId(job_id)
+            }
+        )
+
+        # save all records from saved_jobs
+        saved_jobs_array = mongo.db.users.distinct(
+            "saved_jobs"
+        )
+
+        # do a check if a job is already saved
+        if saved_job not in saved_jobs_array:
+
+            flash("Job saved successfully")
+            # update saved_jobs record
+            mongo.db.users.update_one(
+                {"_id": user["_id"]},
+                {"$push": {"saved_jobs": saved_job}}
+            )
+        else:
+            flash("Job already saved")
+            return redirect(url_for('find_job'))
+
+        # retrive all saved jobs
+        saved_jobs_array = mongo.db.users.distinct(
+            "saved_jobs"
+        )
+
+        return redirect(url_for("find_job"))
+
+
+@app.route("/delete_saved_job", methods=["GET", "POST"])
+def delete_saved_job():
+
+    # retrive users name from database
+    user = mongo.db.users.find_one(
+        {"email": session["user"]})
+
+    if request.method == "POST":
+
+        # retrive id from subbmited job
+        job_id = request.form.get("job_id")
+        print(job_id)
+
+        # find job by job_id
+        deleted_job = mongo.db.jobs.find_one(
+            {
+                "_id": ObjectId(job_id)
+            }
+        )
+
+        # save all records from saved_jobs
+        saved_jobs_array = mongo.db.users.distinct(
+            "saved_jobs"
+        )
+
+        mongo.db.users.update_one(
+            {"_id": user["_id"]},
+            {"$pull": {"saved_jobs": deleted_job}}
+        )
+
+        flash("Job deleted successfully")
+
+        return redirect(url_for("profile"))
 
 
 if __name__ == "__main__":
