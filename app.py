@@ -209,9 +209,14 @@ def post_job():
 @ app.route("/find-job", methods=["GET", "POST"])
 def find_job():
 
+    # retrive users name from database
+    user = mongo.db.users.find_one(
+        {"email": session["user"]})
+
     all_jobs = list(mongo.db.jobs.find())
 
-    return render_template('find_job.html', all_jobs=all_jobs)
+    return render_template('find_job.html',
+                           all_jobs=all_jobs, user=user)
 
 
 @ app.route("/find-job-mobile")
@@ -257,14 +262,61 @@ def save_job():
             )
         else:
             flash("Job already saved")
-            return redirect(url_for('find_job'))
+            return redirect(url_for('find_job', _anchor='job-listing-wrap'))
 
         # retrive all saved jobs
         saved_jobs_array = mongo.db.users.distinct(
             "saved_jobs"
         )
 
-        return redirect(url_for("find_job"))
+        return redirect(url_for("find_job", _anchor='job-listing-wrap'))
+
+
+@app.route("/save-job-mobile", methods=["GET", "POST"])
+def save_job_mobile():
+
+    # retrive users name from database
+    user = mongo.db.users.find_one(
+        {"email": session["user"]})
+
+    if request.method == "POST":
+
+        # retrive id from subbmited job
+        job_id = request.form.get("job_id")
+
+        # find job by job_id
+        saved_job = mongo.db.jobs.find_one(
+            {
+                "_id": ObjectId(job_id)
+            }
+        )
+
+        # save all records from saved_jobs
+        saved_jobs_array = mongo.db.users.distinct(
+            "saved_jobs"
+        )
+
+        # do a check if a job is already saved
+        if saved_job not in saved_jobs_array:
+
+            flash("Job saved successfully")
+            # update saved_jobs record
+            mongo.db.users.update_one(
+                {"_id": user["_id"]},
+                {"$push": {"saved_jobs": saved_job}}
+            )
+        else:
+            flash("Job already saved")
+            return redirect(url_for('find_job_mobile',
+                                    _anchor='job-listing-wrap'))
+
+        # retrive all saved jobs
+        saved_jobs_array = mongo.db.users.distinct(
+            "saved_jobs"
+        )
+
+        return redirect(url_for("find_job_mobile",
+                                _anchor='job-listing-wrap'))
 
 
 @app.route("/delete_saved_job", methods=["GET", "POST"])
@@ -285,11 +337,6 @@ def delete_saved_job():
             {
                 "_id": ObjectId(job_id)
             }
-        )
-
-        # save all records from saved_jobs
-        saved_jobs_array = mongo.db.users.distinct(
-            "saved_jobs"
         )
 
         mongo.db.users.update_one(

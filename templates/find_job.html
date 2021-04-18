@@ -47,9 +47,19 @@
 
 <!-- Jobs Listing-->
 
-<section class="job-listing-container">
+<section class="job-listing-container" id="job-listing-wrap">
   <div class="job-listing-wrapper">
     <div class="whole-listing job-listing">
+      <!--FLash messages-->
+      <section class="flash-message-container">
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for
+        message in messages %}
+        <div class="row flash-message">
+          <h2>{{ message }}</h2>
+        </div>
+        {% endfor %} {% endif %} {% endwith %}
+      </section>
+
       <div class="job-listing-title">
         <h2>All Jobs</h2>
         <h3 class="page-count"></h3>

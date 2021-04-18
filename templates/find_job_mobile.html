@@ -47,9 +47,18 @@
 
 <!-- Jobs Listing-->
 
-<section class="job-listing-container">
+<section class="job-listing-container" id="job-listing-wrap">
   <div class="job-listing-wrapper-mobile">
     <div class="whole-listing job-listing-mobile">
+      <!--FLash messages-->
+      <section class="flash-message-container">
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for
+        message in messages %}
+        <div class="row flash-message">
+          <h2>{{ message }}</h2>
+        </div>
+        {% endfor %} {% endif %} {% endwith %}
+      </section>
       <div class="job-listing-title">
         <h2>All Jobs</h2>
         <h3 class="page-count"></h3>
@@ -60,6 +69,15 @@
 
       {% for job in all_jobs|reverse %}
       <div class="job-listing-box job-box">
+        <form
+          class="save-job_form"
+          action="{{url_for('save_job_mobile')}}"
+          method="POST"
+        >
+          <button class="save_job"></button>
+          <input type="text" name="job_id" id="job_id" value="{{job._id}}" />
+          <!-- <span class="tooltip-job">Save a Job</span> -->
+        </form>
         <h5 class="posted-date">{{job.posted_date}}</h5>
         <h1 class="job-title">{{job.job_title}}</h1>
         <h4 class="company_name">{{ job.company_name}}</h4>

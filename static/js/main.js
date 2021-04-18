@@ -212,3 +212,11 @@ $(".saved-job-box").mouseover(function () {
 $(".saved-job-box").mouseleave(function () {
   $(this).find("img").css({ position: "absolute", left: "0" });
 });
+
+// hide saved-jobs if no jobs displayed
+
+saved_jobs_count = $(".saved-jobs-total").text();
+
+if (saved_jobs_count == "0") {
+  $(".saved-page-count, #saved-jobs-pages").remove();
+}
