@@ -43,6 +43,7 @@ def register_jobseeker():
             "email": request.form.get("email"),
             "password": generate_password_hash(request.form.get("password")),
             "is_jobseeker": "Yes",
+            "saved_jobs": [],
         }
         mongo.db.users.insert_one(register)
 
@@ -165,12 +166,10 @@ def profile():
 
     if session["user"]:
 
-        saved_jobs_array = mongo.db.users.distinct(
-            "saved_jobs"
-        )
+        saved_jobs = user["saved_jobs"]
 
         return render_template("profile.html", user=user,
-                               saved_jobs_array=saved_jobs_array)
+                               saved_jobs=saved_jobs)
 
     return redirect(url_for("login"))
 
@@ -227,7 +226,7 @@ def find_job_mobile():
     return render_template('find_job_mobile.html', all_jobs=all_jobs)
 
 
-@app.route("/save-job", methods=["GET", "POST"])
+@ app.route("/save-job", methods=["GET", "POST"])
 def save_job():
 
     # retrive users name from database
@@ -247,12 +246,10 @@ def save_job():
         )
 
         # save all records from saved_jobs
-        saved_jobs_array = mongo.db.users.distinct(
-            "saved_jobs"
-        )
+        saved_jobs = user["saved_jobs"]
 
         # do a check if a job is already saved
-        if saved_job not in saved_jobs_array:
+        if saved_job not in saved_jobs:
 
             flash("Job saved successfully")
             # update saved_jobs record
@@ -264,15 +261,10 @@ def save_job():
             flash("Job already saved")
             return redirect(url_for('find_job', _anchor='job-listing-wrap'))
 
-        # retrive all saved jobs
-        saved_jobs_array = mongo.db.users.distinct(
-            "saved_jobs"
-        )
-
         return redirect(url_for("find_job", _anchor='job-listing-wrap'))
 
 
-@app.route("/save-job-mobile", methods=["GET", "POST"])
+@ app.route("/save-job-mobile", methods=["GET", "POST"])
 def save_job_mobile():
 
     # retrive users name from database
@@ -319,7 +311,7 @@ def save_job_mobile():
                                 _anchor='job-listing-wrap'))
 
 
-@app.route("/delete_saved_job", methods=["GET", "POST"])
+@ app.route("/delete_saved_job", methods=["GET", "POST"])
 def delete_saved_job():
 
     # retrive users name from database

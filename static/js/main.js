@@ -42,6 +42,8 @@ $(".close-user-info").click(function () {
 // Show Only Selected Job on click
 let count = 0;
 $(".see-full-job").click(function () {
+ 
+
   let job_expand = $(".job-expand");
   job_expand.css("visibility", "visible");
 
@@ -63,7 +65,12 @@ $(".see-full-job").click(function () {
       <hr>
       <p>${job_description}</p>
       <h4 class="post-date">${posted_date}</h4>
+      <i class="fas fa-times close-job"></i>
       `);
+
+    $(".close-job").click(function () {
+      $(this).parent().css("visibility", "hidden");
+    });
 
     count++;
 
@@ -86,18 +93,14 @@ $(".see-full-job").click(function () {
     
     <p>${job_description}</p>
     <h4 class="post-date">${posted_date}</h4>
+    <i class="fas fa-times close-job"></i>
     `);
+
+    $(".close-job").click(function () {
+      $(this).parent().css("visibility", "hidden");
+    });
   }
 });
-
-// // Save a job tooltip
-// $(".save-job_form").mouseover(function () {
-//   $(".tooltip-job").css("visibility", "visible");
-// });
-
-// $(".save-job_form").mouseleave(function () {
-//   $(".tooltip-job").css("visibility", "hidden");
-// });
 
 // Job-listing pagination
 

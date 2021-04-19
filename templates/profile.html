@@ -41,9 +41,9 @@
   </div>
 
   <h3 class="saved-jobs">Saved</h3>
-  <span class="saved-jobs-total">{{saved_jobs_array|length}}</span>
+  <span class="saved-jobs-total">{{saved_jobs|length}}</span>
   <section class="saved-jobs-wrapper whole-listing">
-    {% for job in saved_jobs_array %}
+    {% for job in saved_jobs %}
     <div class="saved-job-box job-box">
       <img
         class="saved-job-icon"

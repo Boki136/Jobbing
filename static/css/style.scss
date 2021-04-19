@@ -1001,7 +1001,7 @@ footer {
   box-shadow: 5px 10px 21px rgba(1, 1, 1, 0.3);
   border-radius: 10px;
   visibility: hidden;
-  padding: 5% 2%;
+  padding: 3%;
   height: fit-content;
   position: sticky;
   top: 5%;
@@ -1011,6 +1011,19 @@ footer {
   }
 }
 
+.close-job {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: $dark-green;
+  font-size: 2.5em;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+
+  &:hover {
+    transform: rotateZ(90deg);
+  }
+}
 .job-expand-structure {
   display: none;
 }
@@ -1086,15 +1099,6 @@ footer {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100ch;
-}
-
-.tooltip-job {
-  position: absolute;
-  left: -100px;
-  top: 20px;
-  border: 1px solid gainsboro;
-  padding: 5px;
-  visibility: hidden;
 }
 
 .see-full-job,
