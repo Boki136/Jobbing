@@ -42,8 +42,6 @@ $(".close-user-info").click(function () {
 // Show Only Selected Job on click
 let count = 0;
 $(".see-full-job").click(function () {
- 
-
   let job_expand = $(".job-expand");
   job_expand.css("visibility", "visible");
 
@@ -222,4 +220,19 @@ saved_jobs_count = $(".saved-jobs-total").text();
 
 if (saved_jobs_count == "0") {
   $(".saved-page-count, #saved-jobs-pages").remove();
+}
+
+//Show Company Location On Google Maps
+
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("company-location"), {
+    center: { lat: 53.37572, lng: -6.29603 },
+    zoom: 16,
+  });
+  new google.maps.Marker({
+    position: { lat: 53.37572, lng: -6.29603 },
+    map,
+  });
 }

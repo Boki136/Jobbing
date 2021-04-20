@@ -920,6 +920,20 @@ footer {
 .next_page i {
   font-size: 1.2em !important; }
 
+/************************************ Contact Us Page **/
+.form-wrapper {
+  width: 50%;
+  margin: 100px; }
+
+.contact-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+#company-location {
+  min-width: 40%;
+  height: 500px; }
+
 /************************************ Media Queries **/
 @media screen and (max-width: 1200px) {
   .about-content {

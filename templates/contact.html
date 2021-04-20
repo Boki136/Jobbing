@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block content %}
+
+<section class="contact-wrapper">
+  <div class="form-wrapper">
+    <h2>Get In Touch!</h2>
+    <br />
+    <form onsubmit="return sendMail(this);">
+      <label for="fName">Name *</label>
+      <input
+        class="contact-input"
+        type="text"
+        name="fName"
+        id="fName"
+        placeholder="First Name"
+        required
+      />
+      <label for="lName" class="sr-only">Last Name</label>
+      <input
+        class="contact-input"
+        type="text"
+        name="lName"
+        id="lName"
+        placeholder="Last Name"
+        required
+      />
+      <label for="emailaddress">Email Address *</label>
+      <input
+        class="contact-input"
+        type="email"
+        id="emailaddress"
+        name="emailaddress"
+        required
+        placeholder="john@gmail.com"
+      />
+      <label for="phoneNumber">Phone Number *</label>
+      <input
+        class="contact-input"
+        type="text"
+        id="phoneNumber"
+        name="phoneNumber"
+        placeholder="Your Phone Number"
+        required
+      />
+      <label for="message">Your Message</label>
+      <textarea name="message" id="message" rows="5"></textarea>
+      <label for="submit" class="sr-only">Submit Details</label>
+      <input
+        class="submit-form contact-input"
+        type="submit"
+        id="submit"
+        value="SUBMIT"
+      />
+    </form>
+  </div>
+
+  <div id="company-location"></div>
+</section>
+
+{% endblock %}
+

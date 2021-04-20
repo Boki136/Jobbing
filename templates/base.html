@@ -49,7 +49,7 @@
                 >My Profile</a
               >
             </li>
-            <li><a href="mobile.html">Contact Us</a></li>
+            <li><a href="{{url_for('contact')}}">Contact Us</a></li>
             <li><a href="{{url_for('logout')}}">Logout</a></li>
             <li>
               <a
@@ -62,7 +62,7 @@
             <li><a href="{{url_for('find_job')}}">Find a Job</a></li>
             <li><a href="{{url_for('login')}}">Login</a></li>
             <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
-            <li><a href="mobile.html">Contact Us</a></li>
+            <li><a href="{{url_for('contact')}}">Contact Us</a></li>
             {% endif %}
           </ul>
         </div>
@@ -76,14 +76,14 @@
         <li>
           <a href="{{url_for('profile', user=session['user'])}}">My Profile</a>
         </li>
-        <li><a href="mobile.html">Contact Us</a></li>
+        <li><a href="{{url_for('contact')}}">Contact Us</a></li>
         <li><a href="{{url_for('logout')}}">Logout</a></li>
         <li><a href="{{url_for('post_job')}}">Post A Job</a></li>
         {% else %}
         <li><a href="{{url_for('find_job_mobile')}}">Find a Job</a></li>
         <li><a href="{{url_for('login')}}">Login</a></li>
         <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
-        <li><a href="mobile.html">Contact Us</a></li>
+        <li><a href="{{url_for('contact')}}">Contact Us</a></li>
         {% endif %}
       </ul>
     </header>
@@ -129,7 +129,7 @@
           <li><a href="{{url_for('login')}}">Login</a></li>
           <li><a href="{{url_for('register_jobseeker')}}">Register</a></li>
           {% endif %}
-          <li><a href="mobile.html">Contact Us</a></li>
+          <li><a href="{{url_for('contact')}}">Contact Us</a></li>
         </ul>
 
         <div class="copyright-wrapper">
@@ -151,5 +151,10 @@
     <!--Own Script-->
     <script src="{{url_for('static', filename='js/main.js') }}"></script>
     {% block scripts %} {% endblock %}
+
+    <!--Google Maps-->
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9c9j4A169slZFZL87EIIQHUq0IPrrVCg&callback=initMap"></script>
+    <script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
   </body>
 </html>
