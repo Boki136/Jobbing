@@ -454,10 +454,10 @@ footer {
 
 .social-icons {
   float: right;
-  color: #fff;
   font-size: 30px; }
   .social-icons i {
-    padding: 0 3px; }
+    padding: 0 3px;
+    color: #fff; }
 
 /**************************************** Register & Login Page **/
 .register-form-wrapper,
@@ -922,17 +922,64 @@ footer {
 
 /************************************ Contact Us Page **/
 .form-wrapper {
-  width: 50%;
-  margin: 100px; }
+  width: 40%;
+  margin: 100px 50px; }
+  .form-wrapper h2 {
+    font-size: 2.5em;
+    margin-bottom: 25px; }
+  .form-wrapper textarea {
+    max-width: 100%;
+    max-height: 250px;
+    min-height: 125px;
+    min-width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #b9b9b9;
+    margin: 5px 0 20px 0; }
+
+.submit-form {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 25px;
+  margin-top: 20px;
+  background: #db6400; }
+  .submit-form:focus {
+    background-color: #ff7d0f; }
+  .submit-form:hover {
+    background-color: #ff7d0f; }
 
 .contact-wrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  justify-content: center; }
+
+.company-details-section {
+  width: 50%;
+  text-align: right;
+  margin-right: 50px; }
+  .company-details-section h2 {
+    font-size: 2.5em; }
+  .company-details-section p {
+    font-size: 1.5em; }
+  .company-details-section h3 {
+    font-size: 2em;
+    margin-top: 10px; }
 
 #company-location {
-  min-width: 40%;
+  width: 100%;
+  margin: 0 auto;
   height: 500px; }
+
+.social-icons-contact {
+  font-size: 30px;
+  margin-top: 20px; }
+  .social-icons-contact i {
+    padding: 2px;
+    color: #257e63; }
+    .social-icons-contact i:hover {
+      color: #16697a; }
 
 /************************************ Media Queries **/
 @media screen and (max-width: 1200px) {
@@ -984,7 +1031,17 @@ footer {
   .find-job-lg {
     display: none !important; }
   .find-job-sm {
-    display: inline-block !important; } }
+    display: inline-block !important; }
+  .contact-wrapper {
+    flex-wrap: wrap;
+    margin: 50px 0; }
+  .form-wrapper {
+    width: 90%;
+    margin: 0 auto; }
+  .company-details-section {
+    text-align: left;
+    width: 90%;
+    margin: 35px auto; } }
 
 @media screen and (max-width: 770px) {
   .hiring-strip h2::before {

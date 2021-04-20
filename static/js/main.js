@@ -232,7 +232,7 @@ function initMap() {
     zoom: 16,
   });
   new google.maps.Marker({
-    position: { lat: 53.37572, lng: -6.29603 },
+    position: { lat: 53.34454353, lng: -6.271976633 },
     map,
   });
 }
