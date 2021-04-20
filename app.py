@@ -208,14 +208,10 @@ def post_job():
 @ app.route("/find-job", methods=["GET", "POST"])
 def find_job():
 
-    # retrive users name from database
-    user = mongo.db.users.find_one(
-        {"email": session["user"]})
-
     all_jobs = list(mongo.db.jobs.find())
 
     return render_template('find_job.html',
-                           all_jobs=all_jobs, user=user)
+                           all_jobs=all_jobs)
 
 
 @ app.route("/find-job-mobile")
