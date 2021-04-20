@@ -75,6 +75,7 @@ def register_employer():
             "company_name": request.form.get("company_name"),
             "company_address": request.form.get("company_address"),
             "is_employer": "Yes",
+            "posted_jobs": [],
         }
         mongo.db.users.insert_one(register)
 
@@ -181,7 +182,9 @@ def profile():
     except:
         KeyError
     else:
-        return render_template("profile.html", user=user)
+        posted_jobs = user["posted_jobs"]
+        return render_template("profile.html", user=user,
+                               posted_jobs=posted_jobs)
 
     return redirect(url_for("login"))
 
@@ -218,6 +221,10 @@ def post_job():
             }
 
             mongo.db.jobs.insert_one(new_job)
+            mongo.db.users.update_one(
+                {"_id": user["_id"]},
+                {"$push": {"posted_jobs": new_job}}
+            )
             flash("Job Posted Successfully")
             return redirect(url_for("post_job"))
 
@@ -344,12 +351,12 @@ def delete_saved_job():
 
     if request.method == "POST":
 
-        # retrive id from subbmited job
+        # retrive id from submitted job for jobseeker and employer
         job_id = request.form.get("job_id")
-        print(job_id)
+        post_id = request.form.get("post_id")
 
-        # find job by job_id
-        deleted_job = mongo.db.jobs.find_one(
+        # find job by job_id jobseeker & update the array in db
+        deleted_job_jobseeker = mongo.db.jobs.find_one(
             {
                 "_id": ObjectId(job_id)
             }
@@ -357,8 +364,25 @@ def delete_saved_job():
 
         mongo.db.users.update_one(
             {"_id": user["_id"]},
-            {"$pull": {"saved_jobs": deleted_job}}
+            {"$pull": {"saved_jobs": deleted_job_jobseeker}}
         )
+
+        # find job by job_id employer & update the array in db
+        deleted_job_employer = mongo.db.jobs.find_one(
+            {
+                "_id": ObjectId(post_id)
+            }
+        )
+
+        mongo.db.users.update_one(
+            {"_id": user["_id"]},
+            {"$pull": {"posted_jobs": deleted_job_employer}}
+        )
+
+        # remove a job from jobs collection
+        mongo.db.jobs.remove({
+            "_id": ObjectId(post_id)
+        })
 
         flash("Job deleted successfully")
 

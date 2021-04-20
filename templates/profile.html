@@ -98,7 +98,7 @@
       <label for="email">Email:</label>
       <input
         type="email"
-        class="validate"
+        class="validate edit"
         value="{{ user.email }}"
         id="email"
         name="email"
@@ -146,7 +146,31 @@
 <section class="jobs-section-wrapper">
   <h1 class="jobs-section-title">My Jobs</h1>
   <h3 class="saved-jobs">Posted</h3>
-  <span class="saved-jobs-total">3</span>
-  <h2>Hello</h2>
+  <span class="saved-jobs-total">{{posted_jobs|length}}</span>
+  <section class="saved-jobs-wrapper whole-listing">
+    {% for post in posted_jobs %}
+    <div class="saved-job-box job-box">
+      <img
+        class="saved-job-icon"
+        src="static/images/saved-job-icon.png"
+        alt="bookmark icon"
+      />
+      <div class="saved-job-info">
+        <h1>{{post.job_title}}</h1>
+        <h3>{{post.company_name}} | {{post.contract_type}}</h3>
+        <h4>{{post.posted_date}}</h4>
+      </div>
+
+      <form
+        class="delete_saved_job-form"
+        action="{{url_for('delete_saved_job')}}"
+        method="POST"
+      >
+        <button class="delete_saved_job">Remove</button>
+        <input type="text" name="post_id" id="post_id" value="{{post._id}}" />
+      </form>
+    </div>
+    {% endfor %}
+  </section>
 </section>
 {% endif %} {% endblock %}
