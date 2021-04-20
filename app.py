@@ -164,12 +164,24 @@ def profile():
                 {"_id": user["_id"]}, submit)
             return redirect(url_for("profile"))
 
-    if session["user"]:
+    # Check if user is jobseeker or employer and show relevent info
 
+    try:
+        user["is_jobseeker"]
+    except:
+        KeyError
+    else:
         saved_jobs = user["saved_jobs"]
 
         return render_template("profile.html", user=user,
                                saved_jobs=saved_jobs)
+
+    try:
+        user["is_employer"]
+    except:
+        KeyError
+    else:
+        return render_template("profile.html", user=user)
 
     return redirect(url_for("login"))
 
@@ -178,29 +190,45 @@ def profile():
 def post_job():
 
     # retrive users name from database
-    users = mongo.db.users.find_one(
+    user = mongo.db.users.find_one(
         {"email": session["user"]})
 
-    company_name = str(users["company_name"])
-    company_address = str(users["company_address"])
+    # check if user is employer and allow job posting
+    try:
+        user["is_employer"]
+    except:
+        KeyError
+    else:
+        company_name = str(user["company_name"])
+        company_address = str(user["company_address"])
 
-    posted_date = datetime.now().date()
-    if request.method == "POST":
+        posted_date = datetime.now().date()
 
-        new_job = {
-            "job_title": request.form.get("job_title"),
-            "job_category": request.form.get("job_category"),
-            "contract_type": request.form.get("contract_type"),
-            "job_description": request.form.get("job_description"),
-            "salary_range": request.form.get("salary_range"),
-            "posted_date": posted_date.strftime("%d/%m/%y"),
-            "company_name": company_name,
-            "company_address": company_address,
-        }
+        if request.method == "POST":
 
-        mongo.db.jobs.insert_one(new_job)
-        flash("Job Posted Successfully")
-        return redirect(url_for("post_job"))
+            new_job = {
+                "job_title": request.form.get("job_title"),
+                "job_category": request.form.get("job_category"),
+                "contract_type": request.form.get("contract_type"),
+                "job_description": request.form.get("job_description"),
+                "salary_range": request.form.get("salary_range"),
+                "posted_date": posted_date.strftime("%d/%m/%y"),
+                "company_name": company_name,
+                "company_address": company_address,
+            }
+
+            mongo.db.jobs.insert_one(new_job)
+            flash("Job Posted Successfully")
+            return redirect(url_for("post_job"))
+
+    # check if user is jobseeker and don't allow job posting
+    try:
+        user["is_jobseeker"]
+    except:
+        KeyError
+    else:
+        flash("Register as employer to post jobs")
+        return redirect(url_for("profile"))
 
     return render_template('post_job.html')
 
