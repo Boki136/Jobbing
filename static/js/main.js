@@ -39,6 +39,12 @@ $(".close-user-info").click(function () {
   $(this).prev().css("display", "block");
 });
 
+// search job by category trigger
+
+$(".fa-angle-double-right").click(function () {
+  $(this).prev().click();
+});
+
 // Show Only Selected Job on click
 let count = 0;
 $(".see-full-job").click(function () {

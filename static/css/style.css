@@ -747,15 +747,13 @@ footer {
   width: 33%;
   height: 300px;
   margin: 10px 20px 10px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   box-shadow: 10px 10px 20px rgba(1, 1, 1, 0.6);
   transition: all 0.1s ease-in-out;
   cursor: pointer;
   flex-wrap: wrap;
   min-width: 320px;
-  max-width: 450px; }
+  max-width: 450px;
+  text-align: center; }
   .popular-jobs_box-search h1 {
     color: #fff;
     font-size: 3em;
@@ -763,10 +761,25 @@ footer {
     align-self: flex-end; }
   .popular-jobs_box-search i {
     color: #fff;
-    align-self: flex-end; }
+    align-self: flex-end;
+    padding: 40px 0 10px 0; }
   .popular-jobs_box-search:hover {
     filter: brightness(1.2);
     transform: scale(1.05); }
+
+.search-btn-category {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: transparent; }
+  .search-btn-category:focus {
+    background: transparent; }
+
+.fa-angle-double-right {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 35px; }
 
 .job-listing-container {
   width: 95%;
@@ -818,10 +831,7 @@ footer {
   right: 40px;
   color: #257e63;
   font-size: 2.5em;
-  cursor: pointer;
-  transition: 0.5s ease-in-out; }
-  .close-job:hover {
-    transform: rotateZ(90deg); }
+  cursor: pointer; }
 
 .job-expand-structure {
   display: none; }
@@ -895,13 +905,17 @@ footer {
   .save-job_mobile:focus {
     background-color: #ffa62b; }
 
-#job_id {
+#job_id,
+#post_id {
   display: none; }
 
 .save-job_form {
   position: absolute;
   top: -5px;
   right: 35px; }
+
+.job_category {
+  display: none; }
 
 .page-numbers {
   width: 95%;
@@ -957,7 +971,7 @@ footer {
 
 .company-details-section {
   width: 50%;
-  text-align: right;
+  text-align: center;
   margin-right: 50px; }
   .company-details-section h2 {
     font-size: 2.5em; }

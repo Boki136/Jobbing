@@ -243,6 +243,13 @@ def post_job():
 @ app.route("/find-job", methods=["GET", "POST"])
 def find_job():
 
+    if request.method == "POST":
+        job_category = request.form.get("job_category_name")
+        all_jobs = list(mongo.db.jobs.find({
+            "job_category": job_category}))
+        return render_template('find_job.html',
+                               all_jobs=all_jobs)
+
     all_jobs = list(mongo.db.jobs.find())
 
     return render_template('find_job.html',
