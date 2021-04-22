@@ -420,6 +420,16 @@ def search():
                            all_jobs=all_jobs)
 
 
+@app.route("/search_mobile", methods=["POST", "GET"])
+def search_mobile():
+
+    search_term = request.form.get("search_box")
+    all_jobs = list(mongo.db.jobs.find({"$text": {"$search": search_term}}))
+
+    return render_template('find_job_mobile.html',
+                           all_jobs=all_jobs)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

@@ -7,11 +7,18 @@
     <h1 class="hero-section_title">Search Available Jobs</h1>
 
     <div class="hero-search">
-      <form id="search-form">
+      <form
+        id="search-form"
+        method="POST"
+        action="{{url_for('search_mobile')}}"
+      >
+        <label for="search_box"></label>
         <input
           type="search"
           class="search-box"
           placeholder="Search all jobs..."
+          id="search_box"
+          name="search_box"
         />
         <input type="submit" value="EXPLORE" class="search-submit" />
       </form>
@@ -101,8 +108,7 @@
       {% endif %}
 
       <!--Listed Jobs-->
-
-      {% for job in all_jobs|reverse %}
+      {% if all_jobs|length > 0 %} {% for job in all_jobs|reverse %}
       <div class="job-listing-box job-box">
         {% if session.user %}
         <form
@@ -126,7 +132,11 @@
         <p>{{job.job_description}}</p>
       </div>
 
-      {% endfor %}
+      {% endfor %} {% else %}
+
+      <h2 class="no_jobs_title">No Jobs Found</h2>
+
+      {% endif %}
     </div>
   </div>
 
