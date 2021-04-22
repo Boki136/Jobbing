@@ -19,8 +19,7 @@
   </div>
 </section>
 
-<!--Popular Jobs Section-->
-
+<!--Search By Category Section-->
 <section class="popular-jobs">
   <h1 class="section-title">Search By Category</h1>
   <hr class="large-horizontal-rule" />
@@ -28,19 +27,44 @@
     <div class="popular-jobs_box-search category_one">
       <i class="fas fa-chart-pie fa-3x"></i>
       <h1>Marketing</h1>
-      <h3 class="title-arrow">&nbsp;</h3>
+      <form action="{{url_for('find_job_mobile')}}" method="POST">
+        <label for="marketing"></label>
+        <input
+          class="search-btn-category"
+          name="job_category_name"
+          type="submit"
+          value="marketing"
+        />
+        <i class="fas fa-angle-double-right fa-3x"></i>
+      </form>
     </div>
 
     <div class="popular-jobs_box-search category_two">
       <i class="fas fa-coins fa-3x"></i>
       <h1>Finance</h1>
-      <h3 class="title-arrow">&nbsp;</h3>
+      <form action="{{url_for('find_job_mobile')}}" method="POST">
+        <input
+          class="search-btn-category"
+          name="job_category_name"
+          type="submit"
+          value="finance"
+        />
+        <i class="fas fa-angle-double-right fa-3x"></i>
+      </form>
     </div>
 
     <div class="popular-jobs_box-search category_three">
       <i class="fas fa-phone-volume fa-3x"></i>
       <h1>Sales</h1>
-      <h3 class="title-arrow">&nbsp;</h3>
+      <form action="{{url_for('find_job_mobile')}}" method="POST">
+        <input
+          class="search-btn-category"
+          name="job_category_name"
+          type="submit"
+          value="sales"
+        />
+        <i class="fas fa-angle-double-right fa-3x"></i>
+      </form>
     </div>
   </div>
 </section>
@@ -59,11 +83,22 @@
         </div>
         {% endfor %} {% endif %} {% endwith %}
       </section>
+      {% if job_category %}
+      <div class="job-listing-title">
+        <h2>{{job_category}} Category Jobs /</h2>
+        <a class="see-all-jobs-filter" href="{{url_for('find_job')}}"
+          >See All Jobs</a
+        >
+        <h3 class="page-count"></h3>
+        <hr />
+      </div>
+      {% else %}
       <div class="job-listing-title">
         <h2>All Jobs</h2>
         <h3 class="page-count"></h3>
         <hr />
       </div>
+      {% endif %}
 
       <!--Listed Jobs-->
 
@@ -89,7 +124,6 @@
         <h3 class="job-salary">{{ job.salary_range }}</h3>
 
         <p>{{job.job_description}}</p>
-        <button class="save-job_mobile">See More</button>
       </div>
 
       {% endfor %}

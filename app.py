@@ -12,6 +12,7 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
+
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
@@ -256,8 +257,15 @@ def find_job():
                            all_jobs=all_jobs)
 
 
-@ app.route("/find-job-mobile")
+@ app.route("/find-job-mobile", methods=["GET", "POST"])
 def find_job_mobile():
+
+    if request.method == "POST":
+        job_category = request.form.get("job_category_name")
+        all_jobs = list(mongo.db.jobs.find({
+            "job_category": job_category}))
+        return render_template('find_job_mobile.html',
+                               all_jobs=all_jobs, job_category=job_category)
 
     all_jobs = list(mongo.db.jobs.find())
 
@@ -400,6 +408,16 @@ def delete_saved_job():
 def contact():
 
     return render_template("contact.html")
+
+
+@app.route("/search", methods=["POST", "GET"])
+def search():
+
+    search_term = request.form.get("search_box")
+    all_jobs = list(mongo.db.jobs.find({"$text": {"$search": search_term}}))
+
+    return render_template('find_job.html',
+                           all_jobs=all_jobs)
 
 
 if __name__ == "__main__":

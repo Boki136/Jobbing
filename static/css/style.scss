@@ -917,7 +917,7 @@ footer {
 .hero-section-job {
   clear: both;
   height: 500px;
-  background: lighten($dark-cyan, 48%);
+  background: lighten($dark-green, 20%);
   background-size: cover;
   display: flex;
   align-items: center;
@@ -1172,6 +1172,11 @@ footer {
 .prev-page i,
 .next_page i {
   font-size: 1.2em !important;
+}
+
+.no_jobs_title {
+  font-size: 1.5em;
+  margin-top: 20px;
 }
 
 /************************************ Contact Us Page **/

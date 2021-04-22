@@ -242,3 +242,10 @@ function initMap() {
     map,
   });
 }
+
+// hide find job elements if no jobs found
+
+let no_jobs = $(".no_jobs_title").css("display");
+if (no_jobs === "block") {
+  $(".page-count, .pagination").hide();
+}
