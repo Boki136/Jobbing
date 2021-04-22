@@ -990,10 +990,20 @@ footer {
   display: none !important;
 }
 
+.see-all-jobs-filter {
+  padding-left: 5px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .job-listing-title {
+  clear: both;
   h2 {
     float: left;
     margin-bottom: 20px;
+    text-transform: capitalize;
   }
   h3 {
     float: right;

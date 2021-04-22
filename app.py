@@ -248,7 +248,7 @@ def find_job():
         all_jobs = list(mongo.db.jobs.find({
             "job_category": job_category}))
         return render_template('find_job.html',
-                               all_jobs=all_jobs)
+                               all_jobs=all_jobs, job_category=job_category)
 
     all_jobs = list(mongo.db.jobs.find())
 

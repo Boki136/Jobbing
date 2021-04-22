@@ -27,25 +27,50 @@
 <!--Popular Jobs Section-->
 
 <section class="popular-jobs">
-  <h1 class="section-title">Popular Job Categories</h1>
+  <h1 class="section-title">Search By Category</h1>
   <hr class="large-horizontal-rule" />
   <div class="popular-jobs-box_wrapper">
-    <div class="popular-jobs_box category_one">
+    <div class="popular-jobs_box-search category_one">
       <i class="fas fa-chart-pie fa-3x"></i>
       <h1>Marketing</h1>
-      <h3 class="title-arrow">&nbsp;</h3>
+      <form action="{{url_for('find_job')}}" method="POST">
+        <label for="marketing"></label>
+        <input
+          class="search-btn-category"
+          name="job_category_name"
+          type="submit"
+          value="marketing"
+        />
+        <i class="fas fa-angle-double-right fa-3x"></i>
+      </form>
     </div>
 
-    <div class="popular-jobs_box category_two">
+    <div class="popular-jobs_box-search category_two">
       <i class="fas fa-coins fa-3x"></i>
       <h1>Finance</h1>
-      <h3 class="title-arrow">&nbsp;</h3>
+      <form action="{{url_for('find_job')}}" method="POST">
+        <input
+          class="search-btn-category"
+          name="job_category_name"
+          type="submit"
+          value="finance"
+        />
+        <i class="fas fa-angle-double-right fa-3x"></i>
+      </form>
     </div>
 
-    <div class="popular-jobs_box category_three">
+    <div class="popular-jobs_box-search category_three">
       <i class="fas fa-phone-volume fa-3x"></i>
       <h1>Sales</h1>
-      <h3 class="title-arrow">&nbsp;</h3>
+      <form action="{{url_for('find_job')}}" method="POST">
+        <input
+          class="search-btn-category"
+          name="job_category_name"
+          type="submit"
+          value="sales"
+        />
+        <i class="fas fa-angle-double-right fa-3x"></i>
+      </form>
     </div>
   </div>
 </section>

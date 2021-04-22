@@ -795,18 +795,24 @@ footer {
 .find-job-sm {
   display: none !important; }
 
-.job-listing-title h2 {
-  float: left;
-  margin-bottom: 20px; }
+.see-all-jobs-filter {
+  padding-left: 5px; }
+  .see-all-jobs-filter:hover {
+    text-decoration: underline; }
 
-.job-listing-title h3 {
-  float: right; }
-
-.job-listing-title hr {
-  clear: both;
-  background-color: #dadada;
-  height: 1px;
-  border: #dadada; }
+.job-listing-title {
+  clear: both; }
+  .job-listing-title h2 {
+    float: left;
+    margin-bottom: 20px;
+    text-transform: capitalize; }
+  .job-listing-title h3 {
+    float: right; }
+  .job-listing-title hr {
+    clear: both;
+    background-color: #dadada;
+    height: 1px;
+    border: #dadada; }
 
 .job-listing {
   width: 40%;
