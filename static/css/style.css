@@ -737,6 +737,16 @@ footer {
   content: "€";
   font-size: 20px; }
 
+.jconfirm.jconfirm-light .jconfirm-box {
+  padding: 5%;
+  background: #257e63;
+  color: #fff;
+  opacity: 0.85; }
+
+.jconfirm .jconfirm-box div.jconfirm-title-c .jconfirm-title {
+  font-size: 1.65em !important;
+  line-height: 40px; }
+
 /********************************* Find a job page **/
 .hero-section-job {
   clear: both;

@@ -249,3 +249,19 @@ let no_jobs = $(".no_jobs_title").css("display");
 if (no_jobs === "block") {
   $(".page-count, .pagination").hide();
 }
+
+// validate employer job deleting form
+
+$(".delete_saved_job-form").on("submit", function (e) {
+  e.preventDefault();
+  //check for user confirmation
+  $.confirm({
+    title: "You are about to delete a job!",
+    buttons: {
+      confirm: function () {
+        $(".delete_saved_job-form").off("submit").submit();
+      },
+      cancel: function () {},
+    },
+  });
+});

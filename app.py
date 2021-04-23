@@ -330,12 +330,10 @@ def save_job_mobile():
         )
 
         # save all records from saved_jobs
-        saved_jobs_array = mongo.db.users.distinct(
-            "saved_jobs"
-        )
+        saved_jobs = user["saved_jobs"]
 
         # do a check if a job is already saved
-        if saved_job not in saved_jobs_array:
+        if saved_job not in saved_jobs:
 
             flash("Job saved successfully")
             # update saved_jobs record
@@ -347,11 +345,6 @@ def save_job_mobile():
             flash("Job already saved")
             return redirect(url_for('find_job_mobile',
                                     _anchor='job-listing-wrap'))
-
-        # retrive all saved jobs
-        saved_jobs_array = mongo.db.users.distinct(
-            "saved_jobs"
-        )
 
         return redirect(url_for("find_job_mobile",
                                 _anchor='job-listing-wrap'))
