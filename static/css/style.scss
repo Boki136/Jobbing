@@ -242,6 +242,10 @@ nav ul {
   text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
+#mobile-search {
+  display: none;
+}
+
 #search-form {
   position: relative;
   display: flex;
@@ -1097,6 +1101,7 @@ footer {
   font-size: 1.65em;
   margin-bottom: 15px;
   font-weight: 500;
+  width: 85%;
 }
 
 .company_name {
@@ -1177,6 +1182,10 @@ footer {
 .no_jobs_title {
   font-size: 1.5em;
   margin-top: 20px;
+}
+
+.sm-title {
+  display: none;
 }
 
 /************************************ Contact Us Page **/
@@ -1370,6 +1379,22 @@ footer {
     width: 90%;
     margin: 35px auto;
   }
+
+  #main-search {
+    display: none;
+  }
+
+  #mobile-search {
+    display: block;
+  }
+
+  .lg-title {
+    display: none;
+  }
+
+  .sm-title {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 770px) {
@@ -1448,5 +1473,17 @@ footer {
 
   .posted-date {
     margin-bottom: 15px;
+  }
+
+  .saved-job-box {
+    width: 100%;
+  }
+
+  .delete_saved_job-form button {
+    padding: 5px 15px;
+  }
+
+  .job-title-container {
+    width: 100%;
   }
 }

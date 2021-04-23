@@ -211,6 +211,9 @@ nav ul {
   padding-bottom: 65px;
   text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3); }
 
+#mobile-search {
+  display: none; }
+
 #search-form {
   position: relative;
   display: flex;
@@ -877,7 +880,8 @@ footer {
 .job-title {
   font-size: 1.65em;
   margin-bottom: 15px;
-  font-weight: 500; }
+  font-weight: 500;
+  width: 85%; }
 
 .company_name {
   padding-bottom: 10px; }
@@ -943,6 +947,9 @@ footer {
 .no_jobs_title {
   font-size: 1.5em;
   margin-top: 20px; }
+
+.sm-title {
+  display: none; }
 
 /************************************ Contact Us Page **/
 .form-wrapper {
@@ -1065,7 +1072,15 @@ footer {
   .company-details-section {
     text-align: left;
     width: 90%;
-    margin: 35px auto; } }
+    margin: 35px auto; }
+  #main-search {
+    display: none; }
+  #mobile-search {
+    display: block; }
+  .lg-title {
+    display: none; }
+  .sm-title {
+    display: block; } }
 
 @media screen and (max-width: 770px) {
   .hiring-strip h2::before {
@@ -1108,4 +1123,10 @@ footer {
   .post-job-form {
     width: 95%; }
   .posted-date {
-    margin-bottom: 15px; } }
+    margin-bottom: 15px; }
+  .saved-job-box {
+    width: 100%; }
+  .delete_saved_job-form button {
+    padding: 5px 15px; }
+  .job-title-container {
+    width: 100%; } }
