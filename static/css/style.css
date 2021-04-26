@@ -663,39 +663,42 @@ footer {
   .saved-job-box h4 {
     margin-top: 20px; }
 
-.delete_saved_job-form {
+.job-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   position: absolute;
-  right: 25px;
+  right: 0;
   bottom: 0; }
-  .delete_saved_job-form button {
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    padding: 10px 25px;
-    margin-top: 20px;
-    background: #16697a;
-    width: 110px; }
-    .delete_saved_job-form button:focus {
-      background-color: #1e8ea5; }
-    .delete_saved_job-form button:hover {
-      background-color: #1e8ea5; }
 
-.edit_saved_job-form {
-  position: absolute;
-  right: 150px;
-  bottom: 0; }
-  .edit_saved_job-form button {
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    padding: 10px 25px;
-    margin-top: 20px;
-    background: #db6400;
-    width: 110px; }
-    .edit_saved_job-form button:focus {
-      background-color: #ff7d0f; }
-    .edit_saved_job-form button:hover {
-      background-color: #ff7d0f; }
+.delete_saved_job-form button {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 9px 25px;
+  margin-top: 20px;
+  background: #16697a;
+  width: 110px; }
+  .delete_saved_job-form button:focus {
+    background-color: #1e8ea5; }
+  .delete_saved_job-form button:hover {
+    background-color: #1e8ea5; }
+
+.edit_saved_job {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 25px;
+  margin-top: 20px;
+  background: #db6400;
+  width: 110px;
+  border-radius: 5px;
+  text-align: center; }
+  .edit_saved_job:focus {
+    background-color: #ff7d0f; }
+  .edit_saved_job:hover {
+    background-color: #ff7d0f; }
 
 .job-title-container {
   position: relative;
@@ -1130,8 +1133,15 @@ footer {
     flex-wrap: wrap; }
   .usp-box i {
     font-size: 3em; }
+  .saved-job-box {
+    width: 100%; }
+  .job-title-container {
+    width: 100%; }
   .popular-jobs_box {
-    height: 450px; } }
+    height: 450px; }
+  .delete_saved_job-form button,
+  .edit_saved_job {
+    padding: 8px; } }
 
 @media screen and (max-width: 630px) {
   .popular-jobs-box_wrapper {
@@ -1158,9 +1168,7 @@ footer {
     width: 95%; }
   .posted-date {
     margin-bottom: 15px; }
-  .saved-job-box {
-    width: 100%; }
-  .delete_saved_job-form button {
-    padding: 5px 15px; }
-  .job-title-container {
-    width: 100%; } }
+  .job-cta {
+    bottom: -50px; }
+  .saved-job-info {
+    font-size: 95%; } }

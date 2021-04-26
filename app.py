@@ -355,12 +355,23 @@ def save_job_mobile():
 @ app.route("/edit_job/<post>", methods=["GET", "POST"])
 def edit_job(post):
 
+    # retrive users name from database
+    user = mongo.db.users.find_one(
+        {"email": session["user"]})
+
     # retrive job from profile page
     job = mongo.db.jobs.find_one({
         "_id": ObjectId(post)
     })
 
     if request.method == "POST":
+
+        saved_jobs = user["posted_jobs"]
+        for saved in saved_jobs:
+            mongo.db.users.update(
+                {"_id": user["_id"]},
+                {"$pull": {"posted_jobs": saved}}
+            )
 
         update_job = {"$set": {
             "job_title": request.form.get("job_title"),
@@ -371,8 +382,12 @@ def edit_job(post):
         mongo.db.jobs.update_one(job, update_job)
 
         flash("Job changed Sucessfully")
-        return redirect(url_for('profile'))
+        return redirect(url_for('edit_job', post=post))
 
+    mongo.db.users.update(
+        {"_id": user["_id"]},
+        {"$push": {"posted_jobs": job}}
+    )
     return render_template('edit_job.html', post=post, job=job)
 
 
