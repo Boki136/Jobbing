@@ -831,6 +831,7 @@ footer {
     padding: 10px 25px;
     margin-top: 20px;
     background: $dark-cyan;
+    width: 110px;
 
     &:focus {
       background-color: lighten($dark-cyan, 10%);
@@ -838,6 +839,30 @@ footer {
 
     &:hover {
       background-color: lighten($dark-cyan, 10%);
+    }
+  }
+}
+
+.edit_saved_job-form {
+  position: absolute;
+  right: 150px;
+  bottom: 0;
+
+  button {
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 25px;
+    margin-top: 20px;
+    background: $orange-primary;
+    width: 110px;
+
+    &:focus {
+      background-color: lighten($orange-primary, 10%);
+    }
+
+    &:hover {
+      background-color: lighten($orange-primary, 10%);
     }
   }
 }
@@ -920,12 +945,21 @@ footer {
   padding: 5%;
   background: $dark-green;
   color: #fff;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .jconfirm .jconfirm-box div.jconfirm-title-c .jconfirm-title {
   font-size: 1.65em !important;
   line-height: 40px;
+}
+
+.select-wrapper.disabled+label {
+  color: #16697a;
+
+}
+
+.select-wrapper input.select-dropdown {
+  text-transform: capitalize;
 }
 
 /********************************* Find a job page **/

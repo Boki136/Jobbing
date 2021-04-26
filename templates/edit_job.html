@@ -1,12 +1,10 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
 
-{% block content %}
-
-<!--Post a job-->
+<!--Edit a job-->
 <section class="post-job-form">
-  <h1>Post A Job</h1>
-  <h4>Please enter the job details below</h4>
-  <form action="{{url_for('post_job')}}" method="POST">
+  <h1>Edit A Job</h1>
+  <h4>Please make the changes below</h4>
+  <form method="POST" action="{{url_for('edit_job', post=job._id)}}">
     <label for="job_title">Job Title:</label>
     <input
       type="text"
@@ -15,21 +13,33 @@
       class="validate"
       minlength="10"
       maxlength="75"
+      value="{{job.job_title}}"
       required
       pattern="[A-Za-z ]{10,100}"
     />
     <label for="job_category">Job Category:</label>
-    <select name="job_category" id="job_category" class="validate" required>
-      <option value="sales" selected>Sales</option>
-      <option value="marketing">Marketing</option>
-      <option value="finance">Finance</option>
+    <select
+      name="job_category"
+      id="job_category"
+      class="validate"
+      required
+      disabled
+    >
+      <option value="{{job.job_category}}" selected>
+        {{- job.job_category -}}
+      </option>
     </select>
     <label for="contract_type">Contract Type:</label>
-    <select name="contract_type" id="contract_type" class="validate" required>
-      <option value="Full-Time" selected>Full-Time</option>
-      <option value="Part-Time">Part-Time</option>
-      <option value="Temporarily 6 Months">Temporarily 6 Months</option>
-      <option value="Temporarily One Year">Temporarily One Year</option>
+    <select
+      name="contract_type"
+      id="contract_type"
+      class="validate"
+      required
+      disabled
+    >
+      <option value="{{job.contract_type}}" selected>
+        {{- job.contract_type -}}
+      </option>
     </select>
     <label for="job_description">Job Description:</label>
     <textarea
@@ -42,7 +52,9 @@
       validate
       required
       pattern="[A-Za-z0-9]{150, 15000}"
-    ></textarea>
+    >
+{{- job.job_description -}}</textarea
+    >
     <label for="salary_range">Salary Range:</label>
     <input
       type="text"
@@ -51,11 +63,11 @@
       class="validate"
       minlength="5"
       maxlength="20"
+      value="{{job.salary_range}}"
       required
     />
-    <button class="submit-btn" type="submit">POST A JOB</button>
+    <button class="submit-btn" type="submit">Edit Job</button>
   </form>
 </section>
-
 
 {% endblock %}

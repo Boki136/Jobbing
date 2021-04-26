@@ -160,7 +160,7 @@
         <h3>{{post.company_name}} | {{post.contract_type}}</h3>
         <h4>{{post.posted_date}}</h4>
       </div>
-
+      <!--Remove posted job-->
       <form
         class="delete_saved_job-form"
         action="{{url_for('delete_saved_job')}}"
@@ -169,6 +169,12 @@
         <button class="delete_saved_job">Remove</button>
         <input type="text" name="post_id" id="post_id" value="{{post._id}}" />
       </form>
+      <!--Edit posted job-->
+      <a
+        href="{{url_for('edit_job', post=post._id)}}"
+        class="edit_saved_job-form"
+        >Edit</a
+      >
     </div>
     {% endfor %}
   </section>

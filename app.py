@@ -180,8 +180,10 @@ def profile():
 
     try:
         user["is_employer"]
+
     except:
         KeyError
+
     else:
         posted_jobs = user["posted_jobs"]
         return render_template("profile.html", user=user,
@@ -350,6 +352,30 @@ def save_job_mobile():
                                 _anchor='job-listing-wrap'))
 
 
+@ app.route("/edit_job/<post>", methods=["GET", "POST"])
+def edit_job(post):
+
+    # retrive job from profile page
+    job = mongo.db.jobs.find_one({
+        "_id": ObjectId(post)
+    })
+
+    if request.method == "POST":
+
+        update_job = {"$set": {
+            "job_title": request.form.get("job_title"),
+            "job_description": request.form.get("job_description"),
+            "salary_range": request.form.get("salary_range"),
+        }}
+
+        mongo.db.jobs.update_one(job, update_job)
+
+        flash("Job changed Sucessfully")
+        return redirect(url_for('profile'))
+
+    return render_template('edit_job.html', post=post, job=job)
+
+
 @ app.route("/delete_saved_job", methods=["GET", "POST"])
 def delete_saved_job():
 
@@ -403,7 +429,7 @@ def contact():
     return render_template("contact.html")
 
 
-@app.route("/search", methods=["POST", "GET"])
+@ app.route("/search", methods=["POST", "GET"])
 def search():
 
     search_term = request.form.get("search_box")
@@ -413,7 +439,7 @@ def search():
                            all_jobs=all_jobs)
 
 
-@app.route("/search_mobile", methods=["POST", "GET"])
+@ app.route("/search_mobile", methods=["POST", "GET"])
 def search_mobile():
 
     search_term = request.form.get("search_box")
