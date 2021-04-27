@@ -366,13 +366,13 @@ def edit_job(post):
 
     if request.method == "POST":
 
-        saved_jobs = user["posted_jobs"]
-        for saved in saved_jobs:
-            mongo.db.users.update(
-                {"_id": user["_id"]},
-                {"$pull": {"posted_jobs": saved}}
-            )
+        # remove the old version of the saved job from user collection
+        mongo.db.users.update(
+            {"_id": user["_id"]},
+            {"$pull": {"posted_jobs": {"_id": ObjectId(post)}}}
+        )
 
+        # update the selected job
         update_job = {"$set": {
             "job_title": request.form.get("job_title"),
             "job_description": request.form.get("job_description"),
@@ -384,10 +384,15 @@ def edit_job(post):
         flash("Job changed Sucessfully")
         return redirect(url_for('edit_job', post=post))
 
-    mongo.db.users.update(
-        {"_id": user["_id"]},
-        {"$push": {"posted_jobs": job}}
-    )
+    # check if the job is already saved, add the job id not existing
+    saved_jobs = user["posted_jobs"]
+    if job in saved_jobs:
+        pass
+    elif job not in saved_jobs:
+        mongo.db.users.update(
+            {"_id": user["_id"]},
+            {"$push": {"posted_jobs": job}}
+        )
     return render_template('edit_job.html', post=post, job=job)
 
 

@@ -67,7 +67,7 @@ $(".see-full-job").click(function () {
       <h4 class="contract-type-location">${company_contract_address}</h4>
       <h3 class="job-salary">${job_salary}</h3>
       <hr>
-      <p>${job_description}</p>
+      <p class="full-job-description">${job_description}</p>
       <h4 class="post-date">${posted_date}</h4>
       <i class="fas fa-times close-job"></i>
       `);
@@ -95,7 +95,7 @@ $(".see-full-job").click(function () {
     <h3 class="job-salary">${job_salary}</h3>
     <hr>
     
-    <p>${job_description}</p>
+    <p class="full-job-description">${job_description}</p>
     <h4 class="post-date">${posted_date}</h4>
     <i class="fas fa-times close-job"></i>
     `);
