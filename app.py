@@ -195,11 +195,17 @@ def profile():
 @ app.route("/post_job", methods=["GET", "POST"])
 def post_job():
 
-    # retrive users name from database
-    user = mongo.db.users.find_one(
-        {"email": session["user"]})
+    # check if user is logged in and send them to correct page
+    try:
+        # retrive users name from database
+        user = mongo.db.users.find_one(
+            {"email": session["user"]})
+    except:
+        KeyError
+        flash("Sign In to post jobs")
+        return redirect(url_for('login'))
 
-    # check if user is employer and allow job posting
+        # check if user is employer and allow job posting
     try:
         user["is_employer"]
     except:

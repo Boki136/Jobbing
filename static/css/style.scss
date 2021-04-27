@@ -327,11 +327,11 @@ nav ul {
   font-size: 3em;
 }
 
-.popular-jobs {
+.popular-categories {
   margin-bottom: 100px;
 }
 
-.popular-jobs-box_wrapper {
+.popular-categories-box_wrapper {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -401,6 +401,7 @@ nav ul {
   position: relative;
   height: auto;
   max-height: 1500px;
+  overflow: hidden;
 }
 
 .about-background_overlay {
@@ -667,13 +668,13 @@ footer {
 
 .submit-btn {
   padding: 15px;
-  margin-top: 20px;
+  margin: 20px 5px 0 0;
   background: $orange-primary;
   border: 0;
   color: #fff;
   font-weight: 600;
   cursor: pointer;
-  display: block;
+  display: inline-block;
 
   &:hover {
     background: lighten($orange-primary, 10%);
@@ -847,6 +848,12 @@ footer {
   }
 }
 
+.jobseeker-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
 .edit_saved_job {
   border: none;
   color: #fff;
@@ -917,6 +924,21 @@ footer {
 
   form input {
     margin: 15px 0 !important;
+  }
+}
+
+.cancel-edit {
+  padding: 16px;
+  background: $dark-green;
+  border: 0;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 5px;
+
+  &:hover {
+    background: lighten($dark-green, 10%);
   }
 }
 

@@ -265,3 +265,7 @@ $(".delete_saved_job-form").on("submit", function (e) {
     },
   });
 });
+
+// append cancel button to edit-job form
+
+$(".edit-job-form").append($(".cancel-edit"));

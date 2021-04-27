@@ -4,7 +4,11 @@
 <section class="post-job-form">
   <h1>Edit A Job</h1>
   <h4>Please make the changes below</h4>
-  <form method="POST" action="{{url_for('edit_job', post=job._id)}}">
+  <form
+    class="edit-job-form"
+    method="POST"
+    action="{{url_for('edit_job', post=job._id)}}"
+  >
     <label for="job_title">Job Title:</label>
     <input
       type="text"
