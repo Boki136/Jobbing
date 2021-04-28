@@ -269,3 +269,24 @@ $(".delete_saved_job-form").on("submit", function (e) {
 // append cancel button to edit-job form
 
 $(".edit-job-form").append($(".cancel-edit"));
+
+// Send Email - Email.js
+
+function sendMail(contactForm) {
+  emailjs.send("service_z13soh8", "contact_form", {
+    from_fName: contactForm.fName.value,
+    from_lName: contactForm.lName.value,
+    from_email: contactForm.emailaddress.value,
+    message: contactForm.message.value,
+    phone_number: contactForm.phoneNumber.value,
+  });
+
+  return false;
+}
+
+$(".submit-form").click(function () {
+  
+  setTimeout(function () {
+    $(".contact-form")[0].reset();
+  }, 2000);
+});

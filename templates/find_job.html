@@ -88,7 +88,7 @@
       </section>
       {% if job_category %}
       <div class="job-listing-title">
-        <h2>{{job_category}} Category Jobs /</h2>
+        <h2>{{job_category}} Category Jobs ({{all_jobs|length}}) /</h2>
         <a class="see-all-jobs-filter" href="{{url_for('find_job')}}"
           >See All Jobs</a
         >

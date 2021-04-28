@@ -244,7 +244,7 @@ def post_job():
         KeyError
     else:
         flash("Register as employer to post jobs")
-        return redirect(url_for("profile"))
+        return redirect(url_for("register_employer"))
 
     return render_template('post_job.html')
 

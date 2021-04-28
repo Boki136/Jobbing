@@ -128,6 +128,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  opacity: 0.95; }
+
 a {
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -800,7 +806,8 @@ footer {
   background: #42c79f;
   background-size: cover;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  background: linear-gradient(170deg, #f8f1f1, #16697a, #257e63); }
 
 .popular-jobs_box-search {
   width: 33%;
@@ -879,7 +886,6 @@ footer {
 
 .job-expand {
   width: 50%;
-  position: relative;
   box-shadow: 5px 10px 21px rgba(1, 1, 1, 0.3);
   border-radius: 10px;
   visibility: hidden;
