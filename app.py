@@ -37,7 +37,8 @@ def register_jobseeker():
 
         if saved_user:
             flash("Account with that email address already exists")
-            return redirect(url_for("register_jobseeker"))
+            return redirect(url_for("register_jobseeker",
+                                    _external=True, _scheme='https'))
 
         register = {
             "name": request.form.get("name"),
@@ -50,7 +51,8 @@ def register_jobseeker():
 
         # save the new user into "session"
         session["user"] = request.form.get("email")
-        return redirect(url_for('profile', user=session["user"]))
+        return redirect(url_for('profile', user=session["user"],
+                                _external=True, _scheme='https'))
 
     return render_template("register-jobseeker.html")
 
@@ -67,7 +69,8 @@ def register_employer():
             flash(
                 "Account with that email address already exists, please Sign In"
             )
-            return redirect(url_for("register_employer"))
+            return redirect(url_for("register_employer",
+                                    _external=True, _scheme='https'))
 
         register = {
             "name": request.form.get("name"),
@@ -82,7 +85,8 @@ def register_employer():
 
         # save the new user into "session"
         session["user"] = request.form.get("email")
-        return redirect(url_for('profile', user=session["user"]))
+        return redirect(url_for('profile', user=session["user"],
+                                _external=True, _scheme='https'))
 
     return render_template("register-employer.html")
 
@@ -110,11 +114,13 @@ def login():
         session = is_user_authorised()
         if session:
             return redirect(url_for(
-                'profile', user=session["user"]))
+                'profile', user=session["user"],
+                _external=True, _scheme='https'))
         else:
             # username doesn't exists
             flash("Invalid username and/or password")
-            return redirect(url_for("login"))
+            return redirect(url_for("login",
+                                    _external=True, _scheme='https'))
 
     return render_template("login.html")
 
@@ -123,7 +129,8 @@ def login():
 def logout():
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("login"))
+    return redirect(url_for("login",
+                            _external=True, _scheme='https'))
 
 
 @ app.route("/profile", methods=["GET", "POST"])
@@ -151,7 +158,8 @@ def profile():
 
             mongo.db.users.update(
                 {"_id": user["_id"]}, submit)
-            return redirect(url_for("profile"))
+            return redirect(url_for("profile",
+                                    _external=True, _scheme='https'))
 
         elif jobseeker:
             submit = {
@@ -164,7 +172,8 @@ def profile():
 
             mongo.db.users.update(
                 {"_id": user["_id"]}, submit)
-            return redirect(url_for("profile"))
+            return redirect(url_for("profile",
+                                    _external=True, _scheme='https'))
 
     # Check if user is jobseeker or employer and show relevent info
 
@@ -189,7 +198,8 @@ def profile():
         return render_template("profile.html", user=user,
                                posted_jobs=posted_jobs)
 
-    return redirect(url_for("login"))
+    return redirect(url_for("login",
+                            _external=True, _scheme='https'))
 
 
 @ app.route("/post_job", methods=["GET", "POST"])
@@ -203,7 +213,8 @@ def post_job():
     except:
         KeyError
         flash("Sign In to post jobs")
-        return redirect(url_for('login'))
+        return redirect(url_for('login',
+                                _external=True, _scheme='https'))
 
         # check if user is employer and allow job posting
     try:
@@ -235,7 +246,8 @@ def post_job():
                 {"$push": {"posted_jobs": new_job}}
             )
             flash("Job Posted Successfully")
-            return redirect(url_for("post_job"))
+            return redirect(url_for("post_job",
+                                    _external=True, _scheme='https'))
 
     # check if user is jobseeker and don't allow job posting
     try:
@@ -244,7 +256,8 @@ def post_job():
         KeyError
     else:
         flash("Register as employer to post jobs")
-        return redirect(url_for("register_employer"))
+        return redirect(url_for("register_employer",
+                                _external=True, _scheme='https'))
 
     return render_template('post_job.html')
 
@@ -313,9 +326,11 @@ def save_job():
             )
         else:
             flash("Job already saved")
-            return redirect(url_for('find_job', _anchor='job-listing-wrap'))
+            return redirect(url_for('find_job', _anchor='job-listing-wrap',
+                                    _external=True, _scheme='https'))
 
-        return redirect(url_for("find_job", _anchor='job-listing-wrap'))
+        return redirect(url_for("find_job", _anchor='job-listing-wrap',
+                                _external=True, _scheme='https'))
 
 
 @ app.route("/save-job-mobile", methods=["GET", "POST"])
@@ -352,10 +367,12 @@ def save_job_mobile():
         else:
             flash("Job already saved")
             return redirect(url_for('find_job_mobile',
-                                    _anchor='job-listing-wrap'))
+                                    _anchor='job-listing-wrap',
+                                    _external=True, _scheme='https'))
 
         return redirect(url_for("find_job_mobile",
-                                _anchor='job-listing-wrap'))
+                                _anchor='job-listing-wrap',
+                                _external=True, _scheme='https'))
 
 
 @ app.route("/edit_job/<post>", methods=["GET", "POST"])
@@ -388,7 +405,8 @@ def edit_job(post):
         mongo.db.jobs.update_one(job, update_job)
 
         flash("Job changed Sucessfully")
-        return redirect(url_for('edit_job', post=post))
+        return redirect(url_for('edit_job', post=post,
+                                _external=True, _scheme='https'))
 
     # check if the job is already saved, add the job id not existing
     saved_jobs = user["posted_jobs"]
@@ -446,7 +464,8 @@ def delete_saved_job():
 
         flash("Job deleted successfully")
 
-        return redirect(url_for("profile"))
+        return redirect(url_for("profile",
+                                _external=True, _scheme='https'))
 
 
 @ app.route("/contact")

@@ -93,7 +93,7 @@
       {% if job_category %}
       <div class="job-listing-title lg-title">
         <h2>{{job_category}} Category Jobs /</h2>
-        <a class="see-all-jobs-filter" href="{{url_for('find_job')}}"
+        <a class="see-all-jobs-filter" href="{{url_for('find_job_mobile')}}"
           >See All Jobs</a
         >
         <h3 class="page-count"></h3>
@@ -105,6 +105,17 @@
         <a class="see-all-jobs-filter" href="{{url_for('find_job_mobile')}}"
           >See All Jobs</a
         >
+        <h3 class="page-count"></h3>
+        <hr />
+      </div>
+      {% elif all_jobs|length == 0 %}
+      <div class="job-listing-title">
+        <h2>
+          All Jobs /
+          <a class="see-all-jobs-filter" href="{{url_for('find_job_mobile')}}"
+            >See All Jobs</a
+          >
+        </h2>
         <h3 class="page-count"></h3>
         <hr />
       </div>
@@ -138,7 +149,8 @@
         </h2>
         <h3 class="job-salary">{{ job.salary_range }}</h3>
 
-        <p>{{job.job_description}}</p>
+        <p class="job-description-mobile">{{job.job_description}}</p>
+        <button class="show-whole-description">See More</button>
       </div>
 
       {% endfor %} {% else %}

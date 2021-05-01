@@ -284,9 +284,32 @@ function sendMail(contactForm) {
   return false;
 }
 
+// refresh form after submit and show confirmation
+
 $(".submit-form").click(function () {
-  
   setTimeout(function () {
     $(".contact-form")[0].reset();
-  }, 2000);
+    $(".form-wrapper").append(
+      `<div class="submit-message-box">
+    <h3>Message submitted successfully</h3>
+  </div>`
+    );
+    $(".submit-message-box").fadeOut(3000);
+  }, 1000);
 });
+
+// reduce number of caracthers on mobile job listing
+// $(".job-description-mobile").each(function (i) {
+//   len = $(this).text().length;
+//   if (len > 35) {
+//     $(this).text($(this).text().substr(0, 400) + "…");
+//   }
+// });
+
+// $(".show-whole-description").click(function () {
+//   len = $(".job-description-mobile").text().length;
+//   $(this)
+//     .parent()
+//     .find("p")
+//     .text($(this).parent().find("p").text().substr(0, 10000000));
+// });

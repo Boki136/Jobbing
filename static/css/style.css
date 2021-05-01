@@ -807,7 +807,7 @@ footer {
   background-size: cover;
   display: flex;
   align-items: center;
-  background: linear-gradient(170deg, #f8f1f1, #16697a, #257e63); }
+  background: linear-gradient(170deg, #bcbcbc, #16697a, #257e63); }
 
 .popular-jobs_box-search {
   width: 33%;
@@ -966,7 +966,8 @@ footer {
   max-width: 100ch; }
 
 .full-job-description {
-  white-space: pre-line; }
+  white-space: pre-line;
+  overflow: hidden; }
 
 .see-full-job,
 .save-job_mobile {
@@ -1076,6 +1077,16 @@ footer {
     color: #257e63; }
     .social-icons-contact i:hover {
       color: #16697a; }
+
+.submit-message-box {
+  font-size: 2em;
+  background: #36b991;
+  padding: 25px 0;
+  text-align: center;
+  border-radius: 10px;
+  opacity: 0.85;
+  color: #fff;
+  margin-top: 25px; }
 
 /************************************ Media Queries **/
 @media screen and (max-width: 1200px) {

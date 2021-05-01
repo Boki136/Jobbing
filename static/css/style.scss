@@ -1000,7 +1000,7 @@ footer {
   background-size: cover;
   display: flex;
   align-items: center;
-  background: linear-gradient(170deg, $paper-colour, #16697a, #257e63);
+  background: linear-gradient(170deg, #bcbcbc, #16697a, #257e63);
 }
 
 .popular-jobs_box-search {
@@ -1205,6 +1205,7 @@ footer {
 
 .full-job-description {
   white-space: pre-line;
+  overflow: hidden;
 }
 
 .see-full-job,
@@ -1351,6 +1352,17 @@ footer {
       color: $dark-cyan;
     }
   }
+}
+
+.submit-message-box {
+  font-size: 2em;
+  background: lighten($dark-green, 15%);
+  padding: 25px 0;
+  text-align: center;
+  border-radius: 10px;
+  opacity: 0.85;
+  color: #fff;
+  margin-top: 25px;
 }
 /************************************ Media Queries **/
 

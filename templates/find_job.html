@@ -86,12 +86,25 @@
         </div>
         {% endfor %} {% endif %} {% endwith %}
       </section>
+
+      <!-- Jobs per category-->
       {% if job_category %}
       <div class="job-listing-title">
         <h2>{{job_category}} Category Jobs ({{all_jobs|length}}) /</h2>
         <a class="see-all-jobs-filter" href="{{url_for('find_job')}}"
           >See All Jobs</a
         >
+        <h3 class="page-count"></h3>
+        <hr />
+      </div>
+      {% elif all_jobs|length == 0 %}
+      <div class="job-listing-title">
+        <h2>
+          All Jobs /
+          <a class="see-all-jobs-filter" href="{{url_for('find_job')}}"
+            >See All Jobs</a
+          >
+        </h2>
         <h3 class="page-count"></h3>
         <hr />
       </div>
@@ -103,7 +116,7 @@
       </div>
       {% endif %}
 
-      <!--Listed Jobs-->
+      <!--All Listed Jobs-->
       {% if all_jobs|length > 0 %} {% for job in all_jobs|reverse %}
       <div class="job-listing-box job-box">
         {% if session.user %}
