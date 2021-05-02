@@ -65,8 +65,7 @@ $(".see-full-job").click(function () {
       .append(`<h1 class="job-title">${job_title}</h1>
       <h4 class="company_name">${company_name}</h4>
       <h4 class="contract-type-location">${company_contract_address}</h4>
-      <h3 class="job-salary">${job_salary}</h3>
-      <hr>
+      <h3 class="job-salary-expand">${job_salary}</h3>
       <p class="full-job-description">${job_description}</p>
       <h4 class="post-date">${posted_date}</h4>
       <i class="fas fa-times close-job"></i>
@@ -92,9 +91,7 @@ $(".see-full-job").click(function () {
       .append(`<h1 class="job-title">${job_title}</h1>
     <h4 class="company_name">${company_name}</h4>
     <h4 class="contract-type-location">${company_contract_address}</h4>
-    <h3 class="job-salary">${job_salary}</h3>
-    <hr>
-    
+    <h3 class="job-salary-expand">${job_salary}</h3>
     <p class="full-job-description">${job_description}</p>
     <h4 class="post-date">${posted_date}</h4>
     <i class="fas fa-times close-job"></i>

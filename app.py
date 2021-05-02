@@ -465,51 +465,59 @@ def edit_job(post):
     return render_template('edit_job.html', post=post, job=job)
 
 
-@ app.route("/delete_saved_job", methods=["GET", "POST"])
-def delete_saved_job():
+@ app.route("/delete_posted_job/<post>", methods=["GET", "POST"])
+def delete_posted_job(post):
 
     # retrive users name from database
     user = mongo.db.users.find_one(
         {"email": session["user"]})
 
-    if request.method == "POST":
+    deleted_job_employer = mongo.db.jobs.find_one(
+        {
+            "_id": ObjectId(post)
+        }
+    )
+    mongo.db.users.update_one(
+        {"_id": user["_id"]},
+        {"$pull": {"posted_jobs": deleted_job_employer}}
+    )
 
-        # retrive id from submitted job for jobseeker and employer
-        job_id = request.form.get("job_id")
-        post_id = request.form.get("post_id")
+    # remove a job from jobs collection
+    mongo.db.jobs.remove({
+        "_id": ObjectId(post)
+    })
 
-        # find job by job_id jobseeker & update the array in db
-        deleted_job_jobseeker = mongo.db.jobs.find_one(
-            {
-                "_id": ObjectId(job_id)
-            }
-        )
+    flash("Job deleted successfully")
 
-        mongo.db.users.update_one(
-            {"_id": user["_id"]},
-            {"$pull": {"saved_jobs": deleted_job_jobseeker}}
-        )
+    return redirect(url_for("profile",
+                            _external=True, _scheme='https',
+                            post=post))
 
-        # find job by job_id employer & update the array in db
-        deleted_job_employer = mongo.db.jobs.find_one(
-            {
-                "_id": ObjectId(post_id)
-            }
-        )
-        mongo.db.users.update_one(
-            {"_id": user["_id"]},
-            {"$pull": {"posted_jobs": deleted_job_employer}}
-        )
 
-        # remove a job from jobs collection
-        mongo.db.jobs.remove({
-            "_id": ObjectId(post_id)
-        })
+@ app.route("/delete_saved_job/<job>", methods=["GET", "POST"])
+def delete_saved_job(job):
 
-        flash("Job deleted successfully")
+    # retrive users name from database
+    user = mongo.db.users.find_one(
+        {"email": session["user"]})
 
-        return redirect(url_for("profile",
-                                _external=True, _scheme='https'))
+    # find job by job_id jobseeker & update the array in db
+    deleted_job_jobseeker = mongo.db.jobs.find_one(
+        {
+            "_id": ObjectId(job)
+        }
+    )
+
+    mongo.db.users.update_one(
+        {"_id": user["_id"]},
+        {"$pull": {"saved_jobs": deleted_job_jobseeker}}
+    )
+
+    flash("Job deleted successfully")
+
+    return redirect(url_for("profile",
+                            _external=True, _scheme='https',
+                            job=job))
 
 
 @ app.route("/contact")
@@ -521,21 +529,61 @@ def contact():
 @ app.route("/search", methods=["POST", "GET"])
 def search():
 
+    # find all jobs
+    all_jobs = list(mongo.db.jobs.find())
+
+    # check if user exists in session
+    try:
+        # retrive users name from database
+        user = mongo.db.users.find_one(
+            {"email": session["user"]})
+        # handle keyerror and list jobs
+    except:
+        KeyError
+
+        if KeyError:
+            search_term = request.form.get("search_box")
+            all_jobs = list(mongo.db.jobs.find(
+                {"$text": {"$search": search_term}}))
+            return render_template('find_job.html',
+                                   all_jobs=all_jobs)
+
     search_term = request.form.get("search_box")
     all_jobs = list(mongo.db.jobs.find({"$text": {"$search": search_term}}))
 
     return render_template('find_job.html',
-                           all_jobs=all_jobs)
+                           all_jobs=all_jobs,
+                           user=user)
 
 
 @ app.route("/search_mobile", methods=["POST", "GET"])
 def search_mobile():
 
+    # find all jobs
+    all_jobs = list(mongo.db.jobs.find())
+
+    # check if user exists in session
+    try:
+        # retrive users name from database
+        user = mongo.db.users.find_one(
+            {"email": session["user"]})
+        # handle keyerror and list jobs
+    except:
+        KeyError
+
+        if KeyError:
+            search_term = request.form.get("search_box")
+            all_jobs = list(mongo.db.jobs.find(
+                {"$text": {"$search": search_term}}))
+            return render_template('find_job_mobile.html',
+                                   all_jobs=all_jobs)
+
     search_term = request.form.get("search_box")
     all_jobs = list(mongo.db.jobs.find({"$text": {"$search": search_term}}))
 
     return render_template('find_job_mobile.html',
-                           all_jobs=all_jobs)
+                           all_jobs=all_jobs,
+                           user=user)
 
 
 if __name__ == "__main__":

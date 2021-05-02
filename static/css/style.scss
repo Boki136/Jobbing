@@ -841,7 +841,7 @@ footer {
   bottom: 0;
 }
 
-.delete_saved_job-form button {
+.delete_job {
   border: none;
   color: #fff;
   cursor: pointer;
@@ -849,6 +849,7 @@ footer {
   margin-top: 20px;
   background: $dark-cyan;
   width: 110px;
+  border-radius: 5px;
 
   &:focus {
     background-color: lighten($dark-cyan, 10%);
@@ -1118,6 +1119,10 @@ footer {
   p {
     margin: 25px 0;
   }
+
+  hr {
+    color: #cacaca;
+  }
 }
 
 .close-job {
@@ -1149,7 +1154,11 @@ footer {
 
 .post-date {
   position: absolute;
-  bottom: 35px;
+  bottom: 20px;
+}
+
+.hide-post-date {
+  display: none;
 }
 
 .save_job {
@@ -1194,10 +1203,13 @@ footer {
 
 .job-salary {
   font-weight: 600;
-  margin-bottom: 35px;
   font-family: sans-serif;
 }
 
+.job-salary-expand {
+  border-bottom: 1px solid #cacaca;
+  padding-bottom: 20px;
+}
 .job-description {
   margin-top: 25px;
   white-space: nowrap;
@@ -1209,12 +1221,15 @@ footer {
 .full-job-description {
   white-space: pre-line;
   overflow: hidden;
+  border-bottom: 1px solid #cacaca;
+  padding-bottom: 20px;
 }
 
 .job-description-mobile {
   white-space: pre-line;
   overflow: hidden;
   height: 150px;
+  padding-top: 20px;
 }
 
 .show-whole-description {
@@ -1549,7 +1564,7 @@ footer {
     height: 450px;
   }
 
-  .delete_saved_job-form button,
+  .delete_job,
   .edit_saved_job {
     padding: 8px;
   }

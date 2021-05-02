@@ -110,7 +110,12 @@
       </div>
       {% else %}
       <div class="job-listing-title">
-        <h2>All Jobs ({{all_jobs|length}})</h2>
+        <h2>
+          All Jobs ({{all_jobs|length}}) /
+          <a class="see-all-jobs-filter" href="{{url_for('find_job')}}"
+            >See All Jobs</a
+          >
+        </h2>
         <h3 class="page-count"></h3>
         <hr />
       </div>
@@ -137,6 +142,7 @@
         <h3 class="job-salary">{{ job.salary_range }}</h3>
 
         <p class="job-description">{{job.job_description}}</p>
+        <h5 class="hide-post-date">{{job.posted_date}}</h5>
         <button class="see-full-job">See More</button>
       </div>
       {% endfor %} {% else %}

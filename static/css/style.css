@@ -683,17 +683,18 @@ footer {
   right: 0;
   bottom: 0; }
 
-.delete_saved_job-form button {
+.delete_job {
   border: none;
   color: #fff;
   cursor: pointer;
   padding: 9px 25px;
   margin-top: 20px;
   background: #16697a;
-  width: 110px; }
-  .delete_saved_job-form button:focus {
+  width: 110px;
+  border-radius: 5px; }
+  .delete_job:focus {
     background-color: #1e8ea5; }
-  .delete_saved_job-form button:hover {
+  .delete_job:hover {
     background-color: #1e8ea5; }
 
 .jobseeker-btn {
@@ -898,6 +899,8 @@ footer {
   top: 5%; }
   .job-expand p {
     margin: 25px 0; }
+  .job-expand hr {
+    color: #cacaca; }
 
 .close-job {
   position: absolute;
@@ -924,7 +927,10 @@ footer {
 
 .post-date {
   position: absolute;
-  bottom: 35px; }
+  bottom: 20px; }
+
+.hide-post-date {
+  display: none; }
 
 .save_job {
   background: transparent;
@@ -958,8 +964,11 @@ footer {
 
 .job-salary {
   font-weight: 600;
-  margin-bottom: 35px;
   font-family: sans-serif; }
+
+.job-salary-expand {
+  border-bottom: 1px solid #cacaca;
+  padding-bottom: 20px; }
 
 .job-description {
   margin-top: 25px;
@@ -970,12 +979,15 @@ footer {
 
 .full-job-description {
   white-space: pre-line;
-  overflow: hidden; }
+  overflow: hidden;
+  border-bottom: 1px solid #cacaca;
+  padding-bottom: 20px; }
 
 .job-description-mobile {
   white-space: pre-line;
   overflow: hidden;
-  height: 150px; }
+  height: 150px;
+  padding-top: 20px; }
 
 .show-whole-description {
   margin-top: 20px;
@@ -1195,7 +1207,7 @@ footer {
     width: 100%; }
   .popular-jobs_box {
     height: 450px; }
-  .delete_saved_job-form button,
+  .delete_job,
   .edit_saved_job {
     padding: 8px; } }
 

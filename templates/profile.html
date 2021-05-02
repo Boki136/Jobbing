@@ -56,14 +56,12 @@
         <h4>{{job.posted_date}}</h4>
       </div>
 
-      <form
-        class="delete_saved_job-form"
-        action="{{url_for('delete_saved_job')}}"
-        method="POST"
+      <!--Delte saved job-->
+      <a
+        class="jobseeker-btn delete_job"
+        href="{{url_for('delete_saved_job', job=job._id)}}"
+        >Remove</a
       >
-        <button class="delete_saved_job jobseeker-btn">Remove</button>
-        <input type="text" name="job_id" id="job_id" value="{{job._id}}" />
-      </form>
     </div>
     {% endfor %}
   </section>
@@ -148,7 +146,7 @@
   <h3 class="saved-jobs">Posted</h3>
   <span class="saved-jobs-total">{{posted_jobs|length}}</span>
   <section class="saved-jobs-wrapper whole-listing">
-    {% for post in posted_jobs|reverse %}
+    {% for post in posted_jobs %}
     <div class="saved-job-box job-box">
       <img
         class="saved-job-icon"
@@ -167,14 +165,11 @@
           >Edit</a
         >
         <!--Remove posted job-->
-        <form
-          class="delete_saved_job-form"
-          action="{{url_for('delete_saved_job')}}"
-          method="POST"
+        <a
+          class="delete_job"
+          href="{{url_for('delete_posted_job', post=post._id)}}"
+          >Remove</a
         >
-          <button class="delete_saved_job">Remove</button>
-          <input type="text" name="post_id" id="post_id" value="{{post._id}}" />
-        </form>
       </div>
     </div>
     {% endfor %}

@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <!--Post a job-->
 <section class="post-job-form">
@@ -38,10 +36,10 @@
       name="job_description"
       rows="100"
       minlength="150"
-      maxlength="15000"
+      maxlength="1000"
       validate
       required
-      pattern="[A-Za-z0-9]{150, 15000}"
+      pattern="[A-Za-z0-9]{150, 1000}"
     ></textarea>
     <label for="salary_range">Salary Range:</label>
     <input
@@ -56,6 +54,5 @@
     <button class="submit-btn" type="submit">POST A JOB</button>
   </form>
 </section>
-
 
 {% endblock %}
