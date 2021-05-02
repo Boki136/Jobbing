@@ -487,6 +487,12 @@ def delete_posted_job(post):
         "_id": ObjectId(post)
     })
 
+    mongo.db.users.update_one(
+        {"is_jobseeker": "Yes"},
+        {"$pull": {"saved_jobs":
+                   deleted_job_employer}}
+    )
+
     flash("Job deleted successfully")
 
     return redirect(url_for("profile",

@@ -249,14 +249,15 @@ if (no_jobs === "block") {
 
 // validate employer job deleting form
 
-$(".delete_saved_job-form").on("submit", function (e) {
+$(".delete_job").on("click", function (e) {
   e.preventDefault();
+  redirect_url = $(this).prop("href");
   //check for user confirmation
   $.confirm({
     title: "You are about to delete a job!",
     buttons: {
       confirm: function () {
-        $(".delete_saved_job-form").off("submit").submit();
+        window.location.replace(redirect_url);
       },
       cancel: function () {},
     },
