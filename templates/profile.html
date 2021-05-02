@@ -148,7 +148,7 @@
   <h3 class="saved-jobs">Posted</h3>
   <span class="saved-jobs-total">{{posted_jobs|length}}</span>
   <section class="saved-jobs-wrapper whole-listing">
-    {% for post in posted_jobs %}
+    {% for post in posted_jobs|reverse %}
     <div class="saved-job-box job-box">
       <img
         class="saved-job-icon"

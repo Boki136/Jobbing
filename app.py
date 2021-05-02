@@ -265,6 +265,20 @@ def post_job():
 @ app.route("/find-job", methods=["GET", "POST"])
 def find_job():
 
+    all_jobs = list(mongo.db.jobs.find())
+
+    try:
+        # retrive users name from database
+        user = mongo.db.users.find_one(
+            {"email": session["user"]})
+    except:
+        KeyError
+
+        if KeyError:
+            return render_template('find_job.html', all_jobs=all_jobs)
+        else:
+            pass
+
     if request.method == "POST":
         job_category = request.form.get("job_category_name")
         all_jobs = list(mongo.db.jobs.find({
@@ -272,14 +286,26 @@ def find_job():
         return render_template('find_job.html',
                                all_jobs=all_jobs, job_category=job_category)
 
-    all_jobs = list(mongo.db.jobs.find())
-
     return render_template('find_job.html',
-                           all_jobs=all_jobs)
+                           all_jobs=all_jobs, user=user)
 
 
 @ app.route("/find-job-mobile", methods=["GET", "POST"])
 def find_job_mobile():
+
+    all_jobs = list(mongo.db.jobs.find())
+
+    try:
+        # retrive users name from database
+        user = mongo.db.users.find_one(
+            {"email": session["user"]})
+    except:
+        KeyError
+
+        if KeyError:
+            return render_template('find_job.html', all_jobs=all_jobs)
+        else:
+            pass
 
     if request.method == "POST":
         job_category = request.form.get("job_category_name")
@@ -288,9 +314,8 @@ def find_job_mobile():
         return render_template('find_job_mobile.html',
                                all_jobs=all_jobs, job_category=job_category)
 
-    all_jobs = list(mongo.db.jobs.find())
-
-    return render_template('find_job_mobile.html', all_jobs=all_jobs)
+    return render_template('find_job_mobile.html',
+                           all_jobs=all_jobs, user=user)
 
 
 @ app.route("/save-job", methods=["GET", "POST"])
@@ -451,7 +476,6 @@ def delete_saved_job():
                 "_id": ObjectId(post_id)
             }
         )
-
         mongo.db.users.update_one(
             {"_id": user["_id"]},
             {"$pull": {"posted_jobs": deleted_job_employer}}

@@ -969,6 +969,20 @@ footer {
   white-space: pre-line;
   overflow: hidden; }
 
+.job-description-mobile {
+  white-space: pre-line;
+  overflow: hidden;
+  height: 150px; }
+
+.show-whole-description {
+  margin-top: 20px;
+  padding: 8px;
+  background-color: #257e63;
+  color: #fff;
+  border: none; }
+  .show-whole-description:focus {
+    background-color: #257e63; }
+
 .see-full-job,
 .save-job_mobile {
   border: none;

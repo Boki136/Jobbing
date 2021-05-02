@@ -130,7 +130,7 @@
       <!--Listed Jobs-->
       {% if all_jobs|length > 0 %} {% for job in all_jobs|reverse %}
       <div class="job-listing-box job-box">
-        {% if session.user %}
+        {% if session.user %} {% if user.is_jobseeker == "Yes" %}
         <form
           class="save-job_form"
           action="{{url_for('save_job_mobile')}}"
@@ -139,7 +139,8 @@
           <button class="save_job"></button>
           <input type="text" name="job_id" id="job_id" value="{{job._id}}" />
         </form>
-        {% endif %}
+        {% endif %} {% endif %}
+
         <h5 class="posted-date">{{job.posted_date}}</h5>
         <br />
         <h1 class="job-title">{{job.job_title}}</h1>

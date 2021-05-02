@@ -298,18 +298,18 @@ $(".submit-form").click(function () {
   }, 1000);
 });
 
-// reduce number of caracthers on mobile job listing
-// $(".job-description-mobile").each(function (i) {
-//   len = $(this).text().length;
-//   if (len > 35) {
-//     $(this).text($(this).text().substr(0, 400) + "…");
-//   }
-// });
+// reduce text lenght on mobile job listing
+let test_count = 0;
+$(".show-whole-description").click(function () {
+  test_count++;
+  console.log(test_count);
+  $(this).parent().find("p").css("height", "100%");
+  $(this).text("See Less");
+  $(this).css("background", "#ffa62b");
 
-// $(".show-whole-description").click(function () {
-//   len = $(".job-description-mobile").text().length;
-//   $(this)
-//     .parent()
-//     .find("p")
-//     .text($(this).parent().find("p").text().substr(0, 10000000));
-// });
+  if (test_count % 2 == 0) {
+    $(this).parent().find("p").css("height", "150px");
+    $(this).text("See More");
+    $(this).css("background", "#257e63");
+  }
+});
