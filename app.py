@@ -265,26 +265,36 @@ def post_job():
 @ app.route("/find-job", methods=["GET", "POST"])
 def find_job():
 
+    # find all jobs
     all_jobs = list(mongo.db.jobs.find())
 
+    # check if user exists in session
     try:
         # retrive users name from database
         user = mongo.db.users.find_one(
             {"email": session["user"]})
+        # handle keyerror and list jobs
     except:
         KeyError
 
-        if KeyError:
-            return render_template('find_job.html', all_jobs=all_jobs)
+        if request.method == "POST":
+            job_category = request.form.get("job_category_name")
+            all_jobs = list(mongo.db.jobs.find({
+                "job_category": job_category}))
+            return render_template('find_job.html',
+                                   all_jobs=all_jobs,
+                                   job_category=job_category)
         else:
-            pass
+            return render_template('find_job.html', all_jobs=all_jobs)
 
+    # list relevant category jobs for logged in users
     if request.method == "POST":
         job_category = request.form.get("job_category_name")
         all_jobs = list(mongo.db.jobs.find({
             "job_category": job_category}))
         return render_template('find_job.html',
-                               all_jobs=all_jobs, job_category=job_category)
+                               all_jobs=all_jobs,
+                               job_category=job_category, user=user)
 
     return render_template('find_job.html',
                            all_jobs=all_jobs, user=user)
@@ -293,26 +303,36 @@ def find_job():
 @ app.route("/find-job-mobile", methods=["GET", "POST"])
 def find_job_mobile():
 
+    # find all jobs
     all_jobs = list(mongo.db.jobs.find())
 
+    # check if user exists in session
     try:
         # retrive users name from database
         user = mongo.db.users.find_one(
             {"email": session["user"]})
+        # handle keyerror and list jobs
     except:
         KeyError
 
-        if KeyError:
-            return render_template('find_job.html', all_jobs=all_jobs)
+        if request.method == "POST":
+            job_category = request.form.get("job_category_name")
+            all_jobs = list(mongo.db.jobs.find({
+                "job_category": job_category}))
+            return render_template('find_job_mobile.html',
+                                   all_jobs=all_jobs,
+                                   job_category=job_category)
         else:
-            pass
+            return render_template('find_job_mobile.html', all_jobs=all_jobs)
 
+    # list relevant category jobs for logged in users
     if request.method == "POST":
         job_category = request.form.get("job_category_name")
         all_jobs = list(mongo.db.jobs.find({
             "job_category": job_category}))
         return render_template('find_job_mobile.html',
-                               all_jobs=all_jobs, job_category=job_category)
+                               all_jobs=all_jobs, job_category=job_category,
+                               user=user)
 
     return render_template('find_job_mobile.html',
                            all_jobs=all_jobs, user=user)

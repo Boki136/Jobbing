@@ -73,3 +73,25 @@ Playfair Display is the selected font for all the headings with sans-serif as a 
 
 All wireframes are created in Adobe XD. They are very detailed which was done on purpose to make the development process easier and shift the focus towards coding rather then thinking of design while coding.
 Wireframes are saved in PDF file type and can be accessed [here](documentation/wireframes).
+
+# **Features & Pages**
+
+The website is consists of 8 unique pages:
+
+- Homepage
+- Contact Us
+- Find a Job page
+- Login page
+- Register page
+- Profile page
+- Post a job page
+- Edit a job page
+
+
+<ins>*Navigation*</ins>
+
+Navigation bar consists of company logo, navigation links & post a job button. Availablity of links changes depending on user session. If user is logged out they have options to login, register, find a job & contact us.
+If user is logged in - employer or jobseeker they can look for jobs, access their profile, contact us, logout & Post a job (employer only).
+
+Mobile version navigation has company logo and humburger menu mi
+

@@ -134,6 +134,9 @@ header {
   z-index: 1000;
   opacity: 0.95; }
 
+button {
+  cursor: pointer; }
+
 a {
   -webkit-user-select: none;
   -ms-user-select: none;
