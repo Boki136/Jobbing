@@ -10,6 +10,18 @@ Jobbing is an employment website targeting both jobseekers and employers. Our mi
 
 ### **The live site can be viewed [here](https://jobbing-hiring-app.herokuapp.com/)**.
 
+To log in as a jobseeker please use the following log in credentails:
+
+Email address: test@gmail.com
+
+Password: Hello123
+
+To log in as a employer please use the following log in credentails:
+
+Email address: test-employer@gmail.com
+
+Password: Hello123
+
 # **Table Of Contents:**
 
 - **UX**

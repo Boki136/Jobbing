@@ -12,6 +12,7 @@
         name="fName"
         id="fName"
         placeholder="First Name"
+        pattern="[A-Za-z ]{5,35}"
         required
       />
       <label for="lName" class="sr-only"></label>
@@ -20,6 +21,7 @@
         type="text"
         name="lName"
         id="lName"
+        pattern="[A-Za-z ]{5,35}"
         placeholder="Last Name"
         required
       />
@@ -29,16 +31,18 @@
         type="email"
         id="emailaddress"
         name="emailaddress"
+        pattern="^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,35}$"
         required
         placeholder="john@gmail.com"
       />
       <label for="phoneNumber"></label>
       <input
         class="contact-input validate"
-        type="text"
+        type="number"
         id="phoneNumber"
         name="phoneNumber"
         placeholder="Your Phone Number"
+        pattern="[0-9]{5,25}"
         required
       />
       <label for="message"></label>

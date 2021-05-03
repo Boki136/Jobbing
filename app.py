@@ -450,7 +450,7 @@ def edit_job(post):
 
         mongo.db.jobs.update_one(job, update_job)
 
-        flash("Job changed Sucessfully")
+        flash("Job changed Successfully")
         return redirect(url_for('edit_job', post=post,
                                 _external=True, _scheme='https'))
 
