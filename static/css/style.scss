@@ -105,7 +105,7 @@ section {
 body {
   line-height: 1;
   background: #f8f1f1;
-  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-x: hidden;
 }
 ol,
 ul {
@@ -128,6 +128,7 @@ table {
 }
 
 header {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -137,17 +138,10 @@ button {
   cursor: pointer;
 }
 
-//Colour Variables
-
-$dark-cyan: #16697a;
-$orange-primary: #db6400;
-$orange-secondary: #ffa62b;
-$paper-colour: #f8f1f1;
-$dark-green: #257e63;
-
 a {
   -webkit-user-select: none;
   -ms-user-select: none;
+  -moz-user-select: none;
   user-select: none;
 }
 
@@ -186,10 +180,19 @@ body::-webkit-scrollbar-thumb {
   );
 }
 
+//Colour Variables
+
+$dark-cyan: #16697a;
+$orange-primary: #db6400;
+$orange-secondary: #ffa62b;
+$paper-colour: #f8f1f1;
+$dark-green: #257e63;
+
 /*************************************** Navigation **/
 
 nav {
   background: $dark-cyan;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -216,9 +219,13 @@ nav ul {
   height: 45px;
   color: #fff;
   border: 2px solid white;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 
   &:hover {
+    -webkit-transform: scale(1.04);
+    -ms-transform: scale(1.04);
     transform: scale(1.04);
     color: #fff;
     background: transparent;
@@ -256,7 +263,11 @@ nav ul {
   height: 800px;
   background: url("/static/images/hero-image.png") no-repeat center;
   background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -279,8 +290,12 @@ nav ul {
 
 #search-form {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 10px;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
 }
 
@@ -363,8 +378,13 @@ nav ul {
 }
 
 .popular-categories-box_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin: 100px 0 150px 0;
 }
@@ -377,7 +397,9 @@ nav ul {
   background-position-x: center;
   background-repeat: no-repeat;
   display: block;
+  -webkit-filter: drop-shadow(0px 0px 5px #000);
   filter: drop-shadow(0px 0px 5px #000);
+  -ms-flex-item-align: start;
   align-self: flex-start;
   margin-top: 35px;
 }
@@ -386,12 +408,22 @@ nav ul {
   width: 33%;
   height: 500px;
   margin: 10px 20px 10px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-shadow: 10px 10px 20px rgba(1, 1, 1, 0.6);
   box-shadow: 10px 10px 20px rgba(1, 1, 1, 0.6);
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   cursor: pointer;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   min-width: 320px;
   max-width: 450px;
@@ -400,16 +432,21 @@ nav ul {
     color: #fff;
     font-size: 3em;
     margin-left: 10px;
+    -ms-flex-item-align: end;
     align-self: flex-end;
   }
 
   i {
     color: #fff;
+    -ms-flex-item-align: end;
     align-self: flex-end;
   }
 
   &:hover {
+    -webkit-filter: brightness(1.2);
     filter: brightness(1.2);
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
     transform: scale(1.05);
   }
 }
@@ -445,6 +482,7 @@ nav ul {
 }
 
 #about-video {
+  -webkit-filter: blur(3px);
   filter: blur(3px);
   min-width: 100%;
   min-height: 100%;
@@ -476,7 +514,11 @@ nav ul {
 }
 
 .about-content_usp {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
   margin-top: 20px;
   gap: 15px;
@@ -536,6 +578,8 @@ nav ul {
     position: absolute;
     right: -5px;
     color: $orange-primary;
+    -webkit-transition: 0.5s all ease-in-out;
+    -o-transition: 0.5s all ease-in-out;
     transition: 0.5s all ease-in-out;
     font-size: 30px;
     display: inline-block;
@@ -605,7 +649,11 @@ footer {
 }
 
 .login-form-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -730,7 +778,11 @@ footer {
 .employer-details-container {
   width: 80%;
   margin: 100px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   gap: 30px;
 }
@@ -738,17 +790,24 @@ footer {
 .jobseeker-details-container {
   width: 80%;
   margin: 100px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 30px;
 }
 
 .personal-details,
 .company-details {
+  -webkit-box-shadow: 5px 5px 15px rgba(1, 1, 1, 0.4);
   box-shadow: 5px 5px 15px rgba(1, 1, 1, 0.4);
   border-radius: 10px;
   width: 50%;
   padding: 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   position: relative;
 }
@@ -775,9 +834,13 @@ footer {
   top: 20px;
   right: 25px;
   cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 
   &:hover {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
     transform: scale(1.3);
   }
 }
@@ -819,6 +882,8 @@ footer {
   position: absolute;
   top: -5px;
   left: 0;
+  -webkit-transition: 0.35s ease-in;
+  -o-transition: 0.35s ease-in;
   transition: 0.35s ease-in;
 }
 
@@ -827,7 +892,11 @@ footer {
 }
 
 .saved-job-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 15px;
   width: 70%;
@@ -851,8 +920,14 @@ footer {
 }
 
 .job-cta {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 10px;
   position: absolute;
@@ -929,6 +1004,7 @@ footer {
 .post-job-form {
   width: 60%;
   margin: 150px auto;
+  -webkit-box-shadow: 5px 5px 20px rgba(1, 1, 1, 0.15);
   box-shadow: 5px 5px 20px rgba(1, 1, 1, 0.15);
   padding: 5%;
   border-radius: 20px;
@@ -1021,8 +1097,13 @@ footer {
   height: 500px;
   background: lighten($dark-green, 20%);
   background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  background: -o-linear-gradient(280deg, #bcbcbc, #16697a, #257e63);
   background: linear-gradient(170deg, #bcbcbc, #16697a, #257e63);
 }
 
@@ -1030,9 +1111,13 @@ footer {
   width: 33%;
   height: 300px;
   margin: 10px 20px 10px 20px;
+  -webkit-box-shadow: 10px 10px 20px rgba(1, 1, 1, 0.6);
   box-shadow: 10px 10px 20px rgba(1, 1, 1, 0.6);
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   cursor: pointer;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   min-width: 300px;
   max-width: 450px;
@@ -1042,17 +1127,22 @@ footer {
     color: #fff;
     font-size: 3em;
     margin-left: 10px;
+    -ms-flex-item-align: end;
     align-self: flex-end;
   }
 
   i {
     color: #fff;
+    -ms-flex-item-align: end;
     align-self: flex-end;
     padding: 40px 0 10px 0;
   }
 
   &:hover {
+    -webkit-filter: brightness(1.2);
     filter: brightness(1.2);
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
     transform: scale(1.05);
   }
 }
@@ -1069,7 +1159,11 @@ footer {
 }
 
 .fa-angle-double-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   position: relative;
   bottom: 35px;
@@ -1081,7 +1175,11 @@ footer {
 }
 
 .job-listing-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
 }
 
@@ -1127,11 +1225,15 @@ footer {
 
 .job-expand {
   width: 50%;
+  -webkit-box-shadow: 5px 10px 21px rgba(1, 1, 1, 0.3);
   box-shadow: 5px 10px 21px rgba(1, 1, 1, 0.3);
   border-radius: 10px;
   visibility: hidden;
   padding: 3%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
+  position: -webkit-sticky;
   position: sticky;
   top: 5%;
 
@@ -1158,15 +1260,20 @@ footer {
 
 .job-listing-box {
   padding: 5%;
+  -webkit-box-shadow: 5px 10px 21px rgba(1, 1, 1, 0.3);
   box-shadow: 5px 10px 21px rgba(1, 1, 1, 0.3);
   border-radius: 10px;
   margin-top: 25px;
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
   opacity: 0.9;
   position: relative;
 
   &:hover {
     opacity: 1;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
     transform: scale(1.05);
   }
 }
@@ -1233,6 +1340,7 @@ footer {
   margin-top: 25px;
   white-space: nowrap;
   overflow: hidden;
+  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   max-width: 100ch;
 }
@@ -1368,8 +1476,14 @@ footer {
 }
 
 .contact-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -1474,6 +1588,7 @@ footer {
   }
 
   .employer-details-container {
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     width: 100%;
   }
@@ -1502,6 +1617,8 @@ footer {
   }
 
   .job-listing-box:hover {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
     transform: scale(1);
   }
 
@@ -1514,6 +1631,7 @@ footer {
   }
 
   .contact-wrapper {
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin: 50px 0;
   }
@@ -1567,6 +1685,7 @@ footer {
   }
 
   .about-content_usp {
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
 
@@ -1611,8 +1730,13 @@ footer {
   }
 
   #search-form {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
   }
 

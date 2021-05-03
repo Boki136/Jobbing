@@ -269,3 +269,11 @@ Some headings serve as placeholder, and are populated dynamically - others were 
 
 Validator returned issue regarding anchor tag being descendant of the button element.
 I refactored both html and css to rectify the issue.
+
+- ### CSS Validation
+
+Before Validating the CSS I used [Autoprefixer](https://autoprefixer.github.io/) to add prefixes to all CSS properties which are not supported by all browser. I have used flex property for most of the elements,it was benefitial to add prefixes to achieve the correct site rendering across browsers.
+
+I have used [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate CSS file. The CSS syntax was correct after the first try.
+
+![](documentation/readme-documentation/test-images/validate-6.png)
