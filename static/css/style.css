@@ -545,7 +545,8 @@ footer {
 .login-form {
   width: 50%;
   padding: 5%;
-  float: left; }
+  float: left;
+  margin-bottom: 35px; }
 
 .register-selector {
   margin: 100px 0; }
@@ -1339,10 +1340,7 @@ footer {
   .job-title-container {
     width: 100%; }
   .popular-jobs_box {
-    height: 450px; }
-  .delete_job,
-  .edit_saved_job {
-    padding: 8px; } }
+    height: 450px; } }
 
 @media screen and (max-width: 630px) {
   .popular-jobs-box_wrapper {

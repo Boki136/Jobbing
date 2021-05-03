@@ -44,6 +44,8 @@ Jobbing is an employment website targeting both jobseekers and employers. Our mi
   - Validation & API testing
   - Testing Users Stories
   - Database Accessing Test
+  - Testing Responsiveness
+  - Deployment
 
 # **UX**
 
@@ -455,7 +457,6 @@ The registration was sucessful with the first attempt. The user is now visible i
 
 Employer registration was successful saving the user to database correctly.
 
-
 ## Sign In
 
 Login attempt with correct details was sucessfuly redirecting the user to profile page.
@@ -463,3 +464,89 @@ If user enters incorrect details, it redirects them to same page and shows a inv
 
 ![](documentation/readme-documentation/test-images/test-24.png)
 
+## **Testing responsiveness**
+
+I've preformed responsiveness test across various screen sizes. All the pages are fuly reponsive down to 320px screen width (Iphone 5)
+
+## **Deployment**
+
+The source code for this site is in GitHub. Heroku was used to deploy the site.
+
+### <ins>Github</ins>
+
+To clone the code from GitHub Repo:
+
+- On GitHub, navigate to the main page of the repository.
+
+- Above the list of files, select Code:
+
+![](documentation/readme-documentation/test-images/deploy-1.png)
+
+To clone the repository using HTTPS, click HTTPS under "Clone".
+
+Open Git Bash.
+
+Change the current working directory to the location where you would like to save the clone directory
+
+Type git clone, and then paste the URL you copied earlier: $ git clone https://github.com/Boki136/Jobbing.git
+
+Press Return to create your local clone.
+
+Create your own "env.py" file to store variables, and ensure the file is listed in .gitignore file to ensure they are not dispalyed publicaly.
+
+- Import os
+- os.environ.setdefault("IP", "enter value")
+- os.environ.setdefault("PORT", "enter value")
+- os.environ.setdefault("SECRET_KEY", "enter value")
+- os.environ.setdefault("MONGO_URI", "enter value")
+- os.environ.setdefault("MONGO_DBNAME", "enter value")
+
+### <ins>Deployment to Heroku</ins>
+
+- Setup files which Heroku needs to connect correctly:
+
+requirements.txt: this files list all the dependencies
+
+Procfile: what Heroku looks for to know which file runs the app (delete blank line at bottom of Procfile as may cause problems when running on Heroku).
+
+![](documentation/readme-documentation/test-images/deploy-2.png)
+
+- Setup Process
+
+Go to Heroku, once logged into your dashboard, select ‘Create new app’:
+
+![](documentation/readme-documentation/test-images/deploy-3.png)
+
+Create app name (name must be unique, I would recommend using minus symbol instead of spaces.
+Choose closest region to you & create the app.
+
+![](documentation/readme-documentation/test-images/deploy-4.png)
+
+- Setup automatic deployment from your GitHub repository:
+
+Navigate to Deploy tab within heroku, select GitHub as deployment method.
+
+![](documentation/readme-documentation/test-images/deploy-5.png)
+
+Ensure your github profile is displayed and search for a desired repository. If the wanted repo is visible in the list select "Connect".
+
+![](documentation/readme-documentation/test-images/deploy-6.png)
+
+Click on ‘Settings' tab:
+
+Then select ‘Reveal Config Vars’
+
+![](documentation/readme-documentation/test-images/deploy-7.png)
+
+Enter the variables (from the env.py) file to securely tell Heroku which variables are required:
+
+- IP
+- PORT
+- MONGO_DBNAME
+- MONGO_URI
+- SECRET_KEY
+
+Back in your gitpod bash, commit two new files (requirements.txt and Profile) and push to github.
+
+Back in Heroku under Deployment tab, you can now safely ‘Enable Automatic Deployment’, then ‘Deploy Branch’
+The process should take minute or two. After it's done you will get the confirmation "your app is sucessfuly deployed"
