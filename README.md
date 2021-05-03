@@ -215,7 +215,7 @@ EmailJs has been used for contact us form. All messages are using one template s
 
 # **Testing & Deployment**
 
-## **Validation**
+## **Validation & API testing**
 
 - ### HTML Validation
 
@@ -277,3 +277,33 @@ Before Validating the CSS I used [Autoprefixer](https://autoprefixer.github.io/)
 I have used [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate CSS file. The CSS syntax was correct after the first try.
 
 ![](documentation/readme-documentation/test-images/validate-6.png)
+
+- ### Javascript Validation
+
+I have used [JSHint]("https://jshint.com/") to validate script
+
+Validator returned 41 warnings all highlighting the use of ES6 syntax. After doing some research I have decided overlook the warnings.
+
+### API Testing
+
+- #### [EmailJS API](https://www.emailjs.com/)
+
+The contact us form is sent through to my personal email address using EmailJS integration.
+The test is demonstrated below:
+
+Filling in the form
+
+![](documentation/readme-documentation/test-images/validate-7.png)
+
+Checking the form submission success in inbox
+
+![](documentation/readme-documentation/test-images/validate-8.png)
+
+- #### [Google map API](https://developers.google.com/maps/documentation/javascript/overview)
+
+Google maps are used for company location on Contact Us page. I've included both development and heroku URL to referrer list on the Google API side to allow correct rendering.
+
+Checking city map rendering
+
+![](documentation/readme-documentation/test-images/validate-9.png)
+
