@@ -43,6 +43,7 @@ Jobbing is an employment website targeting both jobseekers and employers. Our mi
 - **Testing & Deployment**
   - Validation & API testing
   - Testing Users Stories
+  - Database Accessing Test
 
 # **UX**
 
@@ -336,3 +337,129 @@ _i. Have access to post all new opportunities that may arise in my company_ - to
 _ii. Have access to edit, view & delete the job once posted_ - users can achieve this from their profile page, where each posted job is listed togeather with edit & remove button.
 
 _iii. Have the ability to edit my profile information_ - user can read & update their name within the profile page.
+
+## **Database Accessing Test**
+
+The whole website is built around two collections "users" & "jobs". The following funcionality will tested by each page (only database accessing points)
+
+## Homepage
+
+- Searching for jobs with search bar by using keywords: eCommerce, Dublin & Marketing.
+  eCommerce returned one job post by matching the words within the job records.
+
+![](documentation/readme-documentation/test-images/test-4.png)
+
+Dublin & Marketing retured bot returned accurate results. Searching redirect the user to find a job page.
+
+- Searching for job by category
+
+All categories returned correct results. Example below shows Sales category jobs.
+
+![](documentation/readme-documentation/test-images/test-5.png)
+
+## Find A Job
+
+- Searching for jobs with search bar by using keywords: eCommerce, Dublin & Marketing.
+  eCommerce returned one job post by matching the words within the job records.
+
+  All preformed searches returned correct result and redirected to the same page.
+
+- Searching by category worked correctly for all three categories.
+
+- Save a job feature - only available for jobseeker. I've tested the access to it as un-logged user and employer and the option is correctly hidden.
+
+For this example I'm taking top listed job. Currently there are now saved jobs withing the "saved_jobs" record.
+
+![](documentation/readme-documentation/test-images/test-6.png)
+
+The job was saved sucessfuly from the first try.
+
+![](documentation/readme-documentation/test-images/test-7.png)
+
+Here is the database side showcasing the saved job.
+
+![](documentation/readme-documentation/test-images/test-8.png)
+
+If the user attemps to save the same job they are presented with job already saved message and redirected to the same page.
+
+## My Profile
+
+- Changing user's name attempt. I've tested the feature for both jobseeker and employer.
+
+Screenshot of the record before the change (jobseeker only)
+
+![](documentation/readme-documentation/test-images/test-6.png)
+![](documentation/readme-documentation/test-images/test-9.png)
+
+Result after applying the change.
+
+![](documentation/readme-documentation/test-images/test-10.png)
+
+- Removing saved job from the list (jobseeker)
+
+For this example I will remove previously saved job
+
+![](documentation/readme-documentation/test-images/test-11.png)
+
+The job was sucessfuly removed from the first try
+
+![](documentation/readme-documentation/test-images/test-12.png)
+
+- Removing / editing posted job from the list (employer)
+
+By removing a job from posted job list it gets removed from jobs collection and posted jobs available within user record. For this example I will use the same job from before. If user edits the job, the records are updated in both collections as well.
+
+Editing a job:
+
+![](documentation/readme-documentation/test-images/test-13.png)
+
+The editing was sucessful from the first try, job title clearly change which is visible at the first line.
+
+![](documentation/readme-documentation/test-images/test-14.png)
+
+Confirmation on find a job & profile pages
+
+![](documentation/readme-documentation/test-images/test-15.png)
+![](documentation/readme-documentation/test-images/test-16.png)
+
+Removing a job:
+
+For this example I'm using a same job. When the record is removed it should disapper from profile & job lists.
+
+![](documentation/readme-documentation/test-images/test-17.png)
+
+It's visible that total job count went from 7 to 6 and that at the top of the list there is no eCommerce and UX Lead job.
+
+![](documentation/readme-documentation/test-images/test-18.png)
+
+## Post A Job Page
+
+When user posts a job it should automatically apear on the top of job listing and within profile page.
+I will be using the same user as above which currenly has 0 posted jobs.
+
+Posting a job was successful from the first attemp. It's visible that total job count went from six back to 7 and that the same job now appears on both profile and find a job pages.
+
+![](documentation/readme-documentation/test-images/test-19.png)
+![](documentation/readme-documentation/test-images/test-20.png)
+
+## Register Page
+
+The below test showcase jobseeker registration. Below it's visible the total number of users set up in database and their type which can be determined by "is_employer" & "is_jobseeker" files.
+
+![](documentation/readme-documentation/test-images/test-21.png)
+
+The registration was sucessful with the first attempt. The user is now visible in the database as well.
+
+![](documentation/readme-documentation/test-images/test-22.png)
+![](documentation/readme-documentation/test-images/test-23.png)
+
+Employer registration was successful saving the user to database correctly.
+
+
+## Sign In
+
+Login attempt with correct details was sucessfuly redirecting the user to profile page.
+If user enters incorrect details, it redirects them to same page and shows a invalid password message.
+
+![](documentation/readme-documentation/test-images/test-24.png)
+
