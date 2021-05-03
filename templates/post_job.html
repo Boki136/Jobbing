@@ -18,13 +18,13 @@
     />
     <label for="job_category">Job Category:</label>
     <select name="job_category" id="job_category" class="validate" required>
-      <option value="sales" selected>Sales</option>
+      <option value="sales" class="selected">Sales</option>
       <option value="marketing">Marketing</option>
       <option value="finance">Finance</option>
     </select>
     <label for="contract_type">Contract Type:</label>
     <select name="contract_type" id="contract_type" class="validate" required>
-      <option value="Full-Time" selected>Full-Time</option>
+      <option value="Full-Time" class="selected">Full-Time</option>
       <option value="Part-Time">Part-Time</option>
       <option value="Temporarily 6 Months">Temporarily 6 Months</option>
       <option value="Temporarily One Year">Temporarily One Year</option>
@@ -37,9 +37,7 @@
       rows="100"
       minlength="150"
       maxlength="3500"
-      validate
       required
-      pattern="[A-Za-z0-9]{150, 3500}"
     ></textarea>
     <label for="salary_range">Salary Range:</label>
     <input

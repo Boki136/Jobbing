@@ -2,7 +2,7 @@
 <!--Jobseeker Details form-->
 <section class="jobseeker-details-container">
   <div class="personal-details">
-    <h1 class="fas fa-pen fa-2x edit-user-info"></h1>
+    <i class="fas fa-pen fa-2x edit-user-info"></i>
     <i class="fas fa-times close-user-info"></i>
     <form method="post" action="{{url_for('profile')}}">
       <label for="jobseeker_name">Name:</label>
@@ -24,7 +24,6 @@
         name="email"
         pattern="^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,35}$"
         disabled="disabled"
-        requried
       />
       <button class="user-details-submit submit-btn" type="submit">
         SUBMIT
@@ -80,7 +79,7 @@
 <!--Employer Details form-->
 <section class="employer-details-container">
   <div class="personal-details">
-    <h1 class="fas fa-pen fa-2x edit-user-info"></h1>
+    <i class="fas fa-pen fa-2x edit-user-info"></i>
     <i class="fas fa-times close-user-info"></i>
     <form method="post" action="{{url_for('profile')}}">
       <label for="employer_name">Name:</label>
@@ -131,7 +130,6 @@
         name="company_address"
         minlength="10"
         maxlength="120"
-        requried
       />
       <button class="user-details-submit submit-btn" type="submit">
         SUBMIT

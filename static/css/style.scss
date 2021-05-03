@@ -617,18 +617,16 @@ footer {
 }
 
 .register-selector {
-  margin-bottom: 100px;
-  button {
+  margin: 100px 0;
+  a {
     padding: 20px;
     border: 0;
     font-weight: 600;
     text-transform: uppercase;
     margin: 10px 10px 10px 0;
     cursor: pointer;
-  }
-
-  a {
     color: #fff;
+    border-radius: 5px;
   }
 }
 

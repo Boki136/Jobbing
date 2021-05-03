@@ -7,43 +7,39 @@
     <form class="contact-form" onsubmit="return sendMail(this);">
       <label for="fName"></label>
       <input
-        class="contact-input"
+        class="contact-input validate"
         type="text"
         name="fName"
         id="fName"
         placeholder="First Name"
         required
-        validate
       />
       <label for="lName" class="sr-only"></label>
       <input
-        class="contact-input"
+        class="contact-input validate"
         type="text"
         name="lName"
         id="lName"
         placeholder="Last Name"
         required
-        validate
       />
       <label for="emailaddress"></label>
       <input
-        class="contact-input"
+        class="contact-input validate"
         type="email"
         id="emailaddress"
         name="emailaddress"
         required
         placeholder="john@gmail.com"
-        validate
       />
       <label for="phoneNumber"></label>
       <input
-        class="contact-input"
+        class="contact-input validate"
         type="text"
         id="phoneNumber"
         name="phoneNumber"
         placeholder="Your Phone Number"
         required
-        validate
       />
       <label for="message"></label>
       <textarea
@@ -51,7 +47,6 @@
         id="message"
         rows="5"
         placeholder="Your Message"
-        validate
       ></textarea>
       <label for="submit" class="sr-only">Submit Details</label>
       <input class="submit-form" type="submit" id="submit" value="SUBMIT" />

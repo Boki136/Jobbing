@@ -151,7 +151,6 @@ button {
   height: 3px;
   background: #16697a; }
 
-
 body::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #f5f5f5;
@@ -502,16 +501,16 @@ footer {
   float: left; }
 
 .register-selector {
-  margin-bottom: 100px; }
-  .register-selector button {
+  margin: 100px 0; }
+  .register-selector a {
     padding: 20px;
     border: 0;
     font-weight: 600;
     text-transform: uppercase;
     margin: 10px 10px 10px 0;
-    cursor: pointer; }
-  .register-selector a {
-    color: #fff; }
+    cursor: pointer;
+    color: #fff;
+    border-radius: 5px; }
 
 .employer-register {
   background: #257e63; }

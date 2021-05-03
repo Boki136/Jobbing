@@ -63,7 +63,7 @@ As a **Jobseeker** , I want to:
 
 i. Easily find posted jobs which are relevant to me. Save the jobs which I think are suitable for me.
 
-ii. Have access to my profile setting and ability to edit/change them.
+ii. Have access to my profile information and ability to edit them.
 
 iii. Have a solid support channels throught the website journey.
 
@@ -71,11 +71,11 @@ iv. Have a deatailed information about each job presented to me - job title, des
 
 As a **Employer** , I want to:
 
-i. Have access to post all new opportunities that my arise in my company.
+i. Have access to post all new opportunities that may arise in my company.
 
 ii. Have access to edit, view & delete the job once posted.
 
-iii. Have the ability to edit my company details should they change.
+iii. Have the ability to edit my profile information.
 
 # **Design Phase**
 
@@ -85,19 +85,18 @@ Sitemap creation allowed me to brainstorm webiste structure and decide which pag
 
 ## **Colour palette & Typography**
 
-Colour pallet was determined by conducting competitor analysis and investigating the most commonly used colours for the selected business.
-Playfair Display is the selected font for all the headings with sans-serif as a fallback. For the paragraphs and the rest of body text raleway is the used font with sans-serif as a fallback.
+Colour palette was determined by conducting competitor analysis and investigating the most commonly used colours for the selected business.
 
 ![colour pallet and fonts](documentation/colour-pallet.png)
 
 ## **Wireframes**
 
-All wireframes were created in Adobe XD. Each one is detailed which allowed me to make the development process easier and shift the focus towards coding rather then re-thinking design aspect while coding.
+All wireframes were created in Adobe XD. Each one is detailed which allowed me to make the development process easier and shift the focus towards coding rather then re-thinking design aspect.
 Wireframes are saved in PDF file type and can be accessed [here](documentation/wireframes).
 
 # **Features & Pages**
 
-The website is consists of 8 unique pages:
+The website consists of 8 unique pages:
 
 - Homepage
 - Contact Us
@@ -117,21 +116,21 @@ Mobile version navigation has company logo and humburger menu which has same str
 
 <ins>_Footer_</ins>
 
-The top part of footer has a company logo, the below part has navigation links, copyiright & social links.
+The top part of footer has a company logo, the below part has navigation links, copyright & social links.
 
 <ins>_Homepage_</ins>
 
 The hompage is divided into four sections:
 
 - _Hero Section_: Which consists of background image, search bar & CTA to post a job.
-- _Popular Categoires_: This section offers three popular job categories, allowing the user to search for a specific job type.
+- _Popular Categories_: This section offers three popular job categories, allowing the user to search jobs within selected category.
 - _About Us_: Which consists of background video, about company text & USP's (unique selling points). This section servs as a trust builder.
 - _FAQ's_: This section has some of most important asnwered questions, allowing decrease in customer queries.
 
 <ins>_Contact Us_</ins>
 
 Contact us page consist of contact form, company contact details & google map showcasing company location.
-After user submits the contact form, it uses Emailjs integration to send a message as an email template. Also, the "Message Sent" appears after form submission to inform the user.
+After user submits the contact form, it uses EmailJs integration to send a message as an email template. Also, the "Message Sent" appears after form submission to inform the user.
 
 <ins>_Find a Job Page_</ins>
 
@@ -140,7 +139,7 @@ Fnd a job page is divided to three sections:
 - Search bar - users can search for a desired job via location, job type, company name etc.
 - Popular categories - This section offers three popular job categories, allowing the user to search for specific job type.
 - Job listing - this section shows all listed jobs, highlighting job title, company, contract type, company address, salary & one line of description. From here users can select "See More" button to view full job description. Also, as a jobseeker users can save favourite jobs which will show on their profile page.
-  Additionally job listing shows how many jobs is there in total & allows only three jobs per page. If users searches for jobs through search function or by category "See all Jobs" filter shows allowing them to return to the full job listing.
+  Additionally job listing shows how many jobs is there in total & allows only three jobs per page. If users searches for jobs through the search function or by category "See all Jobs" filter shows allowing them to return to the full job listing.
 
 <ins>_Log in / Register Pages_</ins>
 
@@ -213,3 +212,60 @@ EmailJs has been used for contact us form. All messages are using one template s
 - **Adobe XD** - used for creating wireframes.
 - **Stack Overflow** - General resource for code and problem solving
 - **W3 School** - General resource for code and problem solving
+
+# **Testing & Deployment**
+
+## **Validation**
+
+- ### HTML Validation
+
+I have used [W3C Markup validator](https://validator.w3.org/) to check all HTML pages for possible errors.
+The below are highlighted unique issues with each page:
+
+### <ins>Homepage</ins>
+
+Validator returned errors for duplicate ID's on the form element. I've decided to leave the ID's the same way as the element is not visible on the page at the same time - depending on screen size it hides each dynamically.
+
+### <ins>Contact Us Page</ins>
+
+Validator returned errors sorrounding validate attribute on input elements.
+
+![](documentation/readme-documentation/test-images/validator-1.png)
+
+I've realized that instead off including validate as a class I included it as a standalone attribute. All the validates are now part of the class attribute.
+
+### <ins>Edit Job Page</ins>
+
+Issue 1 - Validator returned errors sorrounding selected attribute on option element and textarea
+
+![](documentation/readme-documentation/test-images/validate-2.png)
+
+To overcome this issue, I have included selected to class attribute of an element instead of leaving it as standalone.
+
+Issue 2 - Pattern attribute not allowed on text area element.
+
+I've removed the pattern attribute from the text area.
+
+### <ins>Find A Job Page</ins>
+
+Validator returned a warning for page missing heading elements h2-h6. Due to the way page is desinged and developed I didn't need extra headings.
+
+### <ins>Post A Job Page</ins>
+
+Validator returned errors sorrounding selected attribute on option element and textarea. Also pattern attribute is not allowed with textarea element.
+
+To overcome this issue, I have included selected to a class attribute and removed validate & pattern attributes from textarea element.
+
+### <ins>Profile Page</ins>
+
+Validator returned warning for empty heading element, required not allowed on disabled input elements.
+
+![](documentation/readme-documentation/test-images/validate-4.png)
+![](documentation/readme-documentation/test-images/validate-5.png)
+
+Some headings serve as placeholder, and are populated dynamically - others were used by mistake instead of icon element. Required is removed from disabled input elements.
+
+### <ins>Register Page</ins>
+
+Validator returned issue regarding anchor tag being descendant of the button element.
+I refactored both html and css to rectify the issue.

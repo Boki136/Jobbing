@@ -29,7 +29,7 @@
       required
       disabled
     >
-      <option value="{{job.job_category}}" selected>
+      <option value="{{job.job_category}}" class="selected">
         {{- job.job_category -}}
       </option>
     </select>
@@ -41,7 +41,7 @@
       required
       disabled
     >
-      <option value="{{job.contract_type}}" selected>
+      <option value="{{job.contract_type}}" class="selected">
         {{- job.contract_type -}}
       </option>
     </select>
@@ -53,9 +53,8 @@
       rows="100"
       minlength="150"
       maxlength="15000"
-      validate
+      class="validate"
       required
-      pattern="[A-Za-z0-9]{150, 15000}"
     >
 {{- job.job_description -}}</textarea
     >
