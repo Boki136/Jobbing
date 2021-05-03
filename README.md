@@ -2,6 +2,8 @@
 
 # JOBBING
 
+![](static/images/responsive-devices-image.png)
+
 ## Project Overview
 
 Jobbing is an employment website targeting both jobseekers and employers. Our mission is to connect people with new opportunities and give them a chance to change their careers & lifestyle forever. With access to more then, 100 available jobs jobseekers can search & save jobs. On the other side, employers can post new opportunities in their company, edit or delete them.
@@ -96,7 +98,7 @@ Sitemap creation allowed me to brainstorm website structure and decide which pag
 
 Colour palette was determined by conducting competitor analysis and investigating the most commonly used colours for the selected business.
 
-![colour pallet and fonts](documentation/colour-pallet.png)
+![colour pallet and fonts](documentation/colour-palette.png)
 
 ## **Wireframes**
 
@@ -227,6 +229,10 @@ EmailJs has been used for the contact us form. All messages are using one templa
 
 I have used [W3C Markup validator](https://validator.w3.org/) to check all HTML pages for possible errors.
 The below are highlighted unique issues with each page:
+
+The validator returned errors for every page highlighting issues around Jinja template language. After some research and consulting with my mentor I've decided to overlook this error.
+
+![](documentation/readme-documentation/test-images/test-25.png)
 
 ### <ins>Homepage</ins>
 
