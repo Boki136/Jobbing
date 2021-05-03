@@ -11,13 +11,34 @@ Jobbing is an employment website targeting both jobseekers and employers. Our mi
 # **Table Of Contents:**
 
 - **UX**
+
   - Research and Analysis Phase
     - Business decision, long-term goals
     - User Stories
   - Design Phase
+
     - Sitemap
     - Colour pallet & Typography
     - Wireframes
+
+  - **Features & Layout**
+
+    - Homepage
+    - Contact Us
+    - Find a Job page
+    - Login page
+    - Register page
+    - Profile page
+    - Post a job page
+    - Edit a job page
+
+- **Technologies & Resources Used**
+
+  - Languages Used
+  - Frameworks & Processors
+  - Workspace, version control and Repository storage
+  - Integrations
+  - Resources & Media
 
 # **UX**
 
@@ -137,3 +158,58 @@ Underneath user details, depending on the user type user can see either saved jo
 Post a job page consist of form asking the employer to submit all relevant job information which becomes visible on the job listing page & their profile page after form submission.
 
 Edit job - only accessible from employer profile page shows same form format as Post a job page, but it pre-fills the existing job details allowing the user to make changes to already existing job.
+
+# **Technologies & Resources Used**
+
+## **Languages & Database Used**
+
+![](documentation/readme-documentation/icons/html-5-icon.png) **HTML5**
+
+![](documentation/readme-documentation/icons/css-3-icon.png) **CSS3**
+
+![](documentation/readme-documentation/icons/javascript-icon.png) **JavaScript**
+
+![](documentation/readme-documentation/icons/python-icon.png) **Python**
+
+## **Database**
+
+![](documentation/readme-documentation/icons/mongodb-icon.png) **MongoDB**
+
+## **Frameworks & Processors**
+
+![](documentation/readme-documentation/icons/flask-icon.png) **Flask** - Flask was used to render html websites with jinja templating and allow database connection with MongoDB.
+
+![](documentation/readme-documentation/icons/sass-icon.png) **SCSS** - scss was used to enable quicker and more efficient coding. I've used the processor on purpose to learn about it and grow as a developer even though it's not a requirement for the project and it won't affect the grade.
+
+![](documentation/readme-documentation/icons/jquery-icon.png) **JQuery** - jQuery was used as a good addition to JavaScript to enable efficent coding and easier solutions to the problem.
+
+![](documentation/readme-documentation/icons/materialize-icon.png) **Materialize** - Materialize framework was used only for navigation & form sections.
+
+## **Workspace, version control and Repository storage**
+
+![](documentation/readme-documentation/icons/gitpod-icon.png) **GitPod** - All code is written in gitpod cloud environment, committed and pushed to GitHub.
+
+![](documentation/readme-documentation/icons/github-icon.png) **Git** - Distributed Version Control tool to store versions of files and track changes.
+
+![](documentation/readme-documentation/icons/git-icon.png) **GitHub** - A cloud-based hosting.
+
+![](documentation/readme-documentation/icons/heroku-icon.png) **Heroku** - A cloud-based platform, allowing developers to build, run and operate applications. Heroku has automatic deployment enabled and it's connected to github. With each commit it automatically applies changes to Heroku.
+
+## **Integrations**
+
+- [Google Maps API](https://developers.google.com/maps/documentation/javascript/overview)
+
+The Google Maps API was used to showcase company location on contact page.
+
+- [EmailJS](https://www.emailjs.com/)
+
+EmailJs has been used for contact us form. All messages are using one template set up in the software. Each of the fields is sent through as a parameter and sent directly to my email address.
+
+## **Resources & Media**
+
+![](documentation/readme-documentation/icons/fontawsome-icon.png) **Font Awesome** - Font awsome was used for all icons on the page enabling usage of after and before pseudo-elements with ease.
+
+- **Canva** was used for all the imagery on the page.
+- **Adobe XD** - used for creating wireframes.
+- **Stack Overflow** - General resource for code and problem solving
+- **W3 School** - General resource for code and problem solving
