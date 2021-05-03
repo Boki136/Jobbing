@@ -153,6 +153,7 @@ def profile():
                 "company_name": user["company_name"],
                 "company_address": user["company_address"],
                 "is_employer": "Yes",
+                "posted_jobs": user["posted_jobs"],
 
             }
 

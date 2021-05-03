@@ -231,11 +231,11 @@ let map;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("company-location"), {
-    center: { lat: 53.37572, lng: -6.29603 },
+    center: { lat: 53.3450082, lng: -6.272111 },
     zoom: 16,
   });
   new google.maps.Marker({
-    position: { lat: 53.34454353, lng: -6.271976633 },
+    position: { lat: 53.3450082, lng: -6.272111 },
     map,
   });
 }
@@ -297,15 +297,14 @@ $(".submit-form").click(function () {
 });
 
 // reduce text lenght on mobile job listing
-let test_count = 0;
+let click_count = 0;
 $(".show-whole-description").click(function () {
-  test_count++;
-  console.log(test_count);
+  click_count++;
   $(this).parent().find("p").css("height", "100%");
   $(this).text("See Less");
   $(this).css("background", "#ffa62b");
 
-  if (test_count % 2 == 0) {
+  if (click_count % 2 == 0) {
     $(this).parent().find("p").css("height", "150px");
     $(this).text("See More");
     $(this).css("background", "#257e63");

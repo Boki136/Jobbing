@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 /**************************** Css reset **/
 html,
 body,
@@ -151,6 +150,20 @@ button {
   margin-top: 25px;
   height: 3px;
   background: #16697a; }
+
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+  border-radius: 10px; }
+
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5; }
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, #16697a), color-stop(0.72, #20bad9), color-stop(0.86, #1a879c)); }
 
 /*************************************** Navigation **/
 nav {
@@ -981,7 +994,10 @@ footer {
   white-space: pre-line;
   overflow: hidden;
   border-bottom: 1px solid #cacaca;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  max-height: 600px;
+  overflow: scroll;
+  overflow-x: hidden; }
 
 .job-description-mobile {
   white-space: pre-line;
