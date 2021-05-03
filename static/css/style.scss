@@ -127,6 +127,14 @@ table {
   border-spacing: 0;
 }
 
+//Colour Variables
+
+$dark-cyan: #16697a;
+$orange-primary: #db6400;
+$orange-secondary: #ffa62b;
+$paper-colour: #f8f1f1;
+$dark-green: #257e63;
+
 header {
   position: -webkit-sticky;
   position: sticky;
@@ -179,14 +187,6 @@ body::-webkit-scrollbar-thumb {
     color-stop(0.86, rgb(26, 135, 156))
   );
 }
-
-//Colour Variables
-
-$dark-cyan: #16697a;
-$orange-primary: #db6400;
-$orange-secondary: #ffa62b;
-$paper-colour: #f8f1f1;
-$dark-green: #257e63;
 
 /*************************************** Navigation **/
 
@@ -666,12 +666,13 @@ footer {
 
 .register-selector {
   margin: 100px 0;
+
   a {
     padding: 20px;
     border: 0;
     font-weight: 600;
     text-transform: uppercase;
-    margin: 10px 10px 10px 0;
+    margin: 10px 10px 90px 0;
     cursor: pointer;
     color: #fff;
     border-radius: 5px;
@@ -769,7 +770,7 @@ footer {
   background: $orange-primary;
   opacity: 0.7;
   padding: 20px;
-  margin-top: 20px;
+  margin-top: 30px;
   border-radius: 5px;
 }
 

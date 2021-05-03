@@ -105,8 +105,7 @@ section {
 body {
   line-height: 1;
   background: #f8f1f1;
-  overflow-x: hidden;
-  /* Hide horizontal scrollbar */ }
+  overflow-x: hidden; }
 
 ol,
 ul {
@@ -555,7 +554,7 @@ footer {
     border: 0;
     font-weight: 600;
     text-transform: uppercase;
-    margin: 10px 10px 10px 0;
+    margin: 10px 10px 90px 0;
     cursor: pointer;
     color: #fff;
     border-radius: 5px; }
@@ -630,7 +629,7 @@ footer {
   background: #db6400;
   opacity: 0.7;
   padding: 20px;
-  margin-top: 20px;
+  margin-top: 30px;
   border-radius: 5px; }
 
 /**************************************** Profile Page **/

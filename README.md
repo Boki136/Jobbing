@@ -40,6 +40,10 @@ Jobbing is an employment website targeting both jobseekers and employers. Our mi
   - Integrations
   - Resources & Media
 
+- **Testing & Deployment**
+  - Validation & API testing
+  - Testing Users Stories
+
 # **UX**
 
 The website is designed with simplicity & effectivness in mind, allowing users to easily grasp the website content. Primarily focus for a jobseeker is to easily navigate through the website to find a desired job. In the other hand, various CTA throughout navigation and homepage are allowing employers to post a job in minutes. From the support standpoint both user types have access to FAQ's & contacts us section for any queries they might have.
@@ -307,3 +311,28 @@ Checking city map rendering
 
 ![](documentation/readme-documentation/test-images/validate-9.png)
 
+## **Testing User Stories**
+
+As a **Jobseeker** , I want to:
+
+_i. Easily find posted jobs which are relevant to me. Save the jobs which I think are suitable for me_ - this can be achived by visiting find a job page which shows all listed jobs. Also, it allows the user to save a job to their profile.
+
+![](documentation/readme-documentation/test-images/test-1.png)
+
+_ii. Have access to my profile information and ability to edit them_ - user can read & update their name within the profile page.
+
+_iii. Have a solid support channels throught the website journey_ - FAQ's on the homepage serve as a support section, also user can use contact us page to submit the message or contact us directly via email or phone no.
+
+_iv. Have a deatailed information about each job presented to me - job title, description, location, salary etc_ - to see detailed information about each job user has access to view full job post within job listing.
+
+![](documentation/readme-documentation/test-images/test-2.png)
+
+As a **Employer** , I want to:
+
+_i. Have access to post all new opportunities that may arise in my company_ - to achieve this, employer has access to post a job section. This can be found in top navigation across whole website. From here user can submit all details about the job they are trying to post.
+
+![](documentation/readme-documentation/test-images/test-3.png)
+
+_ii. Have access to edit, view & delete the job once posted_ - users can achieve this from their profile page, where each posted job is listed togeather with edit & remove button.
+
+_iii. Have the ability to edit my profile information_ - user can read & update their name within the profile page.
