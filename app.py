@@ -144,33 +144,31 @@ def profile():
     jobseeker = request.form.get("jobseeker_name")
 
     if request.method == "POST":
+
+        # check user type
         if employer:
 
-            submit = {
+            submit = {"$set": {
                 "name": employer,
-                "email": user["email"],
-                "password": user["password"],
-                "company_name": user["company_name"],
-                "company_address": user["company_address"],
-                "is_employer": "Yes",
-                "posted_jobs": user["posted_jobs"],
+                "email": request.form.get("email"),
+            }}
 
-            }
-
+            # refresh session & update database
+            session["user"] = request.form.get("email")
             mongo.db.users.update(
                 {"_id": user["_id"]}, submit)
             return redirect(url_for("profile",
                                     _external=True, _scheme='https'))
 
+        # check user type
         elif jobseeker:
-            submit = {
+            submit = {"$set": {
                 "name": jobseeker,
-                "email": user["email"],
-                "password": user["password"],
-                "is_jobseeker": "Yes",
-                "saved_jobs": user["saved_jobs"],
-            }
+                "email": request.form.get("email"),
+            }}
 
+            # refresh session & update database
+            session["user"] = request.form.get("email")
             mongo.db.users.update(
                 {"_id": user["_id"]}, submit)
             return redirect(url_for("profile",
@@ -596,4 +594,4 @@ def search_mobile():
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)

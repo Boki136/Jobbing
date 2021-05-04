@@ -61,6 +61,7 @@ Password: Hello123
   - Testing Users Stories
   - Database Accessing Test
   - Testing Responsiveness
+  - Bugs
   - Deployment
 
 # **UX**
@@ -485,6 +486,48 @@ Login attempt with correct details was successfully redirecting the user to the 
 ## **Testing responsiveness**
 
 I've performed a responsiveness test across various screen sizes. All the pages are fully responsive down to 320px screen width.
+
+## **Fixed Bugs**
+
+1. Saved jobs showing across all users bug.
+   If the user would save a job it would show across different users as well beacuse of the distinct method
+
+![](documentation/readme-documentation/test-images/bug-1.png)
+
+To overcome this issues I looked up saved jobs only from the user saved in a session and passed the varaible to a template.
+
+![](documentation/readme-documentation/test-images/fix-1.png)
+
+2. When user edits the job it doesn't saves is to posted_job file in user collection, it only does it in job collection. It also adds duplicate jobs.
+
+![](documentation/readme-documentation/test-images/bug-2.png)
+
+To overcome this issue I've passed a job id varaiable upon form post. Firstly I've removed the item from posted_jobs array by looking at specific Id. Then I've implemented a check to see if the job was already saved - if it is skip the saving, if not add the job to array.
+
+![](documentation/readme-documentation/test-images/fix-2.png)
+
+3. When deleting the job from the profile page, it always removes the last job in the list. This created issues when trying to delete a specific job beacuse it would always delete incorrect one. The method used to delete a job was a POST method with the form.
+
+![](documentation/readme-documentation/test-images/bug-3.png)
+
+To rectify the issues, I have removed the form from HTML and replaced it with anchor tah which passes the selected job id.
+Then I seperated delete job function to two (one for employer & one for jobseeker) - this allowed me to read correct varaibles.
+
+The funcionality stayed the same, just passing the varaible from the url opposed to reading it from the form request.
+
+![](documentation/readme-documentation/test-images/fix-3.png)
+
+4. If employer would deleted a job which the jobseeker had saved under their profile it would remain there, which resulted in erorr when trying to deletd a job as the record doesn't actually exist any more.
+
+To overcome the issues, I've included a fucionality when employer deletes the job it removes it from all existing records ensuring it never shows again.
+
+![](documentation/readme-documentation/test-images/fix-4.png)
+
+## **Outstanding Bugs**
+
+Two flash messages shows on the find a job page when user saves the job. I only wanted to show a message above job listing section but avoid repiting flash message element across every page - curerntly it only sits on base.html and find_job.html
+
+![](documentation/readme-documentation/test-images/bug-4.png)
 
 ## **Deployment**
 
