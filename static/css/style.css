@@ -245,7 +245,7 @@ nav ul {
 #mobile-search {
   display: none; }
 
-#search-form {
+#search-form, #search-form-mobile {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -813,10 +813,6 @@ footer {
   right: 0;
   top: 0; }
 
-#saved-jobs-pages {
-  width: 80%;
-  margin-bottom: 50px; }
-
 .whole-listing {
   min-height: 450px; }
 
@@ -1149,6 +1145,10 @@ footer {
   width: 95%;
   margin: 50px auto 0 auto; }
 
+.saved-jobs-pages {
+  width: 80%;
+  margin-bottom: 50px; }
+
 .pagination li a {
   vertical-align: middle; }
 
@@ -1352,7 +1352,7 @@ footer {
       margin-bottom: 20px; }
   .hiring-strip .btn {
     margin: 10px; }
-  #search-form {
+  #search-form, #search-form-mobile {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;

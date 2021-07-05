@@ -222,7 +222,7 @@ $(".saved-job-box").mouseleave(function () {
 saved_jobs_count = $(".saved-jobs-total").text();
 
 if (saved_jobs_count == "0") {
-  $(".saved-page-count, #saved-jobs-pages").remove();
+  $(".saved-page-count, .saved-jobs-pages").remove();
 }
 
 //Show Company Location On Google Maps
